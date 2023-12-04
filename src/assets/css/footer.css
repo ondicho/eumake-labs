@@ -1,0 +1,21 @@
+.footer{
+    height:20vh;
+}
+
+.footer>fiv{
+    padding: 0px;
+    margin: 0px;
+}
+.top-footer{
+    text-align:center;
+    height: 15vh;
+    /* background-color: #00063f; */
+}
+
+
+.bottom-footer{
+    text-align:center;
+    height: 5vh;
+    background-color: #00063f;
+    color: white;
+}

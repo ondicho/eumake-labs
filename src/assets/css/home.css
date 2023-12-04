@@ -1,0 +1,53 @@
+
+  
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust as needed */
+  }
+  
+  .service {
+    width: 300px; /* Adjust as needed */
+    margin: 10px; /* Adjust as needed */
+    border: 1px solid #ddd; /* Add styling as needed */
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .service-icon {
+    /* Add styling for your service icon */
+  }
+  
+  .service-description {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .service-read-more {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+  }
+  
+  .service-read-more button {
+    background-color: #ffffff; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    /* margin: 2px; */
+    /* padding: 5px 10px; */
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #2bb9ff;
+    width: fit-content;
+  }
+
+  img.service-image {
+    height: 75px;
+    margin: 10px 0px 0px 10px;
+}
+  

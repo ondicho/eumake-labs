@@ -1,0 +1,90 @@
+/* CustomCarousel.css */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+  }
+  
+  .carousel-item {
+    position: relative;
+    overflow: hidden;
+    height: inherit;
+    width: inherit;
+}
+  
+  .carousel-item img {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    bottom:8%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #2bb9ff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+  }
+  
+  .prev-button,
+  .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .prev-button {
+    left: 10px;
+  }
+  
+  .next-button {
+    right: 10px;
+  }
+  
+  img.down {
+    height: 35px;
+}
+
+.see-more {
+  position: absolute;
+  bottom: 15%; /* Adjust the value as needed */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.animated { 
+  background-repeat: no-repeat;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s; 
+  -webkit-animation-fill-mode: both; 
+  animation-fill-mode: both; 
+}
+
+@-webkit-keyframes bounce { 
+  0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
+  40% {-webkit-transform: translateY(-30px);} 
+  60% {-webkit-transform: translateY(-15px);} 
+} 
+
+@keyframes bounce { 
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+  40% {transform: translateY(-30px);} 
+  60% {transform: translateY(-15px);} 
+}
+
+.bounce { 
+  /* -webkit-animation-name: bounce;  */
+  /* animation-name: bounce ;  */
+  animation: bounce 2s ease infinite;
+}
+
+.bounce:hover{
+  animation-name: bounce;
+  -webkit-animation-name: inherit;
+}

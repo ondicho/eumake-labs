@@ -1,0 +1,25 @@
+.page-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ensure the content doesn't overflow */
+    min-height: 100vh;
+  }
+
+  .page-content-holder {
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-container {
+    position: relative;
+    width: 100%;
+    height:80vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
