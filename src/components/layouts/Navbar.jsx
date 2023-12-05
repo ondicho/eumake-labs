@@ -12,7 +12,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="logo"><img  className="logo" src={logo} alt="logo" /></Link>
+      
+      <Link to="/" className="logo"><img  className="logo" src={logo} alt="logo" /></Link>Eumake Diagnostic Laboratories
       <div className={`menu ${isMobile ? 'active' : ''}`}>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>

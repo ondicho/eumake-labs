@@ -23,3 +23,58 @@
     align-items: center;
     justify-content: center;
   }
+
+  .widget {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .modal {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Position the modal to the right of the widget */
+    width: 150px;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0px 15px 0px 15px;
+    display: none; /* Initially hide the modal */
+    /* color: #2bb9ff; */
+  }
+  /* widgets.css */
+
+.widgets {
+  position: fixed;
+  bottom: 5%;
+  left: 1%;
+}
+
+.widget-container {
+  position: relative;
+}
+
+.widget {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 10px); /* Adjust the distance from the right edge */
+  width: 200px;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.widget-container:hover .modal {
+  display: block;
+}
+
+  

@@ -46,7 +46,7 @@ const Panel = () => {
                         </div>
                     </div>
                 </div>
-                <div className="services">
+                {/* <div className="services">
                     <div className="service">
                         <div className="service-icon">
                         <img  className="service-image" src={appointment} alt="service-image" />
@@ -80,7 +80,7 @@ const Panel = () => {
                         <button>Read more</button>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
         </>

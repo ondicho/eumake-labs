@@ -7,7 +7,7 @@
   }
   
   .service {
-    width: 300px; /* Adjust as needed */
+    width: 400px; /* Adjust as needed */
     margin: 10px; /* Adjust as needed */
     border: 1px solid #ddd; /* Add styling as needed */
     border-radius: 5px;
@@ -50,4 +50,84 @@
     height: 75px;
     margin: 10px 0px 0px 10px;
 }
+
+.testimonials{
+background-color: #2bb9ff;
+
+}
+.testimonials img{
+    height: 75vh;
+    width: auto; /* Maintain the aspect ratio */
+    position: absolute;
+    left: 0%; /* Adjust the left margin as needed */
+    /* top: 10%; */
+    top: 0%;
+}
+  
+.testimonials .text-area {
+    position: absolute;
+  left: 35%; /* Adjust the left position to center the card */
+  width: 60%; /* Adjust the width of the card */
+  background-color: #ffffff; /* White background color */
+  padding: 20px; /* Add padding for spacing inside the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  border-radius: 8px; /* Add bord */
+}
+
+.testimonials .text-area p {
+  font-style: italic;
+  color: #00063f; /* Adjust the color as needed */
+}
+
+.testimonials .text-area h2 {
+  font-weight: bold;
+  color: #2bb9ff; 
+}
+
+.testimonials .text-area .director-sign {
+  text-align: right;
+  font-weight: bold;
+  color: #2bb9ff; /* Adjust the color as needed */
+}
+
+.testimonials-header {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    text-align: right;
+  }
+  
+  .testimonials-header h3 {
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white; /* Adjust the color as needed */
+  }
+  
+  .testimonials-header .read-all {
+    font-style: italic;
+    color: white; /* Adjust the color as needed */
+  }
+  
+  .widgets {
+    position: fixed;
+    bottom:5%;
+    left: 1%;
+    /* bottom: 10%; */
+    /* right: 10px; */
+  }
+
+  .widgets>img{
+    height: 50px;
+    display: block;
+  }
+  
+  .back-to-top,
+  .order-now {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    /* margin-bottom: 10px; */
+    /* cursor: pointer; */
+  }
+  
   

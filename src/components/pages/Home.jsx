@@ -6,12 +6,16 @@ import doctor from '../../assets/images/doctor.png'
 import service from '../../assets/images/service.png'
 import contact from '../../assets/images/contact.png'
 import appointment from '../../assets/images/appointment.png'
+import Testimonials from "./Testimonials";
+import Widgets from "../layouts/Wigdets";
 
 const Home = () => {
     return (
         <>
             <PharmacyCarousel />
             <Panel />
+            <Testimonials />
+            <Widgets/>
 
         </>
     )
