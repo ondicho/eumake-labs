@@ -1,11 +1,11 @@
-// Testimonials.js
+// CompanyProfile.js
 
 import React from 'react';
 import technician from '../../assets/images/technician.png';
-
+import map from '../../assets/images/map.png';
 import '../../assets/css/home.css';
 
-const Testimonials = () => {
+const CompanyProfile = () => {
   return (
     <div className="main-container testimonials">
       <img src={technician} alt='technician' />
@@ -20,12 +20,13 @@ const Testimonials = () => {
         <p className='director-sign'>Eunice</p>
       </div>
       <div className="testimonials-header">
-        <h3 className="italic-bold">Testimonials</h3>
-        <p className="read-all">Read all testimonials</p>
+        <h3 className="italic-bold">Company Profile</h3>
       </div>
-     
+      <div className="visit-meet-container">
+        <button className="meet-staff-button">Meet Our Staff</button>
+      </div>
     </div>
   );
 }
 
-export default Testimonials;
+export default CompanyProfile;

@@ -16,9 +16,9 @@ const Navbar = () => {
       <Link to="/" className="logo"><img  className="logo" src={logo} alt="logo" /></Link>Eumake Diagnostic Laboratories
       <div className={`menu ${isMobile ? 'active' : ''}`}>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/about-us">About</Link>
         <Link to="/services">Services</Link>
-        <Link to="/contact">Contact</Link>
+        <Link to="/contact-us">Contact</Link>
       </div>
       <div className="burger-menu" onClick={handleToggle}>
         <div className="bar1"></div>

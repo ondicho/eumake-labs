@@ -10,25 +10,16 @@ const Panel = () => {
     return (
         <>
             <div className="main-container">
-                <h3>Our Services</h3>
+                <div className="panel-header">
+                    <h3 className="italic-bold">Our Services</h3>
+                </div>
                 <div className="services">
                     <div className="service">
                         <div className="service-icon">
-                        <img  className="service-image" src={service} alt="service-image" />
+                            <img className="service-image" src={service} alt="service-image" />
                         </div>
                         <div className="service-description">
                             <p>About Eumake</p>
-                        </div>
-                        <div className="service-read-more">
-                        <button>Read more</button>
-                        </div>
-                    </div>
-                    <div className="service">
-                        <div className="service-icon">
-                        <img  className="service-image" src={service} alt="service-image" />
-                        </div>
-                        <div className="service-description">
-                            <p>Our  Services</p>
                         </div>
                         <div className="service-read-more">
                             <button>Read more</button>
@@ -36,13 +27,24 @@ const Panel = () => {
                     </div>
                     <div className="service">
                         <div className="service-icon">
-                        <img  className="service-image" src={doctor} alt="service-image" />
+                            <img className="service-image" src={doctor} alt="service-image" />
                         </div>
                         <div className="service-description">
-                            <p>Meet Our Staff</p>
+                            <p>Services</p>
                         </div>
                         <div className="service-read-more">
-                        <button>Read more</button>
+                            <button>Read more</button>
+                        </div>
+                    </div>
+                    <div className="service">
+                        <div className="service-icon">
+                            <img className="service-image" src={contact} alt="service-image" />
+                        </div>
+                        <div className="service-description">
+                            <p>Get In Touch</p>
+                        </div>
+                        <div className="service-read-more">
+                            <button>Contact us</button>
                         </div>
                     </div>
                 </div>

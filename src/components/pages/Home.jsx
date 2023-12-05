@@ -6,7 +6,7 @@ import doctor from '../../assets/images/doctor.png'
 import service from '../../assets/images/service.png'
 import contact from '../../assets/images/contact.png'
 import appointment from '../../assets/images/appointment.png'
-import Testimonials from "./Testimonials";
+import CompanyProfile from "./CompanyProfile";
 import Widgets from "../layouts/Wigdets";
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
         <>
             <PharmacyCarousel />
             <Panel />
-            <Testimonials />
+            <CompanyProfile />
             <Widgets/>
 
         </>

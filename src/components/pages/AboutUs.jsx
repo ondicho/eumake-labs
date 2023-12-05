@@ -1,7 +1,10 @@
 const AboutUs=()=>{
     return(
         <>
-        <p>About Us</p>
+        <div className="main-container">
+        <p>About us</p>
+        </div>
+        
         </>
     )
 }

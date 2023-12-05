@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="top-footer">
         </div>
         <div className="bottom-footer">
-            <p>Created by Ondicho 2023 (c)</p>
+            <p className="footer-text">Created by Ondicho 2023 (c)</p>
         </div>
     </div>
     </>
