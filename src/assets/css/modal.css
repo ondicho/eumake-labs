@@ -1,0 +1,71 @@
+.appointment-modal{
+    background-color: white;
+}
+
+
+
+
+.modal-close {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    text-align: right;
+}
+
+.appointment-modal label{
+    color: #00063f;
+    font-size: 16px;
+}
+
+.modal-label{
+    display: inline-block;
+    width: 50px; /* Set a fixed width for the labels */
+    margin-right: 10px; /* Add some margin between the label and input */
+}
+
+.modal-submit{
+    background-color: #00063f;
+    color: white;
+    padding: 10px;
+    width: 100px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.modal-form-input {
+    margin: 10px 5px;
+}
+
+input.modal-input {
+    width: 200px; /* Set a fixed width for the input fields */
+}
+
+textarea#message {
+    width: 200px;
+}
+
+.modal-icon{
+    height: 10px!important;
+    width: 10px!important; ;
+}
+
+form.modal-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.modal-submit {
+    background-color: #00063f;
+    color: white;
+    padding: 10px;
+    width: 100px;
+    border-radius: 8px;
+    margin-top: 20px;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+}
+
+.appointment-modal:active .page-content-holder {
+    filter: blur(5px);
+  }

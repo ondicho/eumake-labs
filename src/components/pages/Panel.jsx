@@ -1,14 +1,27 @@
-import PharmacyCarousel from "./PharmacyCarousel";
+import { Link } from 'react-router-dom';
 import '../../assets/css/home.css';
 import walk from '../../assets/images/walk.png'
 import doctor from '../../assets/images/doctor.png'
 import service from '../../assets/images/service.png'
 import contact from '../../assets/images/contact.png'
-import appointment from '../../assets/images/appointment.png'
+import cart from '../../assets/images/cart.png'
+import React, { useState } from 'react';
+import ServiceModal from "./ServiceModal";
 
-const Panel = () => {
+const Panel = React.forwardRef((props, ref) => {
+    const [isServiceModalOpen, setServiceModalOpen] = useState(false);
+    const openServiceModal = () => {
+        setServiceModalOpen(true);
+      };
+
+      const closeModals = () => {
+        setServiceModalOpen(false);
+      };
+
+      
+
     return (
-        <>
+      <div ref={ref} className="main-container">
             <div className="main-container">
                 <div className="panel-header">
                     <h3 className="italic-bold">Our Services</h3>
@@ -19,10 +32,10 @@ const Panel = () => {
                             <img className="service-image" src={service} alt="service-image" />
                         </div>
                         <div className="service-description">
-                            <p>About Eumake</p>
+                            <p>HIV Test</p>
                         </div>
                         <div className="service-read-more">
-                            <button>Read more</button>
+                            <button onClick={openServiceModal}><img className="cart" src={cart} alt="cart" /></button>
                         </div>
                     </div>
                     <div className="service">
@@ -30,10 +43,10 @@ const Panel = () => {
                             <img className="service-image" src={doctor} alt="service-image" />
                         </div>
                         <div className="service-description">
-                            <p>Services</p>
+                            <p>Endoscopy</p>
                         </div>
                         <div className="service-read-more">
-                            <button>Read more</button>
+                            <button onClick={openServiceModal}><img className="cart" src={cart} alt="cart" /></button>
                         </div>
                     </div>
                     <div className="service">
@@ -41,52 +54,42 @@ const Panel = () => {
                             <img className="service-image" src={contact} alt="service-image" />
                         </div>
                         <div className="service-description">
-                            <p>Get In Touch</p>
+                            <p>Hematology</p>
                         </div>
                         <div className="service-read-more">
-                            <button>Contact us</button>
-                        </div>
-                    </div>
-                </div>
-                {/* <div className="services">
-                    <div className="service">
-                        <div className="service-icon">
-                        <img  className="service-image" src={appointment} alt="service-image" />
-                        </div>
-                        <div className="service-description">
-                            <p>Order Sample Collection</p>
-                        </div>
-                        <div className="service-read-more">
-                        <button>Read more</button>
+                            <button onClick={openServiceModal}><img className="cart" src={cart} alt="cart" /></button>
                         </div>
                     </div>
                     <div className="service">
                         <div className="service-icon">
-                        <img  className="service-image" src={walk} alt="service-image" />
+                            <img className="service-image" src={service} alt="service-image" />
                         </div>
                         <div className="service-description">
-                            <p>Schedule a walk in </p>
+                            <p>Thyroid Tests</p>
                         </div>
                         <div className="service-read-more">
-                        <button>Read more</button>
+                            <button onClick={openServiceModal}><img className="cart" src={cart} alt="cart" /></button>
                         </div>
                     </div>
                     <div className="service">
                         <div className="service-icon">
-                        <img  className="service-image" src={contact} alt="service-image" />
+                            <img className="service-image" src={service} alt="service-image" />
                         </div>
                         <div className="service-description">
-                            <p>Contact Us</p>
+                            <p>Liver/Pancreas</p>
                         </div>
                         <div className="service-read-more">
-                        <button>Read more</button>
+                            <button onClick={openServiceModal}><img className="cart" src={cart} alt="cart" /></button>
                         </div>
                     </div>
-                </div> */}
-            </div>
 
-        </>
-    )
-}
+                </div>
+                <Link to='services' className="all-services">View All Tests</Link>
+
+                <ServiceModal isOpen={isServiceModalOpen} onClose={closeModals}/>
+            </div>
+            </div>
+  );
+});
 
 export default Panel;

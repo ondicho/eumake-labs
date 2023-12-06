@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import '../../assets/css/styles.css';
 import appointment from '../../assets/images/appointment.png';
-import sample from '../../assets/images/sample.png';
+import track from '../../assets/images/track.png';
 import top from '../../assets/images/top.png';
+import rider from '../../assets/images/rider.png';
 import Appointment from '../pages/Appointment';
 
 const Widgets = () => {
@@ -36,29 +37,39 @@ const Widgets = () => {
             onClick={openAppointmentModal}
           />
           <div className="modal">
-            <p>Schedule physical appointment</p>
+            <p>Book Appointment</p>
           </div>
         </div>
         <div className="widget-container">
           <img
-            src={sample}
+            src={rider}
             alt="Order Now"
             className="widget order-now"
             onClick={openSampleModal}
           />
           <div className="modal">
-            <p>Schedule sample collection</p>
+            <p> Sample Collection</p>
+          </div>
+        </div>
+
+        <div className="widget-container">
+          <img src={track} alt="Back to Top" className="widget back-to-top" />
+          <div className="modal">
+            <p>Track My Test</p>
           </div>
         </div>
         <div className="widget-container">
           <img src={top} alt="Back to Top" className="widget back-to-top" />
           <div className="modal">
-            <p>Back to Top</p>
+            <p>Back To Top</p>
           </div>
         </div>
       </div>
 
-      <Appointment isOpen={isAppointmentModalOpen} onClose={closeModals} />
+      <Appointment
+        isOpen={isAppointmentModalOpen || isSampleModalOpen}
+        onClose={closeModals}
+      />
     </>
   );
 };

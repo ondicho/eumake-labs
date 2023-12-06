@@ -1,14 +1,16 @@
-
-  
-  .services {
+.services {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* Adjust as needed */
+    justify-content: space-around;
+    /* Adjust as needed */
     height: 60%;
-  }
-  
-  .service {
-    width: 400px;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
     height: 75%;
     margin: 10px;
     border: 1px solid #ddd;
@@ -17,38 +19,41 @@
     overflow: hidden;
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
-  }
+    transition: transform 0.3s ease-in-out;
+    /* Add a smooth transition effect */
+}
 
-  .service:hover {
-    transform: scale(1.05) translateY(-10px); /* Apply hover transformation */
-    background-color: #2bb9ff; 
+.service:hover {
+    transform: scale(1.05) translateY(-10px);
+    /* Apply hover transformation */
+    background-color: #2bb9ff;
     color: white;
-  }
+}
 
-  .service:hover .service-description {
-    color: white; /* Change text color on hover */
-  }
-  
-  .service:hover .service-read-more button {
+.service:hover .service-description {
+    color: white;
+    /* Change text color on hover */
+}
+
+.service:hover .service-read-more button {
     background-color: white;
     color: #2bb9ff;
     border: #2bb9ff;
-  }
-  
-  
-  .service-icon img {
+}
+
+
+.service-icon img {
     height: 75px;
     margin: 10px 0px 0px 10px;
-  }
-  
-  .service-description {
+}
+
+.service-description {
     padding: 10px;
     text-align: center;
     color: #00063f;
-  }
-  
-  .service-read-more {
+}
+
+.service-read-more {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -56,11 +61,17 @@
     padding: 5px;
     text-align: center;
     border-radius: 4px;
-  }
-  
-  
+    opacity: 0;
+    /* Initially hidden */
+    transition: opacity 0.3s;
+    /* Add a smooth transition */
+}
 
-  .service-read-more button {
+.service:hover .service-read-more {
+    opacity: 1; /* Visible on hover */
+  }
+
+.service-read-more button {
     background-color: #ffffff;
     margin: 0px 0px 20px 0px;
     padding: 10px;
@@ -68,7 +79,7 @@
     border-radius: 4px;
     color: #2bb9ff;
     width: 40%;
-    border-color: #2bb9ff!important;
+    border-color: #2bb9ff !important;
     padding: 10px;
 }
 
@@ -84,48 +95,86 @@
     border: none;
 }
 
-  img.service-image {
+img.service-image {
     height: 75px;
     margin: 10px 0px 0px 10px;
 }
 
-.testimonials{
-background-color: #2bb9ff;
+.testimonials {
+    background-color: #2bb9ff;
 
 }
-.testimonials img{
+
+.testimonials img {
     height: 50vh;
-    width: auto; /* Maintain the aspect ratio */
+    width: auto;
+    /* Maintain the aspect ratio */
     position: absolute;
-    left: 10%; /* Adjust the left margin as needed */
+    left: 10%;
+    /* Adjust the left margin as needed */
     /* top: 10%; */
     top: 20%;
 }
-  
+
 .testimonials .text-area {
     position: absolute;
-  left: 35%; /* Adjust the left position to center the card */
-  width: 60%; /* Adjust the width of the card */
-  background-color: #ffffff; /* White background color */
-  padding: 20px; /* Add padding for spacing inside the card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-  border-radius: 8px; /* Add bord */
+    left: 35%;
+    width: 60%;
+    background-color: #2bb9ff;
+    padding: 20px;
+    border-radius: 8px;
+}
+.director-spotlight{
+    background-color: white!important ;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+
 }
 
+.other-testimonial{
+    background-color: white!important ;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 300px;
+    display: inline-block;
+    justify-content: space-around;
+    transform: scale(0.9);
+    height: 100px;
+
+}
+
+.other-testimonial.central{
+    background-color: #00063f !important;
+    color: white!important;
+    transform: scale(1.1); /* Larger size */
+    margin: 10px ; /* Updated margin for central testimonial */
+    /* height: 150px; */
+  }
+
+  .other-testimonial.central p{
+    color: white!important;
+  }
+
 .testimonials .text-area p {
-  font-style: italic;
-  color: #00063f; /* Adjust the color as needed */
+    font-style: italic;
+    color: #00063f;
+    /* Adjust the color as needed */
 }
 
 .testimonials .text-area h2 {
-  font-weight: bold;
-  color: #2bb9ff; 
+    font-weight: bold;
+    color: #2bb9ff;
 }
 
 .testimonials .text-area .director-sign {
-  text-align: right;
-  font-weight: bold;
-  color: #2bb9ff; /* Adjust the color as needed */
+    text-align: right;
+    font-weight: bold;
+    color: #2bb9ff;
+    /* Adjust the color as needed */
 }
 
 .testimonials-header {
@@ -133,60 +182,67 @@ background-color: #2bb9ff;
     top: 5%;
     right: 5%;
     text-align: right;
-  }
-  
-  .testimonials-header h3 {
+}
+
+.testimonials-header h3 {
     font-style: italic;
     font-weight: bold;
     margin-bottom: 5px;
-    color: white; /* Adjust the color as needed */
-  }
+    color: white;
+    /* Adjust the color as needed */
+}
 
-  .panel-header {
+.panel-header {
     position: absolute;
     top: 5%;
     right: 5%;
     text-align: right;
-  }
+}
 
-  .panel-header h3 {
+.panel-header h3 {
     font-style: italic;
     font-weight: bold;
     margin-bottom: 5px;
-    color: #2bb9ff; /* Adjust the color as needed */
-  }
-  
-  
-  .testimonials-header .read-all {
-    font-style: italic;
-    color: white; /* Adjust the color as needed */
-  }
-  
+    color: #2bb9ff;
+    /* Adjust the color as needed */
+}
 
-  
-  button.meet-staff-button:hover {
-    color: #00063f; /* Adjust the hover color as needed */
+
+.testimonials-header .read-all {
+    font-style: italic;
+    color: white;
+    /* Adjust the color as needed */
+}
+
+
+
+button.meet-staff-button:hover {
+    color: #00063f;
+    /* Adjust the hover color as needed */
     background-color: white;
-  }
-  
-  button.meet-staff-button {
-    background-color: #00063f; /* Color of the navbar */
+}
+
+button.meet-staff-button {
+    background-color: #00063f;
+    /* Color of the navbar */
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px; /* Adjust as needed */
-    align-self: flex-end; /
+    margin-top: 10px;
+    /* Adjust as needed */
+    align-self: flex-end;/
 }
 
-  
-  .visit-meet-container img.map {
+
+.visit-meet-container img.map {
     max-width: 100px;
     max-height: 100px;
-    bottom: 5%!important;
+    bottom: 5% !important;
     position: relative;
 }
+
 
 .visit-meet-container {
     display: flex;
@@ -197,4 +253,27 @@ background-color: #2bb9ff;
     bottom: 20%;
     right: 5%;
 }
+
+.all-services {
+    background-color: #00063f;
+    margin: 0px 0px 20px 0px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    width: 150px;
+    border-color: white !important;
+    border: 1px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
   
+}
+
+.cart{
+    height:30px
+}
+
+@media (max-width: 768px) {
+
+}
