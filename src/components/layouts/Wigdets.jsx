@@ -26,6 +26,13 @@ const Widgets = () => {
     setSampleModalOpen(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // Use smooth scroll behavior
+    });
+  };
+
   return (
     <>
       <div className="widgets">
@@ -53,13 +60,23 @@ const Widgets = () => {
         </div>
 
         <div className="widget-container">
-          <img src={track} alt="Back to Top" className="widget back-to-top" />
+          <img
+            src={track}
+            alt="Back to Top"
+            className="widget back-to-top"
+            onClick={scrollToTop}
+          />
           <div className="modal">
             <p>Track My Test</p>
           </div>
         </div>
         <div className="widget-container">
-          <img src={top} alt="Back to Top" className="widget back-to-top" />
+          <img
+            src={top}
+            alt="Back to Top"
+            className="widget back-to-top"
+            onClick={scrollToTop}
+          />
           <div className="modal">
             <p>Back To Top</p>
           </div>

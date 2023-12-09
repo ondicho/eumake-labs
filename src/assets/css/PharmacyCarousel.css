@@ -12,6 +12,7 @@
     overflow: hidden;
     height: 100%;
     width: inherit;
+    text-align: center;
 }
   
 .carousel-item img {
