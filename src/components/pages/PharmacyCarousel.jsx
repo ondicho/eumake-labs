@@ -3,6 +3,7 @@ import '../../assets/css/PharmacyCarousel.css';
 import lab from '../../assets/images/lab.jpg';
 import lab1 from '../../assets/images/lab1.jpg';
 import lab2 from '../../assets/images/lab2.jpg';
+import lab3 from '../../assets/images/banner4.jpg';
 import down from '../../assets/images/down.png';
 import previous from '../../assets/images/previous.png';
 
@@ -25,6 +26,10 @@ const PharmacyCarousel = () => {
       image: lab2,
       text: 'Come Take a look',
     },
+    {
+      image: lab3,
+      text: 'Come Take a look',
+    }
   ];
 
   const handlePrev = () => {
