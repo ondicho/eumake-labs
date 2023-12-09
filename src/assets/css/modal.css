@@ -69,3 +69,16 @@ form.modal-form {
 .appointment-modal:active .page-content-holder {
     filter: blur(5px);
   }
+
+
+  @media (max-width: 768px) {
+    .appointment-modal{
+        width: 80%!important;
+        height: fit-content!important;
+    }
+
+    .modal-submit{
+        position: relative;
+        right: -30%;
+    }
+  }

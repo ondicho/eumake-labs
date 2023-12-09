@@ -10,14 +10,15 @@
   .carousel-item {
     position: relative;
     overflow: hidden;
-    height: inherit;
+    height: 100%;
     width: inherit;
 }
   
-  .carousel-item img {
-    width: 100%;
-    height: 100vh;
-  }
+.carousel-item img {
+  width: auto; /* Change to auto to maintain aspect ratio */
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire container while maintaining aspect ratio */
+}
   
   .carousel-caption {
     position: absolute;
@@ -112,8 +113,5 @@
 
 @media (max-width: 768px) {
 
-  .carousel-item img {
-    width: 100%;
-    height: 100%;
-}
+
 }
