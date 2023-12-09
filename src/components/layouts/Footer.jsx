@@ -20,9 +20,9 @@ const Footer = () => {
                     <div className="footer-column">
                         <h4>CONTACT US</h4>
                         <ul>
-                        <li><img  className="footer-icon" src={mail} alt="mail" />eumake@gmail.com</li>
-                        <li><img  className="footer-icon" src={telephone} alt="telephone" />254722000000 / 254711222333</li>
-                        <li><img  className="footer-icon" src={map} alt="map" />parklands Rd. Nairobi</li>
+                        <li><img  className="footer-icon" src={mail} alt="mail" /><p>eumake@gmail.com</p></li>
+                        <li><img  className="footer-icon" src={telephone} alt="telephone" /><p>254722000000 / 254711222333</p></li>
+                        <li><img  className="footer-icon" src={map} alt="map" /><p>parklands Rd. Nairobi</p></li>
                         </ul>
                     </div>
                     <div className="footer-column">

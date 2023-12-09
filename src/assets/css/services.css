@@ -2,7 +2,7 @@
     display: flex;
     width: -webkit-fill-available;
     height: -webkit-fill-available;
-    justify-content: space-evenly;
+    /* justify-content: space-around; */
     flex-wrap: wrap; 
     margin: 10px;
 }
@@ -87,4 +87,7 @@
     color: white;
     border-radius: 8px;
     border: white;
+}
+
+@media (max-width: 768px) {
 }

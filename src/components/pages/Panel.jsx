@@ -21,8 +21,7 @@ const Panel = React.forwardRef((props, ref) => {
       
 
     return (
-      <div ref={ref} className="main-container">
-            <div className="main-container">
+      <div ref={ref} className="main-container service-panel">
                 <div className="panel-header">
                     <h3 className="italic-bold">Our Services</h3>
                 </div>
@@ -43,7 +42,7 @@ const Panel = React.forwardRef((props, ref) => {
                             <img className="service-image" src={doctor} alt="service-image" />
                         </div>
                         <div className="service-description">
-                            <p>Endoscopy</p>
+                            <p>Immunology</p>
                         </div>
                         <div className="service-read-more">
                             <button onClick={openServiceModal}><img className="cart" src={cart} alt="cart" /></button>
@@ -87,7 +86,6 @@ const Panel = React.forwardRef((props, ref) => {
                 <Link to='services' className="all-services">View All Tests</Link>
 
                 <ServiceModal isOpen={isServiceModalOpen} onClose={closeModals}/>
-            </div>
             </div>
   );
 });

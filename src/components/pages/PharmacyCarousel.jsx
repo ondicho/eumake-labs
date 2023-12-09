@@ -1,9 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../../assets/css/PharmacyCarousel.css';
 import lab from '../../assets/images/lab.jpg';
 import lab1 from '../../assets/images/lab1.jpg';
 import lab2 from '../../assets/images/lab2.jpg';
 import down from '../../assets/images/down.png';
+import previous from '../../assets/images/previous.png';
+
+import next from '../../assets/images/next.png';
 
 const PharmacyCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,9 +38,20 @@ const PharmacyCarousel = () => {
   const handleScrollDown = () => {
     // Scroll down to the services section
     if (servicesRef.current) {
-      servicesRef.current.scrollIntoView({ behavior: 'smooth' });
+      servicesRef.current.scrollIntoView({ behavior: 'auto' });
     }
   };
+
+  // Use useEffect to set up the interval for changing images
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      // Change to the next image
+      setCurrentIndex((prevIndex) => (prevIndex === data.length - 1 ? 0 : prevIndex + 1));
+    }, 10000); // Change image every 10 seconds
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, [data.length]); // Add data.length as a dependency to handle changes in the length of the data array
 
   return (
     <div className="carousel-container">
@@ -48,10 +62,10 @@ const PharmacyCarousel = () => {
         </div>
       </div>
       <button className="prev-button" onClick={handlePrev}>
-        &#8249;
+      <img className="prev" src={previous} alt="prev" />
       </button>
       <button className="next-button" onClick={handleNext}>
-        &#8250;
+      <img className="next" src={next} alt="next" />
       </button>
 
       <div className="see-more" onClick={handleScrollDown}>

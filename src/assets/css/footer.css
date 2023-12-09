@@ -47,6 +47,11 @@
     margin-bottom: 5px;
     padding: 5px;
     text-align: initial;
+    display: flex;
+}
+
+.footer-column li p{
+  margin: 5px;
 }
 
 .footer-menus{
@@ -58,4 +63,34 @@
 
 .footer-icon{
     height: 30px!important;
+}
+
+@media (max-width: 768px) {
+  .top-footer{
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer{
+    height: inherit;
+    width: inherit;
+  }
+
+  .footer-widget-area{
+    display: none;
+  }
+
+  .footer-menus{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    justify-content: flex-end;
+  }
+
+  .footer{
+    align-items: flex-end;
+  }
+
+
 }

@@ -103,3 +103,17 @@
   filter: blur(5px); /* Adjust the blur amount as needed */
   pointer-events: none; /* Allow interaction with underlying elements */
 }
+
+.menu-icon{
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+
+  .modal{
+      display: none!important;
+  }
+
+  
+
+}

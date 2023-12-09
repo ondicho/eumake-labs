@@ -275,5 +275,34 @@ button.meet-staff-button {
 }
 
 @media (max-width: 768px) {
+    .services{
+        height: auto!important;
+        /* width: auto; */
+    }
 
+    .main-container{
+        height: auto!important;
+        /* width: auto; */
+    }
+
+    .modal{
+        display: none;
+    }
+
+    .testimonials{
+        height: inherit;
+        width: auto;
+    }
+
+    .testimonials img {
+        display: none!important;
+    }
+
+    .testimonials .text-area{
+        position: inherit;
+        width: inherit;
+        left: 0%;
+        padding: 20px;
+        border-radius: 8px;
+    }
 }

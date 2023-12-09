@@ -31,7 +31,7 @@ const Services = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="main-container">
+    <div className="main-container service-container">
       <div className="testimonials-header">
         <h3 className="italic-bold">Our Services</h3>
       </div>
