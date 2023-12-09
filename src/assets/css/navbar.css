@@ -42,7 +42,7 @@
   
   .menu a {
     text-decoration: none;
-    color: #00063f;
+    color: white;
     margin: 0 1rem;
     font-weight: bold ;
     cursor: pointer;
@@ -67,6 +67,28 @@
   .mobile-icon{
     display: none;
   }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    color: white;
+    z-index: 1001;
+  }
+  
+  .mobile-menu.active {
+    display: block;
+  }
+  
+  .mobile-menu-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
   
   @media (max-width: 768px) {
     .burger-menu {
@@ -85,6 +107,9 @@
   
     .menu.active {
       display: flex;
+      background-color: white;
+      color: #00063f;
+      width: 80%;
     }
   
     .menu a {
@@ -92,6 +117,9 @@
       text-align: center;
       width: 100%;
       box-sizing: border-box;
+      color: #00063f;
+      text-align: initial;
+      margin: 5px;
     }
 
     .menu-icon{
