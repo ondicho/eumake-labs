@@ -7,6 +7,7 @@ import AboutUs from './components/pages/AboutUs';
 import Staff from './components/pages/Staff';
 import Services from './components/pages/Services';
 import ContactUs from './components/pages/ContactUs';
+import FAQs from './components/pages/FAQs';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/about-us" element={<Container Page={AboutUs} />}/>
           <Route exact path="/staff" element={<Container Page={Staff} />}/>
           <Route exact path="/services" element={<Container Page={Services} />}/>
+          <Route exact path="/faqs" element={<Container Page={FAQs} />}/>
           <Route exact path="/contact-us" element={<Container Page={ContactUs} />}/>
         </Routes>
       </BrowserRouter>

@@ -1,0 +1,93 @@
+.tests{
+    display: flex;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    /* justify-content: space-around; */
+    flex-wrap: wrap; 
+    margin: 10px;
+}
+
+.card-row{
+    display: flex;
+    margin: 10px;
+}
+
+.test-card{
+    align-items: left;
+    width: 350px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    color: #00063f;
+    border-radius: 5px;
+    overflow: hidden;
+    position: inherit;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.test-card:hover{
+    transform: scale(1.05) translateY(-10px);
+    /* Apply hover transformation */
+    background-color: #2bb9ff;
+    color: white;
+}
+
+/* Add styles for the labels */
+.test-label {
+    display: inline-block;
+    width: 100px; /* Set a fixed width for the labels */
+    font-weight: bold; /* Make labels bold */
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+.order-test {
+    position: absolute;
+    bottom: 20px; /* Adjust the margin from the bottom */
+    transform: translateX(-50%); /* Center the cart horizontally */
+    left: 50%; 
+    padding: 2px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.test-cart{
+    height: 30px;
+    position: relative;
+    bottom: 0%;
+}
+
+/* Add styles for the search field */
+.search-container {
+    margin-top: 20px;
+    width: 75%;
+  }
+  
+  .search-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .testimonials-header {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    text-align: right;
+    color: #00063f;
+}
+
+.paginated{
+    padding: 5px;
+    margin: 5px;
+    background-color: #2bb9ff;
+    color: white;
+    border-radius: 8px;
+    border: white;
+}
+
+@media (max-width: 768px) {
+}

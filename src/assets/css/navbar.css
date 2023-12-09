@@ -4,8 +4,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #00063f!important;
-  color: white;
+  background-color: white!important;
+  color: #00063f;
   position: sticky;
   top: 0;
   z-index: 1000; 
@@ -16,24 +16,55 @@
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
+    display: flex;
   }
-  
+
+
+.logo p {
+  margin: 15px;
+  font-size: 18px;
+  color: #00063f;
+}
+
+.logo p:hover{
+  color: #2bb9ff;
+}
 
   img.logo {
     height: 50px;
+    background-color: white!important;
 }
+
+
   .menu {
     display: flex;
   }
   
   .menu a {
     text-decoration: none;
+    color: #00063f;
+    margin: 0 1rem;
+    font-weight: bold ;
+    cursor: pointer;
+  }
+
+  .menu img {
+    text-decoration: none;
     color: white;
     margin: 0 1rem;
+    height: 20px;
   }
   
   .burger-menu {
     cursor: pointer;
+    display: none;
+  }
+
+  .call{
+    height: 20px!important;
+  }
+
+  .mobile-icon{
     display: none;
   }
   
@@ -62,5 +93,24 @@
       width: 100%;
       box-sizing: border-box;
     }
+
+    .menu-icon{
+      height: 40px!important;
+      opacity: 1!important;
+    }
+    .mobile-icon{
+      display: inline;
+      opacity: 1;
+    }
+
+    .logo p {
+      margin: 10px;
+      font-size: 12px;
+      color: #00063f;
+    }
+
+    img.logo {
+      height: 30px;
+      background-color: white!important;
   }
-  
+  }
