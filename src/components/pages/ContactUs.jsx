@@ -81,7 +81,7 @@ const ContactUs = () => {
                             required
 
                         />
-                        <button className="modal-submit" type="submit">Submit</button>
+                        <button className="contact-center-submit" type="submit">Submit</button>
                     </form>
                 </div>
             </div>

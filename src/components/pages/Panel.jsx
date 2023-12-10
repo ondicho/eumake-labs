@@ -42,7 +42,7 @@ const Panel = React.forwardRef((props, ref) => {
               <p>{service.description}</p>
             </div>
             <div className="service-read-more">
-              <Link to={`/service/${index + 1}`}>Read More</Link>
+              <button onClick={openServiceModal}>Read more</button>
             </div>
           </div>
         ))}
