@@ -71,7 +71,7 @@
     opacity: 1; /* Visible on hover */
   }
 
-.service-read-more button {
+.service-read-more {
     background-color: #ffffff;
     margin: 0px 0px 20px 0px;
     padding: 10px;
@@ -277,6 +277,8 @@ button.meet-staff-button {
 @media (max-width: 768px) {
     .services{
         height: auto!important;
+        display: flex;
+        flex-direction: column;
         /* width: auto; */
     }
 
@@ -304,5 +306,42 @@ button.meet-staff-button {
         left: 0%;
         padding: 20px;
         border-radius: 8px;
+    }
+    .panel-header{
+        position: inherit;
+        right:0%;
+        top:5%;
+        margin: 10px;
+    }
+
+    .panel-header h3 {
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #2bb9ff;
+        position: inherit;
+        margin: 10px;
+    }
+
+    .main-container .service-panel{
+        display: flex;
+    }
+
+    .service:hover .service-read-more {
+        opacity: 1;
+        position: relative;
+    }
+
+    .service:hover .service-description {
+        color: white;
+        position: inherit;
+    }
+
+    .service:hover {
+        transform: scale(1.05) translateY(-10px);
+        background-color: #2bb9ff;
+        color: white;
+        display: flex;
+        flex-direction: column;
     }
 }
