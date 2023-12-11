@@ -3,3 +3,9 @@ body {
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: 'Goudy Old Style',sans-serif;
+}
+
+/* Additional styling for other elements if needed */
