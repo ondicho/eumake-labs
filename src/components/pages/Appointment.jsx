@@ -103,8 +103,7 @@ const Appointment = ({ isOpen, onClose, title }) => {
 
             <button className="modal-submit" type="submit">Submit</button>
           </form>
-          <div className="modal-close">
-            <button onClick={onClose}><img className="modal-icon" src={close} alt="close" /></button>
+          <div className="modal-close"><img className="modal-icon" src={close} alt="close" onClick={onClose}/>
 
           </div>
         </div>

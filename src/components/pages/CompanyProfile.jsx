@@ -8,6 +8,9 @@ import '../../assets/css/home.css';
 const CompanyProfile = () => {
   return (
     <div className="main-container testimonials">
+      <div className="testimonials-header">
+        <h3 className="italic-bold">Company Profile</h3>
+      </div>
       <img src={technician} alt='technician' />
       <div className="text-area">
         <div className="director-spotlight">
@@ -35,9 +38,6 @@ const CompanyProfile = () => {
           <p>As Chief pathologist, John Doe is in charge of lab operations and customer delivery</p>
           <p className='director-sign'>John Doe</p>
         </div>
-      </div>
-      <div className="testimonials-header">
-        <h3 className="italic-bold">Company Profile</h3>
       </div>
     </div>
   );

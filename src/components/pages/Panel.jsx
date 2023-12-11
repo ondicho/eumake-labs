@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import '../../assets/css/home.css';
-import walk from '../../assets/images/walk.png';
-import doctor from '../../assets/images/doctor.png';
-import service from '../../assets/images/service.png';
-import contact from '../../assets/images/technician.png';
-import cart from '../../assets/images/cart.png';
+import test1 from '../../assets/images/test1.png';
+import test2 from '../../assets/images/test2.png';
+import test3 from '../../assets/images/test3.png';
+import test4 from '../../assets/images/test4.png';
+import test5 from '../../assets/images/test5.png';
+
 import React, { useState } from 'react';
 import ServiceModal from "./ServiceModal";
 
@@ -19,11 +20,11 @@ const Panel = React.forwardRef((props, ref) => {
   };
 
   const servicesData = [
-    { image: service, title: "HIV Test", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { image: doctor, title: "Immunology", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { image: contact, title: "Hematology", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { image: service, title: "Thyroid Tests", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { image: service, title: "Liver/Pancreas", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+    { image: test1, title: "HIV Test", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+    { image: test2, title: "Immunology", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+    { image: test3, title: "Hematology", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+    { image: test4, title: "Thyroid Tests", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+    { image: test5, title: "Liver/Pancreas", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
   ];
 
   return (

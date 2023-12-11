@@ -71,7 +71,7 @@ const Navbar = () => {
         >
           <div className="dropdown-header">
             Services
-            {isMobile && <img className="dropdown-icon" src={down} alt="" />}
+            <img className="dropdown-icon" src={down} alt="" />
           </div>
           {servicesDropdownOpen && (
             <div className="dropdown-content" onMouseLeave={handleClose}>
@@ -89,7 +89,7 @@ const Navbar = () => {
         >
           <div className="dropdown-header">
             About
-            {isMobile && <img className="dropdown-icon" src={down} alt="" />}
+            <img className="dropdown-icon" src={down} alt="" />
           </div>
           {aboutDropdownOpen && (
             <div className="dropdown-content" onMouseLeave={handleClose}>
@@ -133,7 +133,7 @@ const Navbar = () => {
               >
                 <div className="dropdown-header">
                   Services
-                  {isMobile && <img className="call" src={down} alt="call" />}
+                  {isMobile && <img className="dropdown-icon" src={down} alt="call" />}
                 </div>
                 {servicesDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>
@@ -151,7 +151,7 @@ const Navbar = () => {
               >
                 <div className="dropdown-header">
                   About
-                  {isMobile && <img className="call" src={down} alt="call" />}
+                  {isMobile && <img className="dropdown-icon" src={down} alt="call" />}
                 </div>
                 {aboutDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>

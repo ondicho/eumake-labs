@@ -35,7 +35,7 @@
     /* Change text color on hover */
 }
 
-.service:hover .service-read-more button {
+.service-read-more button {
     background-color: white;
     color: #2bb9ff;
     border: #2bb9ff;
@@ -62,15 +62,11 @@
     padding: 5px;
     text-align: center;
     border-radius: 4px;
-    opacity: 0;
     /* Initially hidden */
     transition: opacity 0.3s;
     /* Add a smooth transition */
 }
 
-.service:hover .service-read-more {
-    opacity: 1; /* Visible on hover */
-  }
 
 .service-read-more {
     background-color: #ffffff;
@@ -82,18 +78,6 @@
     width: 40%;
     border-color: #2bb9ff !important;
     padding: 10px;
-}
-
-.service-read-more button:hover {
-    background-color: #00063f;
-    margin: 0px 0px 20px 0px;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    color: white;
-    width: 40%;
-    padding: 10px;
-    border: none;
 }
 
 img.service-image {
@@ -275,6 +259,38 @@ button.meet-staff-button {
 .cart{
     height:30px
 }
+.insurance-panel {
+    background-color: #00063f;
+    display: flex;
+    flex-direction: column;
+    min-height: 30vh;
+}
+
+.insurance-panel h3 {
+    color: white !important;
+}
+
+.insurance {
+    height: auto;
+    width: 100px;
+    max-width: 100px;
+    margin: 10px;
+}
+
+.insurance-small {
+    height: auto;
+    width: 50px;
+    margin: 10px;
+}
+
+.partners {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: initial;
+    align-items: center; /* Align items vertically in the center */
+}
+
 
 @media (max-width: 768px) {
     .services{
@@ -345,6 +361,12 @@ button.meet-staff-button {
         color: white;
         display: flex;
         flex-direction: column;
+    }
+
+    .partners{
+        display: flex;
+        flex-direction: column;
+        flex-direction: inherit;
     }
 }
 

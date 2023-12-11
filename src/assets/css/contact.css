@@ -1,8 +1,13 @@
+.contact-point{
+    display: flex;
+    flex-direction: initial;
+    height: auto;
+}
 .contact-point img {
     height: 40vh;
     width: max-content;
     /* Maintain the aspect ratio */
-    position: absolute;
+    position: inherit;
     right: 10%;
     /* Adjust the left margin as needed */
     /* top: 10%; */
@@ -10,13 +15,18 @@
 }
 
 .contact-point .contact-text-area {
-    position: absolute;
+    position: inherit;
     left: 10%;
     width: 40%;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 8px;
+    height: auto;
+}
+
+.contact-center-form {
+    height: auto!important;
 }
 
 .contact-center-form .modal-form-input .modal-label {
@@ -34,6 +44,8 @@
 .contact-center-submit{
     background-color: #2bb9ff;
     padding: 10px;
-    position: absolute;
+    position: inherit;
+    border: none;
+    border-radius: 5px;
     
 }
