@@ -36,46 +36,42 @@ const Widgets = () => {
   return (
     <>
       <div className="widgets">
-        <div className="widget-container">
+        <div className="widget-container" onClick={openAppointmentModal}>
           <img
             src={appointment}
             alt="Appointment"
             className="widget appointment"
-            onClick={openAppointmentModal}
           />
           <div className="modal">
             <p>Book Appointment</p>
           </div>
         </div>
-        <div className="widget-container">
+        <div className="widget-container" onClick={openSampleModal}>
           <img
             src={rider}
             alt="Order Now"
             className="widget order-now"
-            onClick={openSampleModal}
           />
           <div className="modal">
             <p> Sample Collection</p>
           </div>
         </div>
 
-        <div className="widget-container">
+        <div className="widget-container" onClick={scrollToTop}>
           <img
             src={track}
             alt="Back to Top"
             className="widget back-to-top"
-            onClick={scrollToTop}
           />
           <div className="modal">
             <p>Track My Test</p>
           </div>
         </div>
-        <div className="widget-container">
+        <div className="widget-container" onClick={scrollToTop}>
           <img
             src={top}
             alt="Back to Top"
             className="widget back-to-top"
-            onClick={scrollToTop}
           />
           <div className="modal">
             <p>Back To Top</p>

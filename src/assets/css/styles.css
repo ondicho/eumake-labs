@@ -78,7 +78,13 @@
 .widget-container .modal {
   padding: 2px;
   display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
+.widget-container img:hover + .modal {
+  opacity: 1;
+}
+
 
 .appointment-modal {
   width: 30%;

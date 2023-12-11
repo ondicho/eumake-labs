@@ -1,5 +1,6 @@
 .appointment-modal{
     background-color: white;
+    height: auto;
 }
 
 
@@ -24,6 +25,7 @@
 }
 
 .modal-submit{
+    position: inherit;
     background-color: #00063f;
     color: white;
     padding: 10px;
@@ -54,7 +56,7 @@ form.modal-form {
     flex-wrap: wrap;
 }
 
-.modal-submit {
+/* .modal-submit {
     background-color: #00063f;
     color: white;
     padding: 10px;
@@ -64,7 +66,7 @@ form.modal-form {
     position: absolute;
     right: 5%;
     bottom: 10%;
-}
+} */
 
 .appointment-modal:active .page-content-holder {
     filter: blur(5px);

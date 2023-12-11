@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     width: 250px;
-    height: 75%;
+    height: auto;
     margin: 10px;
     border: 1px solid #ddd;
     color: #00063f;
@@ -39,6 +39,7 @@
     background-color: white;
     color: #2bb9ff;
     border: #2bb9ff;
+    position: inherit;
 }
 
 
@@ -54,7 +55,7 @@
 }
 
 .service-read-more {
-    position: absolute;
+    position: inherit;
     bottom: 0;
     left: 0;
     right: 0;
@@ -178,7 +179,7 @@ img.service-image {
 }
 
 .testimonials-header {
-    position: absolute;
+    /* position: absolute; */
     top: 5%;
     right: 5%;
     text-align: right;
@@ -193,10 +194,11 @@ img.service-image {
 }
 
 .panel-header {
-    position: absolute;
+    /* position: absolute; */
     top: 5%;
     right: 5%;
     text-align: right;
+    float: right;
 }
 
 .panel-header h3 {
