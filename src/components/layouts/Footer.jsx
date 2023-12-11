@@ -4,8 +4,7 @@ import facebook from '../../assets/images/facebook.jpeg'
 import instagram from '../../assets/images/instagram.jpeg'
 import twitter from '../../assets/images/twitter.jpeg'
 import mail from '../../assets/images/mail.jpeg'
-import map from '../../assets/images/map.jpeg'
-import telephone from '../../assets/images/telephone.png'
+import map from '../../assets/images/map.png'
 import whatsapp from '../../assets/images/whatsapp.png'
 
 const Footer = () => {
