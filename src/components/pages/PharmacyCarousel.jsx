@@ -6,7 +6,6 @@ import lab2 from '../../assets/images/lab2.jpg';
 import lab3 from '../../assets/images/banner4.jpg';
 import down from '../../assets/images/down.png';
 import previous from '../../assets/images/previous.png';
-
 import next from '../../assets/images/next.png';
 
 const PharmacyCarousel = () => {
@@ -29,7 +28,7 @@ const PharmacyCarousel = () => {
     {
       image: lab3,
       text: 'Come Take a look',
-    }
+    },
   ];
 
   const handlePrev = () => {
@@ -66,13 +65,18 @@ const PharmacyCarousel = () => {
           <p>{data[currentIndex].text}</p>
         </div>
       </div>
-      <button className="prev-button" onClick={handlePrev}>
-      <img className="prev" src={previous} alt="prev" />
-      </button>
-      <button className="next-button" onClick={handleNext}>
-      <img className="next" src={next} alt="next" />
-      </button>
 
+      <div className="carousel-indicators">
+        {data.map((_, index) => (
+          <div
+            key={index}
+            className={`indicator ${currentIndex === index ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(index)}
+          ></div>
+        ))}
+      </div>
+
+     
       <div className="see-more" onClick={handleScrollDown}>
         <img className="down animated bounce" src={down} alt="down" />
       </div>

@@ -8,11 +8,12 @@ import '../../assets/css/home.css';
 const CompanyProfile = () => {
   return (
     <div className="main-container testimonials">
-      <div className="testimonials-header">
-        <h3 className="italic-bold">Company Profile</h3>
-      </div>
+
       <img src={technician} alt='technician' />
       <div className="text-area">
+        <div className="testimonials-header">
+          <h3 className="italic-bold">Company Profile</h3>
+        </div>
         <div className="director-spotlight">
           <h2>Director's Spotlight</h2>
           <p>

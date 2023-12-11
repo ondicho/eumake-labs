@@ -166,7 +166,8 @@ img.service-image {
 }
 
 .testimonials-header {
-    /* position: absolute; */
+    display: none;
+    position: inherit;
     top: 5%;
     right: 5%;
     text-align: right;
@@ -267,7 +268,7 @@ button.meet-staff-button {
     background-color: #00063f;
     display: flex;
     flex-direction: column;
-    min-height: 30vh;
+    min-height: 10vh;
 }
 
 .insurance-panel h3 {
