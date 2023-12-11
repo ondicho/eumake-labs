@@ -102,25 +102,25 @@ img.service-image {
 
 .testimonials {
     background-color: #2bb9ff;
-
+    display: flex;
+    flex-direction: initial;
 }
 
 .testimonials img {
     height: 50vh;
     width: auto;
     /* Maintain the aspect ratio */
-    position: absolute;
-    left: 10%;
+    position: inherit;
+    left: 10%!important;
     /* Adjust the left margin as needed */
     /* top: 10%; */
     top: 20%;
 }
 
-.testimonials .text-area {
-    position: absolute;
-    left: 35%;
+.testimonials .text-area{
+    position: inherit;
     width: 60%;
-    background-color: #2bb9ff;
+    left: 0%;
     padding: 20px;
     border-radius: 8px;
 }
@@ -345,3 +345,6 @@ button.meet-staff-button {
         flex-direction: column;
     }
 }
+
+
+
