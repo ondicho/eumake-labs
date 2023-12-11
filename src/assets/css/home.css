@@ -389,6 +389,10 @@ button.meet-staff-button {
     .testimonials {
         height: inherit;
         width: auto;
+        display: flex!important;
+        width: inherit!important;
+        position: relative!important;
+        flex-direction: column!important;
     }
 
     .testimonials img {
@@ -475,6 +479,7 @@ button.meet-staff-button {
         width: 80%;
     }
 
+
     
 
 }
@@ -515,6 +520,45 @@ button.meet-staff-button {
 
     .review-desc-body{
 
+    }
+
+    .other-testimonial{
+        width:fit-content
+    }
+
+    .other-testimonial.central {
+        background-color: #00063f !important;
+        color: white !important;
+        transform: scale(1.0);
+        /* Larger size */
+        margin: 10px;
+        /* Updated margin for central testimonial */
+        /* height: 150px; */
+    }
+
+    .testimonials-header{
+        position: inherit!important;
+        right: 0%!important;
+        top: 5%!important;
+    }
+
+    .service-panel{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .main-container .testimonials{
+        display: flex!important;
+        width: inherit!important;
+        position: relative!important;
+        flex-direction: column!important;
+        
+    }
+
+    .director-spotlight{
+        width: fit-content;
+        margin: 10px;
     }
 
 
