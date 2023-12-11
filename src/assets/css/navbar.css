@@ -48,6 +48,15 @@
     cursor: pointer;
   }
 
+  .menu li {
+    text-decoration: none;
+    color: #00063f;
+    margin: 0 1rem;
+    font-weight: bold ;
+    cursor: pointer;
+  }
+
+
   .menu img {
     text-decoration: none;
     color: white;
@@ -63,6 +72,7 @@
   .call{
     height: 20px!important;
   }
+
 
   .mobile-icon{
     display: none;
@@ -89,6 +99,29 @@
     flex-direction: column;
   }
 
+  .dropdown{
+    list-style: none;
+  }
+  
+  .dropdown-content{
+    display: flex;
+    flex-direction: column;
+    background-color: #00063f;
+  }
+
+  .dropdown-header{
+    font-weight: bold ;
+    cursor: pointer;
+  }
+
+.dropdown-content a{
+  color: white!important;
+  padding: 1rem;
+}
+
+.dropdown-icon{
+  height: 15px!important;
+}
   
   @media (max-width: 768px) {
     .burger-menu {
@@ -113,6 +146,16 @@
     }
   
     .menu a {
+      padding: 1rem;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      color: #00063f;
+      text-align: initial;
+      margin: 5px;
+    }
+
+    .menu li {
       padding: 1rem;
       text-align: center;
       width: 100%;
