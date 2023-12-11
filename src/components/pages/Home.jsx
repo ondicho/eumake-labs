@@ -5,6 +5,7 @@ import '../../assets/css/home.css';
 import CompanyProfile from "./CompanyProfile";
 import Widgets from "../layouts/Wigdets";
 import InsurancePartners from './InsurancePartners';
+import CustomerReview from './CustomerReview';
 
 const Home = () => {
   const servicesRef = useRef(null);
@@ -14,6 +15,7 @@ const Home = () => {
       <PharmacyCarousel />
       <Panel ref={servicesRef} />
       <CompanyProfile />
+      <CustomerReview />
       <InsurancePartners />
       <Widgets />
     </>

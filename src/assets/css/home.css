@@ -1,9 +1,8 @@
 .services {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    /* Adjust as needed */
-    height: 60%;
+    justify-content: center;
+    width: 100%;
 }
 
 .service {
@@ -21,6 +20,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     /* Add a smooth transition effect */
+    /* flex: 0 0 calc(30.33% - 20px); Set each card to take up 1/3 of the container width with some spacing */
 }
 
 .service:hover {
@@ -96,21 +96,22 @@ img.service-image {
     width: auto;
     /* Maintain the aspect ratio */
     position: inherit;
-    left: 10%!important;
+    left: 10% !important;
     /* Adjust the left margin as needed */
     /* top: 10%; */
     top: 20%;
 }
 
-.testimonials .text-area{
+.testimonials .text-area {
     position: inherit;
     width: 60%;
     left: 0%;
     padding: 20px;
     border-radius: 8px;
 }
-.director-spotlight{
-    background-color: white!important ;
+
+.director-spotlight {
+    background-color: white !important;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -118,8 +119,8 @@ img.service-image {
 
 }
 
-.other-testimonial{
-    background-color: white!important ;
+.other-testimonial {
+    background-color: white !important;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -132,17 +133,19 @@ img.service-image {
 
 }
 
-.other-testimonial.central{
+.other-testimonial.central {
     background-color: #00063f !important;
-    color: white!important;
-    transform: scale(1.1); /* Larger size */
-    margin: 10px ; /* Updated margin for central testimonial */
+    color: white !important;
+    transform: scale(1.1);
+    /* Larger size */
+    margin: 10px;
+    /* Updated margin for central testimonial */
     /* height: 150px; */
-  }
+}
 
-  .other-testimonial.central p{
-    color: white!important;
-  }
+.other-testimonial.central p {
+    color: white !important;
+}
 
 .testimonials .text-area p {
     font-style: italic;
@@ -253,12 +256,13 @@ button.meet-staff-button {
     padding: 10px;
     text-decoration: none;
     text-align: center;
-  
+
 }
 
-.cart{
-    height:30px
+.cart {
+    height: 30px
 }
+
 .insurance-panel {
     background-color: #00063f;
     display: flex;
@@ -288,47 +292,121 @@ button.meet-staff-button {
     justify-content: center;
     display: flex;
     flex-direction: initial;
-    align-items: center; /* Align items vertically in the center */
+    align-items: center;
+    /* Align items vertically in the center */
 }
+
+.reviews {
+    width: 100%;
+    justify-content: center;
+}
+
+.customer-review {
+    display: flex;
+    flex-direction: column;
+    min-height: 30vh;
+    color: #00063f;
+}
+
+.reviews{
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.review{
+    width: 100%;
+}
+
+.review-desc {
+    display: flex;
+    justify-content: center;
+}
+
+.review-icon {
+    align-self: center;
+}
+
+.review-icon>img {
+    height: 50px;
+    cursor: pointer;
+}
+
+.review-testimonial {
+    background-color: white !important;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 300px;
+    display: inline-block;
+    justify-content: space-around;
+    transform: scale(0.9);
+    height: 100px;
+
+}
+
+.review-testimonial.central {
+    background-color: #00063f !important;
+    color: white !important;
+    transform: scale(1.1);
+    /* Larger size */
+    margin: 10px;
+    /* Updated margin for central testimonial */
+    /* height: 150px; */
+}
+
+.review-testimonial.central p {
+    color: white !important;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+  }
+
+
 
 
 @media (max-width: 768px) {
-    .services{
-        height: auto!important;
+    .services {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+
+    .main-container {
+        height: auto !important;
         /* width: auto; */
     }
 
-    .main-container{
-        height: auto!important;
-        /* width: auto; */
-    }
-
-    .modal{
+    .modal {
         display: none;
     }
 
-    .testimonials{
+    .testimonials {
         height: inherit;
         width: auto;
     }
 
     .testimonials img {
-        display: none!important;
+        display: none !important;
     }
 
-    .testimonials .text-area{
+    .testimonials .text-area {
         position: inherit;
         width: inherit;
         left: 0%;
         padding: 20px;
         border-radius: 8px;
     }
-    .panel-header{
+
+    .panel-header {
         position: inherit;
-        right:0%;
-        top:5%;
+        right: 0%;
+        top: 5%;
         margin: 10px;
     }
 
@@ -341,7 +419,7 @@ button.meet-staff-button {
         margin: 10px;
     }
 
-    .main-container .service-panel{
+    .main-container .service-panel {
         display: flex;
     }
 
@@ -363,12 +441,82 @@ button.meet-staff-button {
         flex-direction: column;
     }
 
-    .partners{
+    .partners {
         display: flex;
         flex-direction: column;
         flex-direction: inherit;
     }
+
+    .reviews{
+        width:inherit;
+        display: inherit!important;
+        flex-direction: column;
+    }
+
+    .review-icon{
+        margin: 5px!important;
+        /* height: 30px!important; */
+    }
+
+
+
+    .review{
+        width: 100%;
+    }
+
+    .main-container .customer-review{
+        display: flex;
+        flex-direction: column;
+    }
+
+    
+    .review-desc-body {
+        display: contents;
+        width: 80%;
+    }
+
+    
+
 }
 
 
 
+/* Add a media query for screen sizes less than 1200px */
+@media (max-width: 1200px) {
+    .service {
+        flex: 0 0 calc(30.33% - 20px);
+        /* Set each card to take up 1/2 of the container width with some spacing */
+    }
+
+    .reviews{
+        width: inherit;
+    }
+
+    .review{
+        width: 100%;
+    }
+
+    .review-desc {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .reviews{
+        width: min-content!important;
+    }
+
+    .review-icon{
+        margin: 50px;
+    }
+
+    .review-testimonial{
+        height: auto!important;
+    }
+
+    .review-desc-body{
+
+    }
+
+
+
+}
