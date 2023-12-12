@@ -10,24 +10,24 @@ const ServiceModal = ({ isOpen, onClose, title }) => {
         email: '',
         phone: '',
         date: '',
-        test:'',
+        test: '',
         consent: false,
-      });
-    
-      const handleChange = (name, value) => {
+    });
+
+    const handleChange = (name, value) => {
         setCustomerInfo((prevInfo) => ({
-          ...prevInfo,
-          [name]: value,
+            ...prevInfo,
+            [name]: value,
         }));
-      };
-    
-      const handleSubmit = (e) => {
+    };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
         // Add your logic to handle the form submission
         // You can access customerInfo state to get the form data
         console.log('Form submitted:', customerInfo);
         onClose(); // Close the modal after submission
-      };
+    };
     return (
         <>
             {isOpen && (
@@ -68,10 +68,11 @@ const ServiceModal = ({ isOpen, onClose, title }) => {
                                 'Liver/Pancreas',
                             ]}
                         />
+
                         <button className="modal-submit" type="submit">Submit</button>
                     </form >
                     <div className="modal-close">
-                        <button onClick={onClose}><img className="modal-icon" src={close} alt="close" /></button>
+                        <img className="modal-icon" src={close} alt="close" onClick={onClose} />
 
                     </div>
                 </div>

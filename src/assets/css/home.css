@@ -88,7 +88,7 @@ img.service-image {
 .testimonials {
     background-color: #2bb9ff;
     display: flex;
-    flex-direction: initial;
+    flex-direction: initial!important;
 }
 
 .testimonials img {

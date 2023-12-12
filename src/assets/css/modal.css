@@ -1,5 +1,5 @@
 .appointment-modal{
-    background-color: white;
+    background-color: white!important;
     height: auto;
 }
 
@@ -8,9 +8,11 @@
 
 .modal-close {
     position: absolute;
-    top: 5%;
-    right: 5%;
+    top: 0%;
+    right: 0%;
     text-align: right;
+    height: auto;
+    width: 50px;
 }
 
 .appointment-modal label{
@@ -47,8 +49,8 @@ textarea#message {
 }
 
 .modal-icon{
-    height: 10px!important;
-    width: 10px!important; ;
+    height: 30px!important;
+    width: 30px!important; ;
 }
 
 form.modal-form {
