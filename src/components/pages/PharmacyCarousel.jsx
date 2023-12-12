@@ -1,5 +1,5 @@
 // PharmacyCarousel.js
-import React, { useState, useRef, useEffect } from 'react';
+import{ useState, useRef, useEffect } from 'react';
 import '../../assets/css/PharmacyCarousel.css';
 import lab from '../../assets/images/lab.jpg';
 import lab1 from '../../assets/images/lab1.jpg';

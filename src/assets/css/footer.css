@@ -81,7 +81,7 @@
     display: flex;
     flex-direction: column;
     align-items: self-end;
-    width: fit-content;
+    width: 85%;
   }
 
   .footer {
@@ -102,12 +102,14 @@
 
   .footer {
     align-items: flex-end;
+    width: inherit;
   }
 
   .bottom-footer{
     flex-direction: column;
     height: auto;
     align-items: initial!important;
+    width: inherit;
   }
 
 
