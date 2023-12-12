@@ -3,11 +3,13 @@ import PharmacyCarousel from "./PharmacyCarousel";
 import Panel from "./Panel";
 import '../../assets/css/home.css';
 import CompanyProfile from "./CompanyProfile";
-import Widgets from "../layouts/Wigdets";
+import Widgets from "../layouts/Widgets";
 import InsurancePartners from './InsurancePartners';
 import CustomerReview from './CustomerReview';
+import ContactUsModal from '../layouts/ContactUsModal';
 
-const Home = () => {
+
+const Home = ({ openContactModal }) => {
   const servicesRef = useRef(null);
 
   return (
@@ -18,6 +20,9 @@ const Home = () => {
       <CustomerReview />
       <InsurancePartners />
       <Widgets />
+
+      {/* Add a button or element to trigger the contact modal */}
+      <button onClick={openContactModal}>Contact Us</button>
     </>
   );
 };

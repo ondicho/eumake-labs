@@ -11,6 +11,17 @@ import FAQs from './components/pages/FAQs';
 
 function App() {
   const [count, setCount] = useState(0)
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+
+  const openContactModal = () => {
+    setIsContactModalOpen(true);
+  };
+
+  const closeContactModal = () => {
+    setIsContactModalOpen(false);
+  };
+
 
   return (
     <BrowserRouter>
@@ -22,6 +33,7 @@ function App() {
           <Route exact path="/faqs" element={<Container Page={FAQs} />}/>
           <Route exact path="/contact-us" element={<Container Page={ContactUs} />}/>
         </Routes>
+        {isContactModalOpen && <ContactUsModal closeContactModal={closeContactModal} />}
       </BrowserRouter>
   )
 }

@@ -54,6 +54,7 @@
     margin: 0 1rem;
     font-weight: bold ;
     cursor: pointer;
+    list-style: none;
   }
 
 
@@ -107,7 +108,10 @@
     display: flex;
     flex-direction: column;
     background-color: #00063f;
+    position: fixed;
+    cursor: pointer;
   }
+
 
   .dropdown-header{
     font-weight: bold ;
@@ -119,10 +123,48 @@
   padding: 1rem;
 }
 
+.dropdown-content.closed {
+  display: none;
+}
+
 .dropdown-icon{
   height: 15px!important;
 }
-  
+
+
+.contact-us-modal-content{
+  display: flex;
+  flex-direction: column;
+  background-color: #00063f;
+  position: fixed;
+  cursor: pointer;
+}
+
+.contact-us-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: -webkit-fill-available!important;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-us-modal-content {
+  background-color: #00063f;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+
+
+
+
+
   @media (max-width: 768px) {
     .burger-menu {
       display: block;
@@ -183,5 +225,8 @@
     img.logo {
       height: 30px;
       background-color: white!important;
+  }
+  .dropdown-content{
+    position: inherit!important;
   }
   }

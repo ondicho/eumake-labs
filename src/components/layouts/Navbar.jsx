@@ -6,28 +6,41 @@ import logo from '../../assets/images/logo.png';
 import menu from '../../assets/images/menu.png';
 import call from '../../assets/images/call.png';
 import down from '../../assets/images/down-arrow.png';
+import ContactUsModal from './ContactUsModal';
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+  const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
 
   const handleToggle = () => {
     setIsMobile(!isMobile);
     setServicesDropdownOpen(false);
     setAboutDropdownOpen(false);
+    setContactDropdownOpen(false);
   };
 
   const handleServicesToggle = () => {
     if (isMobile) {
       setServicesDropdownOpen(!servicesDropdownOpen);
       setAboutDropdownOpen(false);
+      setContactDropdownOpen(false);
     }
   };
 
   const handleAboutToggle = () => {
     if (isMobile) {
       setAboutDropdownOpen(!aboutDropdownOpen);
+      setServicesDropdownOpen(false);
+      setContactDropdownOpen(false);
+    }
+  };
+
+  const handleContactToggle = () => {
+    if (isMobile) {
+      setContactDropdownOpen(!contactDropdownOpen);
+      setAboutDropdownOpen(false);
       setServicesDropdownOpen(false);
     }
   };
@@ -36,6 +49,7 @@ const Navbar = () => {
     if (!isMobile) {
       setServicesDropdownOpen(true);
       setAboutDropdownOpen(false);
+      setContactDropdownOpen(false);
     }
   };
 
@@ -43,12 +57,23 @@ const Navbar = () => {
     if (!isMobile) {
       setAboutDropdownOpen(true);
       setServicesDropdownOpen(false);
+      setContactDropdownOpen(false);
     }
   };
+
+  const handleContactHover = () => {
+    if (!isMobile) {
+      setContactDropdownOpen(true);
+      setAboutDropdownOpen(false);
+      setServicesDropdownOpen(false);
+    }
+  };
+
 
   const handleClose = () => {
     setServicesDropdownOpen(false);
     setAboutDropdownOpen(false);
+    setContactDropdownOpen(false);
   };
 
   return (
@@ -88,7 +113,7 @@ const Navbar = () => {
           onMouseEnter={handleAboutHover}
         >
           <div className="dropdown-header">
-            About
+            About Us
             <img className="dropdown-icon" src={down} alt="" />
           </div>
           {aboutDropdownOpen && (
@@ -103,9 +128,16 @@ const Navbar = () => {
         <Link to="/faqs" onClick={handleClose}>
           FAQs
         </Link>
-        <Link to="/contact-us" onClick={handleClose}>
-          Contact
-        </Link>
+        <li id='contact-dropdown'>
+          <div className="dropdown-header">
+            Contact Us
+            <img className="dropdown-icon" src={down} alt="" />
+          </div>
+          <div className="dropdown-content" onClick={handleClose}>
+            <ContactUsModal />
+          </div>
+        </li>
+
         <Link to="/contact-us" onClick={handleClose}>
           <img className="call" src={call} alt="call" />
         </Link>
@@ -150,7 +182,7 @@ const Navbar = () => {
                 onMouseEnter={handleAboutHover}
               >
                 <div className="dropdown-header">
-                  About
+                  About Us
                   {isMobile && <img className="dropdown-icon" src={down} alt="call" />}
                 </div>
                 {aboutDropdownOpen && (
@@ -165,9 +197,24 @@ const Navbar = () => {
               <Link to="/faqs" onClick={handleClose}>
                 FAQs
               </Link>
-              <Link to="/contact-us" onClick={handleClose}>
-                Contact
-              </Link>
+              <li
+                className={`dropdown ${contactDropdownOpen ? 'open' : ''}`}
+                onClick={handleContactToggle}
+                onMouseEnter={handleContactHover}
+              >
+                <div className="dropdown-header">
+                  Contact Us
+                  {isMobile && <img className="dropdown-icon" src={down} alt="call" />}
+                </div>
+                {aboutDropdownOpen && (
+                  <div className="dropdown-content" onMouseLeave={handleClose}>
+                    {/* Add links for different sections of About Us */}
+                    <Link to="/about-us">Our Team</Link>
+                    <Link to="/about-us">Our Mission</Link>
+                    {/* Add more links as needed */}
+                  </div>
+                )}
+              </li>
             </div>
           </div>
         </div>
