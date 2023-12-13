@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Container from './components/layouts/Container';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -8,6 +8,7 @@ import Staff from './components/pages/Staff';
 import Services from './components/pages/Services';
 import ContactUs from './components/pages/ContactUs';
 import FAQs from './components/pages/FAQs';
+import PathologyServices from './components/pages/PathologyServices';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/services" element={<Container Page={Services} />}/>
           <Route exact path="/faqs" element={<Container Page={FAQs} />}/>
           <Route exact path="/contact-us" element={<Container Page={ContactUs} />}/>
+          <Route exact path="/pathology-services" element={<Container Page={PathologyServices} />}/>
         </Routes>
         {isContactModalOpen && <ContactUsModal closeContactModal={closeContactModal} />}
       </BrowserRouter>

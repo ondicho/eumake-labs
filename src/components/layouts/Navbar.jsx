@@ -102,7 +102,7 @@ const Navbar = () => {
             <div className="dropdown-content" onMouseLeave={handleClose}>
               {/* Add links for each service */}
               <Link to="/services">Screening Tests</Link>
-              <Link to="/services">Pathology Services</Link>
+              <Link to="/pathology-services">Pathology Services</Link>
               {/* Add more links as needed */}
             </div>
           )}

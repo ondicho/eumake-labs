@@ -1,9 +1,9 @@
+import CompanyProfile from "./CompanyProfile";
+
 const AboutUs=()=>{
     return(
         <>
-        <div className="main-container">
-        <p>About us</p>
-        </div>
+        <CompanyProfile />
         
         </>
     )
