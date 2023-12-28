@@ -1,0 +1,50 @@
+/* home.css */
+
+.main-container.testimonials {
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  
+  .text-area {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonials-header {
+    text-align: center;
+  }
+  
+  .director-spotlight {
+    margin-top: 20px;
+  }
+  
+  .director-spotlight h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .director-spotlight p {
+    margin: 10px 0;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .director-spotlight .view-icon {
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .director-spotlight p:hover,
+  .director-spotlight .view-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  .view-icon.float-right {
+    float: right;
+  }
+  

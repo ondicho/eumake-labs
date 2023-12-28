@@ -1,6 +1,6 @@
 .appointment-modal{
     background-color: white!important;
-    height: auto;
+    height: auto!important;
 }
 
 
@@ -75,10 +75,29 @@ form.modal-form {
   }
 
 
+  .modal-header{
+    color: #00063f;
+    font-size: 24px;
+  }
+
   @media (max-width: 768px) {
     .appointment-modal{
         width: 80%!important;
         height: fit-content!important;
+    }
+
+    .modal-submit{
+        position: relative;
+        right: -30%;
+    }
+  }
+
+
+
+  @media (max-width: 12px) {
+    .appointment-modal{
+        width: 80%!important;
+        height: auto!important;
     }
 
     .modal-submit{

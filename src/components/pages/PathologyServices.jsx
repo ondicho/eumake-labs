@@ -1,6 +1,7 @@
 // Import images
 import image1 from '../../assets/images/haematology.jpg'
-import image2 from '../../assets/images/haematology1.jpg'
+// import image2 from '../../assets/images/haematology1.jpg'
+import image2 from '../../assets/images/_E5A0835.png'
 import '../../assets/css/pathology.css';
 
 // JSON data for pathology services

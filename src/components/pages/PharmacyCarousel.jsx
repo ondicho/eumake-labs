@@ -2,10 +2,11 @@
 import{ useState, useRef, useEffect } from 'react';
 import '../../assets/css/PharmacyCarousel.css';
 import lab from '../../assets/images/lab.jpg';
-import lab1 from '../../assets/images/lab1.jpg';
-import lab2 from '../../assets/images/lab2.jpg';
+import lab1 from '../../assets/images/_E5A0888.jpg';
+import lab2 from '../../assets/images/_E5A0773.jpg';
 import lab3 from '../../assets/images/banner4.jpg';
 import down from '../../assets/images/down.png';
+
 
 const PharmacyCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

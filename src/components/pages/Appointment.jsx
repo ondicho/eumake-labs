@@ -34,7 +34,7 @@ const Appointment = ({ isOpen, onClose, title }) => {
     <>
       {isOpen && (
         <div className="appointment-modal">
-          <h4>Make Ordrer</h4>
+          <h4 className='modal-header'>Book Appointment</h4>
           <form className='modal-form' onSubmit={handleSubmit}>
             <FormInput
               label="Name:"

@@ -100,10 +100,8 @@ const Navbar = () => {
           </div>
           {servicesDropdownOpen && (
             <div className="dropdown-content" onMouseLeave={handleClose}>
-              {/* Add links for each service */}
               <Link to="/services">Screening Tests</Link>
               <Link to="/pathology-services">Pathology Services</Link>
-              {/* Add more links as needed */}
             </div>
           )}
         </li>
@@ -118,26 +116,31 @@ const Navbar = () => {
           </div>
           {aboutDropdownOpen && (
             <div className="dropdown-content" onMouseLeave={handleClose}>
-              {/* Add links for different sections of About Us */}
               <Link to="/about-us">Our Team</Link>
               <Link to="/about-us">Our Mission</Link>
-              {/* Add more links as needed */}
             </div>
           )}
         </li>
         <Link to="/faqs" onClick={handleClose}>
           FAQs
         </Link>
-        <li id='contact-dropdown'>
+        <li
+          className={`dropdown ${aboutDropdownOpen ? 'open' : ''}`}
+          onClick={handleContactToggle}
+          onMouseEnter={handleContactHover}
+        >
           <div className="dropdown-header">
             Contact Us
             <img className="dropdown-icon" src={down} alt="" />
           </div>
-          <div className="dropdown-content" onClick={handleClose}>
-            <ContactUsModal />
-          </div>
+          {contactDropdownOpen && (
+            <div className="dropdown-content" onMouseLeave={handleClose}>
+              <Link to="/contact-us"> Call</Link>
+              <Link to="/contact-us">WhatsApp</Link>
+              <Link to="/contact-us">Contact Center</Link>
+            </div>
+          )}
         </li>
-
         <Link to="/contact-us" onClick={handleClose}>
           <img className="call" src={call} alt="call" />
         </Link>
@@ -187,10 +190,8 @@ const Navbar = () => {
                 </div>
                 {aboutDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>
-                    {/* Add links for different sections of About Us */}
                     <Link to="/about-us">Our Team</Link>
                     <Link to="/about-us">Our Mission</Link>
-                    {/* Add more links as needed */}
                   </div>
                 )}
               </li>
@@ -208,10 +209,8 @@ const Navbar = () => {
                 </div>
                 {aboutDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>
-                    {/* Add links for different sections of About Us */}
                     <Link to="/about-us">Our Team</Link>
                     <Link to="/about-us">Our Mission</Link>
-                    {/* Add more links as needed */}
                   </div>
                 )}
               </li>

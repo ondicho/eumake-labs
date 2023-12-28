@@ -22,7 +22,7 @@ const Home = ({ openContactModal }) => {
       <Widgets />
 
       {/* Add a button or element to trigger the contact modal */}
-      <button onClick={openContactModal}>Contact Us</button>
+      {/* <button onClick={openContactModal}>Contact Us</button> */}
     </>
   );
 };

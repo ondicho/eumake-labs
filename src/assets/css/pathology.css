@@ -27,12 +27,17 @@
   }
 
 
-  
-  .patholgy-service-image {
-    max-height: 150px;
-    width: 100%;
-    object-fit: cover; /* Maintain aspect ratio */
-  }
+  .pathology-service-image {
+    width: -webkit-fill-available;
+    height: 150px;
+    object-fit: cover; /*Maintain aspect ratio */
+} 
+
+.pathology-service-image img{
+  width: 100%;
+  height: inherit!important;
+   object-fit: cover;
+}
   
   .pathology-btn {
     align-items: center;
