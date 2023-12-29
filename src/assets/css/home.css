@@ -368,8 +368,15 @@ button.meet-staff-button {
 
 .view-icon {
     height: 25px !important;
-}
-
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .view-icon:hover {
+    transform: scale(1.2);
+  }
+  
 .float-right {
     float: right;
 }
@@ -534,14 +541,12 @@ button.meet-staff-button {
         flex-direction: column;
     }
 
-
-    .review-desc-body {
-        display: contents;
-        width: 80%;
+    .director-exp>p {
+        height: 25px !important;
+        display: inline-block; /* Change 'none' to 'inline-block' */
     }
 
-
-
+   
 
 }
 

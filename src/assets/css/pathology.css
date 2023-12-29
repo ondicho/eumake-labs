@@ -7,48 +7,53 @@
   }
   
   .pathology-service {
-    flex: 0 0 calc(30.33% - 20px);
+    flex: 0 0 calc(33.33% - 20px); /* Set to 33.33% for three cards per row */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px; /* Add margin for each card */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)!important;
-    background-color: #E5E1EE;
+    margin: 10px;
     overflow: hidden;
-    position: relative;
-    border: 1px solod #E5E1EE;
+    border-radius: 10px;
+    max-width: 300px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   }
   
   .pathology-service:hover {
-    transform: scale(1.05) translateX(-10px);
-    background-color: #2bb9ff;
-    color: white;
+    transform: none;
+    /* background-color: #E5E1EE; */
   }
-
-
+  
   .pathology-service-image {
-    width: -webkit-fill-available;
-    height: 150px;
-    object-fit: cover; /*Maintain aspect ratio */
-} 
-
-.pathology-service-image img{
-  width: 100%;
-  height: inherit!important;
-   object-fit: cover;
-}
+    width: 100%;
+    height: 200px;
+    /* border: 1px solid #00063f; */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pathology-service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .pathology-service-body {
+    text-align: center;
+    padding: 15px;
+  }
   
   .pathology-btn {
-    align-items: center;
-    float: right;
     background-color: #00063f;
     border: none;
     color: white;
-    padding: 5px;
+    padding: 5px 15px;
     border-radius: 8px;
-    margin: 5px;
+    margin-top: 10px;
   }
+  
   
   @media (max-width: 768px) {
     .pathology-service {
