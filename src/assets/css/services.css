@@ -1,93 +1,82 @@
-.tests{
-    display: flex;
-    width: -webkit-fill-available;
-    height: -webkit-fill-available;
-    /* justify-content: space-around; */
-    flex-wrap: wrap; 
-    margin: 10px;
+/* Add this to your existing CSS file or create a new one (e.g., services.css) */
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.card-row{
-    display: flex;
-    margin: 10px;
+.test-sections {
+  display: flex;
+  /* flex-direction: column; */
 }
 
-.test-card{
-    align-items: left;
-    width: 350px;
-    height: 200px;
-    margin: 10px;
-    border: 1px solid #ddd;
+.section-button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.section-button img {
+  height: 20px;
+  margin-right: 8px; /* Adjust the spacing between the icon and text */
+}
+
+.section-button.active {
+  background-color: #ddd; /* Change the background color for the active button as needed */
+}
+
+.section-table {
+  width: 80%; /* Adjust the width as needed */
+}
+
+.section-table h4{
     color: #00063f;
-    border-radius: 5px;
-    overflow: hidden;
-    position: inherit;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    position: relative;
 }
 
-.test-card:hover{
-    transform: scale(1.05) translateY(-10px);
-    /* Apply hover transformation */
-    background-color: #2bb9ff;
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th {
+    background-color: #00063f; /* Blue band color */
     color: white;
-}
-
-/* Add styles for the labels */
-.test-label {
-    display: inline-block;
-    width: 100px; /* Set a fixed width for the labels */
-    font-weight: bold; /* Make labels bold */
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-
-.order-test {
-    position: absolute;
-    bottom: 20px; /* Adjust the margin from the bottom */
-    transform: translateX(-50%); /* Center the cart horizontally */
-    left: 50%; 
-    padding: 2px;
-    text-align: center;
-    border-radius: 4px;
-}
-
-.test-cart{
-    height: 30px;
-    position: relative;
-    bottom: 0%;
-}
-
-/* Add styles for the search field */
-.search-container {
-    margin-top: 20px;
-    width: 75%;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
   }
   
-  .search-field {
-    width: 100%;
+  .custom-table td {
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    text-align: left;
+  }
+  
+  .even-row {
+    background-color: white;
+    color: #00063f;
+  }
+  
+  .odd-row {
+    background-color: #00063f;
+    color: white;
   }
 
-  .testimonials-header {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    text-align: right;
-    color: #00063f;
-}
-
-.paginated{
-    padding: 5px;
-    margin: 5px;
-    background-color: #2bb9ff;
-    color: white;
-    border-radius: 8px;
-    border: white;
-}
-
 @media (max-width: 768px) {
+    .test-sections {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .section-button {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        border: none;
+        margin: 2px;
+        width: 150px;
+    }
 }

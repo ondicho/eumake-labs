@@ -1,5 +1,4 @@
-// Navbar.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../assets/css/navbar.css';
 import logo from '../../assets/images/logo.png';
@@ -22,27 +21,21 @@ const Navbar = () => {
   };
 
   const handleServicesToggle = () => {
-    if (isMobile) {
-      setServicesDropdownOpen(!servicesDropdownOpen);
-      setAboutDropdownOpen(false);
-      setContactDropdownOpen(false);
-    }
+    setServicesDropdownOpen(!servicesDropdownOpen);
+    setAboutDropdownOpen(false);
+    setContactDropdownOpen(false);
   };
 
   const handleAboutToggle = () => {
-    if (isMobile) {
-      setAboutDropdownOpen(!aboutDropdownOpen);
-      setServicesDropdownOpen(false);
-      setContactDropdownOpen(false);
-    }
+    setAboutDropdownOpen(!aboutDropdownOpen);
+    setServicesDropdownOpen(false);
+    setContactDropdownOpen(false);
   };
 
   const handleContactToggle = () => {
-    if (isMobile) {
-      setContactDropdownOpen(!contactDropdownOpen);
-      setAboutDropdownOpen(false);
-      setServicesDropdownOpen(false);
-    }
+    setContactDropdownOpen(!contactDropdownOpen);
+    setAboutDropdownOpen(false);
+    setServicesDropdownOpen(false);
   };
 
   const handleServicesHover = () => {
@@ -69,12 +62,26 @@ const Navbar = () => {
     }
   };
 
-
   const handleClose = () => {
+    setIsMobile(false);
     setServicesDropdownOpen(false);
     setAboutDropdownOpen(false);
     setContactDropdownOpen(false);
   };
+
+  useEffect(() => {
+    const closeMobileNavbar = () => {
+      if (isMobile && (servicesDropdownOpen || aboutDropdownOpen || contactDropdownOpen)) {
+        handleClose();
+      }
+    };
+
+    document.body.addEventListener('mousemove', closeMobileNavbar);
+
+    return () => {
+      document.body.removeEventListener('mousemove', closeMobileNavbar);
+    };
+  }, [isMobile, servicesDropdownOpen, aboutDropdownOpen, contactDropdownOpen]);
 
   return (
     <nav className={`navbar ${isMobile ? 'mobile-view' : ''}`}>
@@ -100,7 +107,7 @@ const Navbar = () => {
           </div>
           {servicesDropdownOpen && (
             <div className="dropdown-content" onMouseLeave={handleClose}>
-              <Link to="/services">Screening Tests</Link>
+              <Link to="/services">Test Catalogue</Link>
               <Link to="/pathology-services">Pathology Services</Link>
             </div>
           )}
@@ -172,10 +179,8 @@ const Navbar = () => {
                 </div>
                 {servicesDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>
-                    {/* Add links for each service */}
-                    <Link to="/services">Service 1</Link>
-                    <Link to="/services">Service 2</Link>
-                    {/* Add more links as needed */}
+                    <Link to="/services">Test Catalogue</Link>
+                    <Link to="/pathology-services">Pathology Services</Link>
                   </div>
                 )}
               </li>
@@ -209,8 +214,9 @@ const Navbar = () => {
                 </div>
                 {aboutDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>
-                    <Link to="/about-us">Our Team</Link>
-                    <Link to="/about-us">Our Mission</Link>
+                    <Link to="/contact-us"> Call</Link>
+                    <Link to="/contact-us">WhatsApp</Link>
+                    <Link to="/contact-us">Contact Center</Link>
                   </div>
                 )}
               </li>
