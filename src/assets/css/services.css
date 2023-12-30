@@ -106,6 +106,10 @@
     margin-top: 20px;
     cursor: pointer;
   }
+
+  .missing-field{
+    border: 1px solid #2bb9ff; 
+  }
   
   /* Media Query for screens with a maximum width of 768px */
   
