@@ -328,7 +328,7 @@ button.meet-staff-button {
 }
 
 .review-icon>img {
-    height: 50px;
+    height: 30px;
     cursor: pointer;
 }
 
@@ -626,5 +626,13 @@ button.meet-staff-button {
     }
 
 
+
+}
+
+@media (min-width: 1200px) {
+    
+    .review-testimonial {
+        height: auto !important;
+    }
 
 }

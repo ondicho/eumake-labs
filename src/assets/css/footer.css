@@ -23,16 +23,17 @@
   color: white;
   color: #00063f;
   display: flex;
-  justify-content: space-evenly;
-  /* margin-bottom: 5px; */
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-text {
   font-style: italic;
-  font-weight: bold;
+  font-size: small;
+  /* font-weight: bold; */
   padding-bottom: 5px;
   color: white;
-  margin: 5px;
+  margin: 0px 10px;
 }
 
 
@@ -74,6 +75,17 @@
 .weekend {
   margin-left: 30px;
 }
+
+.footer-column li>p:hover{
+  color: #2bb9ff;
+  text-decoration: underline;
+}
+
+p.unhover:hover {
+  color: #00063f!important;
+}
+
+
 
 @media (max-width: 768px) {
   .top-footer {

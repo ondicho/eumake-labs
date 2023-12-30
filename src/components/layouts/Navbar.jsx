@@ -142,7 +142,6 @@ const Navbar = () => {
           </div>
           {contactDropdownOpen && (
             <div className="dropdown-content" onMouseLeave={handleClose}>
-              <Link to="/contact-us"> Call</Link>
               <Link to="/contact-us">WhatsApp</Link>
               <Link to="/contact-us">Contact Center</Link>
             </div>
@@ -214,7 +213,6 @@ const Navbar = () => {
                 </div>
                 {aboutDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>
-                    <Link to="/contact-us"> Call</Link>
                     <Link to="/contact-us">WhatsApp</Link>
                     <Link to="/contact-us">Contact Center</Link>
                   </div>

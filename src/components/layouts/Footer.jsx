@@ -6,6 +6,7 @@ import twitter from '../../assets/images/twitter.jpeg'
 import mail from '../../assets/images/mail.jpeg'
 import map from '../../assets/images/map.png'
 import whatsapp from '../../assets/images/whatsapp.png'
+import hours from '../../assets/images/hours.png'
 
 const Footer = () => {
 
@@ -23,26 +24,24 @@ const Footer = () => {
                         <li><img  className="footer-icon" src={mail} alt="mail" /><p>info@eumake.co.ke</p></li>
                         <li><img  className="footer-icon" src={whatsapp} alt="telephone" /><p>0702205555</p></li>
                         <li><img  className="footer-icon" src={map} alt="map" /><p>3<sup>rd</sup> Parklands Avenue, Nairobi</p></li>
-                        <li><img  className="footer-icon weekend" src="" alt="" /><p>Room 505, 5<sup>th</sup> Floor</p></li>
-                        <li><img  className="footer-icon" src={map} alt="map" /><p>Mon to Fri - 8:00am to 7:00pm  </p></li>
-                        <li><img  className="footer-icon  weekend" src="" alt="" /><p>Weekend & Public Holidays - 8:00am to 5:00pm  </p></li>
+                        <li><img  className="footer-icon weekend" src="" alt="" /><p className='unhover'>Room 505, 5<sup>th</sup> Floor</p></li>
+                        <li><img  className="footer-icon" src={hours} alt="map" /><p>Mon to Fri - 8:00am to 7:00pm  </p></li>
+                        <li><img  className="footer-icon  weekend" src="" alt="" /><p className='unhover'>Weekend & Public Holidays - 8:00am to 5:00pm  </p></li>
                         </ul>
                     </div>
                     <div className="footer-column">
                         <h4>EUMAKE</h4>
                         <ul>
-                        <li>Home</li>
-                        <li>Services</li>
-                        <li>About us</li>
-                        <li>FAQs</li>
+                        <li><p className='footer-nav'>Home</p></li>
+                        <li><p className='footer-nav'>Services</p></li>
+                        <li><p className='footer-nav'>About us</p></li>
+                        <li><p className='footer-nav'>FAQs</p></li>
                         </ul>
                     </div>
                     <div className="footer-column">
                         <h4>ACCREDITATIONS</h4>
                         <ul>
                         <li>KMPDU</li>
-                        <li>Services</li>
-                        <li>About us</li>
                         </ul>
                     </div>
                     <div className="footer-column">
