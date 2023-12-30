@@ -8,6 +8,8 @@ import kidney from '../../assets/images/kidney.png'
 import wellness from '../../assets/images/health.png'
 import other from '../../assets/images/blood-sample.png'
 
+import GetTestForm from './GetTestForm';
+
 
 const iconImages = {
   generalWellness: wellness,
@@ -102,7 +104,7 @@ const servicesData = {
   lipidProfile: {
     section: 'Lipid Profile',
     tests: [
-      { name: 'HDL, serum', duration: '2-3HRS',      price: 1300 },
+      { name: 'HDL, serum', duration: '2-3HRS', price: 1300 },
       { name: 'LDL, serum', duration: '2-3HRS', price: 1300 },
       { name: 'LDL/HDL RATIO, serum', duration: '2-3HRS', price: 2300 },
       { name: 'LIPID PROFILE', duration: '2-3HRS', price: 3600 },
@@ -133,7 +135,12 @@ const Services = () => {
     setActiveSection(section);
   };
 
-  
+  const handleFormSubmit = (formData) => {
+    // Handle the form submission logic here, e.g., send data to a server
+    console.log('Form data submitted:', formData);
+  };
+
+
 
   return (
     <div className="main-container service-container">
@@ -172,6 +179,10 @@ const Services = () => {
           </table>
         </div>
       )}
+      <div className="form-area">
+        <GetTestForm activeSection={activeSection} tests={servicesData[activeSection].tests} onSubmit={handleFormSubmit} />
+      </div>
+
     </div>
   );
 };

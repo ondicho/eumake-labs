@@ -1,49 +1,47 @@
-/* Add this to your existing CSS file or create a new one (e.g., services.css) */
+/* main.css */
 
 .main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.test-sections {
-  display: flex;
-  /* flex-direction: column; */
-}
-
-.section-button {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  cursor: pointer;
-  border: none;
-}
-
-.section-button img {
-  height: 20px;
-  margin-right: 8px; /* Adjust the spacing between the icon and text */
-}
-
-.section-button.active {
-  background-color: #ddd; /* Change the background color for the active button as needed */
-}
-
-.section-table {
-  width: 80%; /* Adjust the width as needed */
-}
-
-.section-table h4{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .test-sections {
+    display: flex;
+  }
+  
+  .section-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .section-button img {
+    height: 20px;
+    margin-right: 8px;
+  }
+  
+  .section-button.active {
+    background-color: #ddd;
+  }
+  
+  .section-table {
+    width: 80%;
+  }
+  
+  .section-table h4 {
     color: #00063f;
-}
-
-
-.custom-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.custom-table th {
-    background-color: #00063f; /* Blue band color */
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .custom-table th {
+    background-color: #00063f;
     color: white;
     font-weight: bold;
     padding: 10px;
@@ -64,19 +62,87 @@
     background-color: #00063f;
     color: white;
   }
+  
+  /* get-test-form.css */
 
-@media (max-width: 768px) {
+  .form-area{
+    width: 100%;
+    margin-top: 2rem;
+    /* color: white!important;
+    background-color: #2bb9ff; */
+  }
+  
+  .get-test-form {
+    width: 100%;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .test-submit {
+    position: inherit;
+    background-color: #00063f;
+    color: white;
+    padding: 10px;
+    width: 100px;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  /* Media Query for screens with a maximum width of 768px */
+  
+  @media (max-width: 768px) {
     .test-sections {
-        display: flex;
-        flex-wrap: wrap;
+      display: flex;
+      flex-wrap: wrap;
     }
+  
     .section-button {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        cursor: pointer;
-        border: none;
-        margin: 2px;
-        width: 150px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      margin: 2px;
+      width: 150px;
     }
-}
+  }
+
+  /* Add this to the get-test-form.css file */
+
+@media (min-width: 769px) {
+    .form-group {
+      display: flex;
+      align-items: center;
+    }
+  
+    label {
+      flex: 1;
+      margin-right: 16px; /* Adjust the margin as needed for spacing */
+    }
+  
+    input,
+    select {
+      flex: 2; /* Adjust the flex value as needed for spacing */
+    }
+  }
+  
+  
