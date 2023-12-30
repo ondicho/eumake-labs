@@ -1,27 +1,25 @@
-/* faq.css */
-
 .faqs {
   justify-content: space-around !important;
   width: 100%;
-}
-
-.faq-header {
+ }
+ 
+ .faq-header {
   text-align: center;
   margin-top: 20px;
-}
-
-.faq-top {
+ }
+ 
+ .faq-top {
   width: -webkit-fill-available;
   height: 60px;
-}
-
-.faq-list {
+ }
+ 
+ .faq-list {
   list-style: none;
   padding: 0;
   width: 80%;
-}
-
-.faq-item {
+ }
+ 
+ .faq-item {
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -29,48 +27,49 @@
   background-color: white;
   width: 80%;
   height: auto;
-}
-
-.faq-question {
+ }
+ 
+ .faq-question {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   cursor: pointer;
-}
-
-.faq-question-text {
-  margin-right: auto; /* Change this line */
-}
-
-.faq-toggle {
-  height: 30px; /* Specify the height for the faq-toggle */
+ }
+ 
+ .faq-question-text {
+  margin-right: auto;
+ }
+ 
+ .faq-toggle {
+  height: 30px;
   cursor: pointer;
   padding: 10px;
-}
-
-.faq-toggle-icon {
-  width: 20px; /* Adjust the width as needed */
-  height: 20px; /* Adjust the height as needed */
+ }
+ 
+ .faq-toggle-icon {
+  width: 20px;
+  height: 20px;
   transition: transform 0.3s ease-in-out;
-}
-
-.faq-toggle.expanded .faq-toggle-icon {
+ }
+ 
+ .faq-toggle.expanded .faq-toggle-icon {
   transform: rotate(180deg);
-}
-
-.faq-answer {
+ }
+ 
+ .faq-answer {
   padding: 10px;
-  overflow: hidden; /* Ensure the answer is not visible by default */
-  transition: max-height 0.3s ease-in-out; /* Add a smooth transition effect */
-  max-height: 0; /* Set max-height to 0 for initial state */
-  display: block; /* Ensure the answer is visible when expanded */
-}
-
-.faq-item.expanded .faq-answer {
-  max-height: 1000px; /* Set a sufficiently large value to allow for expansion */
-}
-
-.faq-answer-text {
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  max-height: 0;
+  display: block;
+ }
+ 
+ .faq-item.expanded .faq-answer {
+  max-height: 1000px;
+ }
+ 
+ .faq-answer-text {
   margin-left: 25px;
-}
+ }
+ 
