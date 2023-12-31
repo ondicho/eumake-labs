@@ -114,7 +114,7 @@ img.service-image {
     background-color: white !important;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     margin-bottom: 30px;
 
 }
@@ -463,9 +463,9 @@ button.meet-staff-button {
         flex-direction: column !important;
     }
 
-    .testimonials img {
+    /* .testimonials img {
         display: none !important;
-    }
+    } */
 
     .testimonials .text-area {
         position: inherit;

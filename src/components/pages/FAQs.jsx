@@ -50,10 +50,10 @@ const FAQs = () => {
       </div>
       <ul className="faq-list">
         {faqData.map((faq) => (
-          <li key={faq.id} className="faq-item">
+          <li key={faq.id} className="faq-item" onClick={() => toggleAnswer(faq.id)}>
             <div className="faq-question">
               <div className="faq-question-text">{faq.question}</div>
-              <div className="faq-toggle" onClick={() => toggleAnswer(faq.id)}>
+              <div className="faq-toggle">
                 <img
                   className={`faq-toggle-icon ${expandedId === faq.id ? 'expanded' : ''}`}
                   src={down}

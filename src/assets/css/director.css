@@ -1,50 +1,103 @@
 /* home.css */
 
 .main-container.testimonials {
-    position: relative;
-    overflow: hidden;
-    margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  margin: 20px 0;
+  flex-direction: column!important;
+}
+
+.director-image-container {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  background-color: white !important;
+  margin-top: 2rem;
+  align-self: flex-start;
+  text-align: -webkit-center;
+  margin: 2rem;
+}
+
+.director-image-container > img {
+  width: 100%;
+  height: 150%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.text-area {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 2rem;
+}
+
+.director-spotlight {
+  margin-top: 20px;
+  background-color: #2bb9ff!important;
+}
+
+.director-spotlight h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white!important;
+}
+
+.director-spotlight p {
+  margin: 10px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.director-spotlight .view-icon {
+  margin-left: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.director-spotlight p:hover,
+.director-spotlight .view-icon:hover {
+  transform: scale(1.1);
+}
+
+.view-icon.float-right {
+  float: right;
+}
+
+.panel-header {
+  top: 5%;
+  right: 5%;
+  text-align: right;
+  float: right;
+}
+
+.testimonials-container {
+  display: flex!important;
+  background-color: #2bb9ff!important;
+  align-items: center;
+}
+
+.italic-bold-director{
+  color: white!important;
+}
+
+@media (max-width: 768px) {
+  .testimonials-container {
+    flex-direction: column;
+    align-items: flex-start; /* Add this line to align items to the start on mobile */
   }
-  
-  .text-area {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .director-image-container {
+    margin-top: 1rem; /* Adjust the margin for smaller screens */
+    align-items: center!important;
+    align-self: center;
   }
-  
-  .testimonials-header {
-    text-align: center;
+
+  .director-image-container > img {
+    width: 100px!important;
   }
-  
-  .director-spotlight {
-    margin-top: 20px;
-  }
-  
-  .director-spotlight h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .director-spotlight p {
-    margin: 10px 0;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .director-spotlight .view-icon {
-    margin-left: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .director-spotlight p:hover,
-  .director-spotlight .view-icon:hover {
-    transform: scale(1.1);
-  }
-  
-  .view-icon.float-right {
-    float: right;
-  }
-  
+}

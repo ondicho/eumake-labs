@@ -85,6 +85,26 @@ p.unhover:hover {
   color: #00063f!important;
 }
 
+/* Add this CSS to your existing stylesheet */
+
+.socials:hover {
+  transform: scale(1.05);
+  animation: shake 0.04s ease-in-out 2; /* Run the animation twice */
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+
 
 
 @media (max-width: 768px) {

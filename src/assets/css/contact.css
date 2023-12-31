@@ -49,3 +49,47 @@
     border-radius: 5px;
     
 }
+
+@media (max-width: 768px) {
+    .contact-point{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-text-area {
+        width: 80%!important;
+    }
+
+    .contact-center-form .modal-form-input textarea#message {
+        width: 85%;
+    }
+
+    .contact-point>img{
+        height: 100px;
+    }
+    .contact-center-form .modal-form-input .modal-input {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .contact-point{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-text-area {
+        width: 80%!important;
+    }
+
+    .contact-center-form .modal-form-input textarea#message {
+        width: 85%;
+    }
+
+    .contact-point>img{
+        height: 100px;
+    }
+    .contact-center-form .modal-form-input .modal-input {
+        width: 80%;
+    }
+}

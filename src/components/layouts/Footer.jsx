@@ -47,10 +47,10 @@ const Footer = () => {
                     <div className="footer-column">
                     <h4>SOCIALS</h4>
                     <ul>
-                        <li><img  className="footer-icon" src={facebook} alt="facebook" /></li>
-                        <li><img  className="footer-icon" src={twitter} alt="twitter" /></li>
-                        <li><img  className="footer-icon" src={instagram} alt="instagram" /></li>
-                        <li><img  className="footer-icon" src={whatsapp} alt="whatsapp" /></li>
+                        <li className='socials'><img  className="footer-icon" src={facebook} alt="facebook" /></li>
+                        <li className='socials'><img  className="footer-icon" src={twitter} alt="twitter" /></li>
+                        <li className='socials'><img  className="footer-icon" src={instagram} alt="instagram" /></li>
+                        <li className='socials'><img  className="footer-icon" src={whatsapp} alt="whatsapp" /></li>
                         </ul>
                     </div>
                     </div>

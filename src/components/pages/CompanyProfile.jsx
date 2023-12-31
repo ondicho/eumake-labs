@@ -2,15 +2,19 @@
 
 import React, { useState } from 'react';
 import technician from '../../assets/images/_E5A0964.png';
-import view from '../../assets/images/view.png';
-import '../../assets/css/home.css';
-// import '../../assets/css/director.css';
+import view from '../../assets/images/down-arrow.png';
+import '../../assets/css/director.css';
 
 const CompanyProfile = () => {
   const directorData = {
     name: 'Eunice',
     image: technician,
     profile: 'Company Profile',
+    summary: `
+    Eunice Ombati is the founder and director of Eumake Diagnostic Laboratories (EDL).
+    With over 20 years of experience in pathology practice, she has played key roles in
+    various organizations, contributing to the field of laboratory management and
+    quality assurance.`,
     spotlight: {
       title: "Director's Spotlight",
       content: [
@@ -80,6 +84,7 @@ const CompanyProfile = () => {
     },
   };
 
+
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const toggleTasks = (index) => {
@@ -88,41 +93,45 @@ const CompanyProfile = () => {
 
   return (
     <div className="main-container testimonials">
-      <img src={directorData.image} alt={directorData.name} />
-      <div className="text-area">
-        <div className="testimonials-header">
-          <h3 className="italic-bold">{directorData.profile}</h3>
+      <div className="panel-header">
+        <h3 className="italic-bold-director">{directorData.spotlight.title}</h3>
+      </div>
+      <div className="testimonials-container">
+        <div className="director-image-container">
+          <img src={directorData.image} alt={directorData.name} />
         </div>
-        <div className="director-spotlight">
-          <h2>{directorData.spotlight.title}</h2>
-          {directorData.spotlight.content.map((event, index) => (
-            <div className="director-exp" key={index}>
-              <p>
-                <strong>{event.date}: </strong>
-                {event.description}
-                {event.tasks && (
-                  <img
-                    src={view}
-                    alt="View Tasks"
-                    className="view-icon float-right"
-                    onClick={() => toggleTasks(index)}
-                  />
-                )}
-              </p>
-              {expandedIndex === index && event.tasks && (
-                <ul>
-                  {event.tasks.map((task, i) => (
-                    <li key={i}>{task}</li>
-                  ))}
-                </ul>
-              )}
-              {event.location && (
+        <div className="text-area">
+          <p>{directorData.summary}</p>
+          <div className="director-spotlight">
+            {directorData.spotlight.content.map((event, index) => (
+              <div className="director-exp" key={index}>
                 <p>
-                  <strong>Location:</strong> {event.location}
+                  <strong>{event.date}: </strong>
+                  {event.description}
+                  {event.tasks && (
+                    <img
+                      src={view}
+                      alt="View Tasks"
+                      className="view-icon float-right"
+                      onClick={() => toggleTasks(index)}
+                    />
+                  )}
                 </p>
-              )}
-            </div>
-          ))}
+                {expandedIndex === index && event.tasks && (
+                  <ul>
+                    {event.tasks.map((task, i) => (
+                      <li key={i}>{task}</li>
+                    ))}
+                  </ul>
+                )}
+                {event.location && (
+                  <p>
+                    <strong>Location:</strong> {event.location}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

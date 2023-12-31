@@ -7,21 +7,39 @@
   .team-members {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 20px;
   }
   
   .team-member {
     width: 300px;
+    height: 400px;
     margin: 20px;
     padding: 20px;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    position: relative;
+  }
+  
+  .member-image {
+    height: 45%;
+    overflow: hidden;
+    margin-bottom: 3rem;
+  }
+  
+  .member-image img {
+    width: 100%;
+    height: auto;
   }
   
   .member-info {
-    margin-bottom: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: right;
   }
   
   .member-info h3 {
@@ -33,15 +51,7 @@
     color: #777;
   }
   
-  .member-image img {
-    max-height: 200px; /* Set maximum height */
-    width: auto;
-    margin-bottom: 10px;
-  }
-  
   .testimonial {
     color: #555;
   }
-  
-  /* Add more styles as needed */
   
