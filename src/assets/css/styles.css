@@ -1,64 +1,28 @@
-.page-container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Ensure the content doesn't overflow */
-    min-height: 100vh;
-  }
 
-  .page-content-holder {
-    width: 100%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 60vh;
-
-  }
-
-  .main-container {
-    position: inherit;
-    width: 100%;
-    height:auto;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .widget {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-  
-  .modal {
-    position: absolute;
-    top: 0;
-    left: 100%; /* Position the modal to the right of the widget */
-    width: 150px;
-    padding: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 0px 15px 0px 15px;
-    display: none; /* Initially hide the modal */
-    /* color: #2bb9ff; */
-  }
-  /* widgets.css */
-
-.widgets {
-  position: fixed;
-  bottom: 5%;
-  left: 1%;
-  
+body {
+  margin: 0 !important;
+  padding: 0;
+}
+.page-content-holder {
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
 }
 
-.widget-container {
-  position: relative;
-  text-align: center;
+.main-container {
+  position: inherit;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Widget styles */
 .widget {
   width: 30px;
   height: 30px;
@@ -66,10 +30,21 @@
   cursor: pointer;
 }
 
+.widgets {
+  position: fixed;
+  bottom: 5%;
+  left: 1%;
+}
+
+.widget-container {
+  position: relative;
+  text-align: center;
+}
+
 .modal {
   position: absolute;
   top: 0;
-  left: calc(100% + 10px); /* Adjust the distance from the right edge */
+  left: calc(100% + 10px);
   width: 200px;
   padding: 10px;
   background-color: #00063f;
@@ -84,11 +59,12 @@
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
 .widget-container img:hover + .modal {
   opacity: 1;
 }
 
-
+/* Appointment modal styles */
 .appointment-modal {
   width: 30%;
   height: 30%;
@@ -96,31 +72,26 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000; /* Ensure the modal is on top of the page content */
-  background-color: #00063f; /* Set the background color of the modal */
-  padding: 20px; /* Add padding to the modal content */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-  border-radius: 8px; /* Add border radius to round the corners */
+  z-index: 1000;
+  background-color: #00063f;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 .appointment-modal p {
-  margin: 0; /* Remove default margin for the paragraphs inside the modal */
+  margin: 0;
 }
 
-
-.blur-background {
-  filter: blur(5px); /* Adjust the blur amount as needed */
-  pointer-events: none; /* Allow interaction with underlying elements */
-}
-
-.menu-icon{
+/* Menu icon */
+.menu-icon {
   opacity: 0;
 }
 
+/* Responsive styles */
 @media (max-width: 768px) {
-
-  .modal{
-      display: none!important;
+  .modal {
+    display: none !important;
   }
 
   .widgets {
@@ -128,6 +99,5 @@
     bottom: 5%;
     left: 5%;
   }
-  
 
 }

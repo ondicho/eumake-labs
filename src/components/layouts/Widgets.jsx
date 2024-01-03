@@ -1,15 +1,31 @@
-// Widgets.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../assets/css/styles.css';
 import appointment from '../../assets/images/appointment.png';
 import track from '../../assets/images/track.png';
 import top from '../../assets/images/top.png';
 import rider from '../../assets/images/rider.png';
 import Appointment from '../pages/Appointment';
+import { useBackgroundColor } from '../layouts/BackgroundColorContext';
 
 const Widgets = () => {
+  const { backgroundColor } = useBackgroundColor();
   const [isAppointmentModalOpen, setAppointmentModalOpen] = useState(false);
   const [isSampleModalOpen, setSampleModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Log the background color as you scroll
+      console.log('Background Color While Scrolling:', backgroundColor);
+    };
+
+    // Add event listener for 'scroll' event
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [backgroundColor]); // Re-run effect when backgroundColor changes
 
   const openAppointmentModal = () => {
     setAppointmentModalOpen(true);
@@ -33,12 +49,26 @@ const Widgets = () => {
     });
   };
 
+  const getIconSource = (icon) => {
+    // Check if the background color is #00063f
+    if (backgroundColor === '#00063f') {
+      // Use the white version of the icon if background is #00063f
+      const whiteIcon = icon.replace('.png', 'White.png');
+
+      // Check if the white version of the icon exists, otherwise use the original icon
+      return whiteIcon !== icon ? whiteIcon : icon;
+    }
+
+    // Use the original icon if the background color is not #00063f
+    return icon;
+  };
+
   return (
     <>
       <div className="widgets">
         <div className="widget-container">
           <img
-            src={appointment}
+            src={getIconSource(appointment)}
             alt="Appointment"
             className="widget appointment"
             onClick={openAppointmentModal}
@@ -49,7 +79,7 @@ const Widgets = () => {
         </div>
         <div className="widget-container">
           <img
-            src={rider}
+            src={getIconSource(rider)}
             alt="Order Now"
             className="widget order-now"
             onClick={openSampleModal}
@@ -61,7 +91,7 @@ const Widgets = () => {
 
         <div className="widget-container">
           <img
-            src={track}
+            src={getIconSource(track)}
             alt="Back to Top"
             className="widget back-to-top"
             onClick={scrollToTop}
@@ -72,7 +102,7 @@ const Widgets = () => {
         </div>
         <div className="widget-container">
           <img
-            src={top}
+            src={getIconSource(top)}
             alt="Back to Top"
             className="widget back-to-top"
             onClick={scrollToTop}

@@ -54,8 +54,8 @@ const PharmacyCarousel = () => {
 
   return (
     <div className="carousel-container">
-      <div class="carousel-progress-bar">
-        <div class="progress-fill"></div>
+      <div className="carousel-progress-bar">
+        <div className="progress-fill"></div>
       </div>
 
       <div className="carousel-item" ref={itemRef}>
