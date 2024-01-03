@@ -26,6 +26,7 @@ const Panel = React.forwardRef((props, ref) => {
   const servicesData = {
     generalWellness: {
       section: 'General Wellness',
+      activeSection: 'generalWellness',
       tests: [
         { name: 'COMPLETE BLOOD COUNT(CBC)', duration: '2-3HRS', price: 900 },
         { name: 'ESR, blood', duration: '2-3HRS', price: 850 },
@@ -35,6 +36,7 @@ const Panel = React.forwardRef((props, ref) => {
     },
     renalElectrolytes: {
       section: 'Renal/Electrolytes',
+      activeSection: 'generalWellness',
       tests: [
         { name: 'CHLORIDE, serum', duration: '2-3HRS', price: 3100 },
         { name: 'CREATINE CLEARANCE', duration: '2-3HRS', price: 6250 },
@@ -44,6 +46,7 @@ const Panel = React.forwardRef((props, ref) => {
     },
     cardiacAssessment: {
       section: 'Cardiac Assessment',
+      activeSection: 'generalWellness',
       tests: [
         { name: 'CARDIAC PROFILE(TROPONIN T CKMB CPK TOTAL)', duration: '2-3HRS', price: 1850 },
         { name: 'CARDIAC TROPONIN T', duration: '2-3HRS', price: 900 },
@@ -53,6 +56,7 @@ const Panel = React.forwardRef((props, ref) => {
     },
     liverFunctionTest: {
       section: 'Liver Function Test',
+      activeSection: 'generalWellness',
       tests: [
         { name: 'ALBUMIN', duration: '2-3HRS', price: 4350 },
         { name: 'ALT/SGPT, serum', duration: '2-3HRS', price: 850 },
@@ -62,6 +66,7 @@ const Panel = React.forwardRef((props, ref) => {
     },
     // Add more sections as needed
   };
+
 
   const selectedTests = servicesData[activeSection]?.tests || [];
 
@@ -78,7 +83,7 @@ const Panel = React.forwardRef((props, ref) => {
           return (
             <ServiceCard
               key={index}
-              section={section.section}
+              section={section.activeSection}
               testName={firstTest.name}
               duration={firstTest.duration}
               price={firstTest.price}

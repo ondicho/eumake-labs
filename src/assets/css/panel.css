@@ -45,9 +45,8 @@
     align-self: center;
   }
   
-  .pathology-service-body {
-    text-align: center;
-    padding: 15px;
+  .panel-service-description {
+    color: #00063f;
   }
   
   .panel-service-btn:hover {

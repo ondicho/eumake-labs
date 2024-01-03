@@ -13,7 +13,7 @@ const ServiceCard = ({ section, testName, duration, price, image, onClick }) => 
                     <h5>{section}</h5>
                     <h6>{testName}</h6>
                     <p>{duration}</p>
-                    <p>Price: ${price}</p>
+                    <p>Kes. {price}</p>
                 </div>
 
                 <div className="panel-service-read-more">
