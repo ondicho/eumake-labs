@@ -1,10 +1,9 @@
-// Team.jsx
-
 import React from 'react';
-import '../../assets/css/team.css'; // Import your team-related styles if needed
-import image1 from '../../assets/images/technician.png';
-import image2 from '../../assets/images/technician.png';
-import image3 from '../../assets/images/technician.png';
+import Card from './Card'; // Import the Card component
+import '../../assets/css/team.css';
+import image1 from '../../assets/images/_E5A0965.jpg';
+import image2 from '../../assets/images/_E5A0794.jpg';
+import image3 from '../../assets/images/_E5A0792.jpg';
 
 const Team = () => {
   const teamMembers = [
@@ -36,18 +35,7 @@ const Team = () => {
       <h2>Our Team</h2>
       <div className="team-members">
         {teamMembers.map((member) => (
-          <div key={member.id} className="team-member">
-            <div className="member-image">
-              <img src={member.image} alt={member.name} />
-            </div>
-            <div className="member-info">
-              <h3>{member.name}</h3>
-              <p>{member.position}</p>
-            </div>
-            <div className="testimonial">
-              <p>{member.testimonial}</p>
-            </div>
-          </div>
+          <Card key={member.id} {...member} />
         ))}
       </div>
     </div>
