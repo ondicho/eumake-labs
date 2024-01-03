@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import technician from '../../assets/images/_E5A0964.png';
-import view from '../../assets/images/down-arrow.png';
+import view from '../../assets/images/down1.png';
 import '../../assets/css/director.css';
 
 const CompanyProfile = () => {
@@ -101,11 +101,11 @@ const CompanyProfile = () => {
           <img src={directorData.image} alt={directorData.name} />
         </div>
         <div className="text-area">
-          <p>{directorData.summary}</p>
+          <p className='date'>{directorData.summary}</p>
           <div className="director-spotlight">
             {directorData.spotlight.content.map((event, index) => (
               <div className="director-exp" key={index}>
-                <p>
+                <p className='date'>
                   <strong>{event.date}: </strong>
                   {event.description}
                   {event.tasks && (
@@ -120,7 +120,7 @@ const CompanyProfile = () => {
                 {expandedIndex === index && event.tasks && (
                   <ul>
                     {event.tasks.map((task, i) => (
-                      <li key={i}>{task}</li>
+                      <li key={i} className='date'>{task}</li>
                     ))}
                   </ul>
                 )}

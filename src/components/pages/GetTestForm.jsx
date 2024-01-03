@@ -4,6 +4,10 @@ import '../../assets/css/services.css';
 import AcknowledgmentModal from './AcknowledgmentModal';
 
 const GetTestForm = ({ activeSection, tests, onSubmit }) => {
+
+  console.log('activeSection:', activeSection);
+  console.log('tests:', tests);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -54,13 +58,14 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
     });
   };
 
-  // Capitalize the first letter of the test section
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  const formTitle = `Book ${capitalizeFirstLetter(activeSection.replace(/([A-Z])/g, ' $1').trim())} Test`;
-
+  // Check if activeSection is a string before using replace method
+  const formTitle = typeof activeSection === 'string'
+    ? `Book ${capitalizeFirstLetter(activeSection.replace(/([A-Z])/g, ' $1').trim())} Test`
+    : '';
   return (
     <div className="get-test-form">
       <form onSubmit={handleSubmit}>

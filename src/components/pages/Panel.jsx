@@ -1,31 +1,69 @@
 import { Link } from 'react-router-dom';
 import '../../assets/css/home.css';
-import test1 from '../../assets/images/test1.png';
-import test2 from '../../assets/images/test2.png';
-import test3 from '../../assets/images/test3.png';
-import test4 from '../../assets/images/test4.png';
-import test5 from '../../assets/images/test5.png';
-
 import React, { useState } from 'react';
 import ServiceModal from "./ServiceModal";
+import ServiceCard from './ServiceCard';
+import wellness from '../../assets/images/health.png';
+import kidney from '../../assets/images/kidney.png';
+import cardiac from '../../assets/images/heart.png';
+import liver from '../../assets/images/liver.png';
 
 const Panel = React.forwardRef((props, ref) => {
+  const [activeSection, setActiveSection] = useState(null);
   const [isServiceModalOpen, setServiceModalOpen] = useState(false);
-  const openServiceModal = () => {
+
+  const openServiceModal = (section) => {
+    const selectedSection = section?.target?.dataset?.section || section;
+    setActiveSection(selectedSection);
     setServiceModalOpen(true);
   };
 
   const closeModals = () => {
+    setActiveSection(null);
     setServiceModalOpen(false);
   };
 
-  const servicesData = [
-    { image: test1, title: "HIV Test", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { image: test2, title: "Immunology", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { image: test3, title: "Hematology", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { image: test4, title: "Thyroid Tests", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { image: test5, title: "Liver/Pancreas", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  ];
+  const servicesData = {
+    generalWellness: {
+      section: 'General Wellness',
+      tests: [
+        { name: 'COMPLETE BLOOD COUNT(CBC)', duration: '2-3HRS', price: 900 },
+        { name: 'ESR, blood', duration: '2-3HRS', price: 850 },
+        // Add more tests as needed
+      ],
+      image: wellness,
+    },
+    renalElectrolytes: {
+      section: 'Renal/Electrolytes',
+      tests: [
+        { name: 'CHLORIDE, serum', duration: '2-3HRS', price: 3100 },
+        { name: 'CREATINE CLEARANCE', duration: '2-3HRS', price: 6250 },
+        // Add more tests as needed
+      ],
+      image: kidney,
+    },
+    cardiacAssessment: {
+      section: 'Cardiac Assessment',
+      tests: [
+        { name: 'CARDIAC PROFILE(TROPONIN T CKMB CPK TOTAL)', duration: '2-3HRS', price: 1850 },
+        { name: 'CARDIAC TROPONIN T', duration: '2-3HRS', price: 900 },
+        // Add more tests as needed
+      ],
+      image: cardiac,
+    },
+    liverFunctionTest: {
+      section: 'Liver Function Test',
+      tests: [
+        { name: 'ALBUMIN', duration: '2-3HRS', price: 4350 },
+        { name: 'ALT/SGPT, serum', duration: '2-3HRS', price: 850 },
+        // Add more tests as needed
+      ],
+      image: liver,
+    },
+    // Add more sections as needed
+  };
+
+  const selectedTests = servicesData[activeSection]?.tests || [];
 
   return (
     <div ref={ref} className="main-container service-panel">
@@ -33,23 +71,32 @@ const Panel = React.forwardRef((props, ref) => {
         <h3 className="italic-bold">Our Services</h3>
       </div>
       <div className="services">
-        {servicesData.map((service, index) => (
-          <div className="service" key={index}>
-            <div className="service-icon">
-              <img className="service-image" src={service.image} alt="service-image" />
-            </div>
-            <div className="service-description">
-              <h5>{service.title}</h5>
-              <p>{service.description}</p>
-            </div>
-            <div className="service-read-more">
-              <button onClick={openServiceModal}>Order Now</button>
-            </div>
-          </div>
-        ))}
+        {Object.keys(servicesData).map((sectionKey, index) => {
+          const section = servicesData[sectionKey];
+          const firstTest = section.tests[0];
+          const imageSrc = section.image;
+          return (
+            <ServiceCard
+              key={index}
+              section={section.section}
+              testName={firstTest.name}
+              duration={firstTest.duration}
+              price={firstTest.price}
+              image={imageSrc}
+              onClick={openServiceModal}
+            />
+          );
+        })}
       </div>
-      <Link to='services' className="all-services">View All Tests</Link>
-      <ServiceModal isOpen={isServiceModalOpen} onClose={closeModals}/>
+      <Link to='/services' className="all-services">
+        View All Tests
+      </Link>
+      <ServiceModal
+        activeSection={activeSection}
+        tests={selectedTests}
+        isOpen={isServiceModalOpen}
+        onClose={closeModals}
+      />
     </div>
   );
 });
