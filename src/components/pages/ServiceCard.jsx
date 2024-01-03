@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../assets/css/panel.css';
 
-const ServiceCard = ({ section, testName, duration, price, image, onClick }) => {
+const ServiceCard = ({ section, testName, duration, price, image, onClick,title }) => {
     return (
         <div className="panel-service" onClick={() => onClick(section)}>
             <div className="panel-service-image">
@@ -10,7 +10,7 @@ const ServiceCard = ({ section, testName, duration, price, image, onClick }) => 
             </div>
             <div className="panel-service-body">
                 <div className="panel-service-description">
-                    <h5>{section}</h5>
+                    <h5>{title}</h5>
                     <h6>{testName}</h6>
                     <p>{duration}</p>
                     <p>Kes. {price}</p>

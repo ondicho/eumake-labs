@@ -83,6 +83,7 @@ const Panel = React.forwardRef((props, ref) => {
           return (
             <ServiceCard
               key={index}
+              title={section.section}
               section={section.activeSection}
               testName={firstTest.name}
               duration={firstTest.duration}
