@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../../assets/css/navbar.css';
 import logo from '../../assets/images/logo.png';
 import menu from '../../assets/images/menu.png';
 import call from '../../assets/images/call.png';
 import down from '../../assets/images/down-arrow.png';
-import ContactUsModal from './ContactUsModal';
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
+
+  const location = useLocation();
 
   const handleToggle = () => {
     setIsMobile(!isMobile);
@@ -76,17 +77,23 @@ const Navbar = () => {
       }
     };
 
-    document.body.addEventListener('mousemove', closeMobileNavbar);
+    document.body.addEventListener('click', closeMobileNavbar);
 
     return () => {
-      document.body.removeEventListener('mousemove', closeMobileNavbar);
+      document.body.removeEventListener('click', closeMobileNavbar);
     };
   }, [isMobile, servicesDropdownOpen, aboutDropdownOpen, contactDropdownOpen]);
+
+  useEffect(() => {
+    // Close the mobile navbar when the location changes
+    handleClose();
+  }, [location]);
+
 
   return (
     <nav className={`navbar ${isMobile ? 'mobile-view' : ''}`}>
       <div className="mobile-icon" onClick={handleToggle}>
-        <img className="menu-icon" src={menu} alt="call" />
+        <img className="menu-icon" src={menu} alt="menu" />
       </div>
       <Link to="/" className="logo">
         <img className="logo" src={logo} alt="logo" />
@@ -103,7 +110,7 @@ const Navbar = () => {
         >
           <div className="dropdown-header">
             Services
-            <img className="dropdown-icon" src={down} alt="" />
+            <img className="dropdown-icon" src={down} alt="down arrow" />
           </div>
           {servicesDropdownOpen && (
             <div className="dropdown-content" onMouseLeave={handleClose}>
@@ -119,7 +126,7 @@ const Navbar = () => {
         >
           <div className="dropdown-header">
             About Us
-            <img className="dropdown-icon" src={down} alt="" />
+            <img className="dropdown-icon" src={down} alt="down arrow" />
           </div>
           {aboutDropdownOpen && (
             <div className="dropdown-content" onMouseLeave={handleClose}>
@@ -132,13 +139,13 @@ const Navbar = () => {
           FAQs
         </Link>
         <li
-          className={`dropdown ${aboutDropdownOpen ? 'open' : ''}`}
+          className={`dropdown ${contactDropdownOpen ? 'open' : ''}`}
           onClick={handleContactToggle}
           onMouseEnter={handleContactHover}
         >
           <div className="dropdown-header">
             Contact Us
-            <img className="dropdown-icon" src={down} alt="" />
+            <img className="dropdown-icon" src={down} alt="down arrow" />
           </div>
           {contactDropdownOpen && (
             <div className="dropdown-content" onMouseLeave={handleClose}>
@@ -174,7 +181,7 @@ const Navbar = () => {
               >
                 <div className="dropdown-header">
                   Services
-                  {isMobile && <img className="dropdown-icon" src={down} alt="call" />}
+                  {isMobile && <img className="dropdown-icon" src={down} alt="down arrow" />}
                 </div>
                 {servicesDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>
@@ -190,7 +197,7 @@ const Navbar = () => {
               >
                 <div className="dropdown-header">
                   About Us
-                  {isMobile && <img className="dropdown-icon" src={down} alt="call" />}
+                  {isMobile && <img className="dropdown-icon" src={down} alt="down arrow" />}
                 </div>
                 {aboutDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>
@@ -209,9 +216,9 @@ const Navbar = () => {
               >
                 <div className="dropdown-header">
                   Contact Us
-                  {isMobile && <img className="dropdown-icon" src={down} alt="call" />}
+                  {isMobile && <img className="dropdown-icon" src={down} alt="down arrow" />}
                 </div>
-                {aboutDropdownOpen && (
+                {contactDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>
                     <Link to="/contact-us">WhatsApp</Link>
                     <Link to="/contact-us">Contact Center</Link>

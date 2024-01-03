@@ -87,7 +87,7 @@ form.modal-form {
 
 
 
-  @media (max-width: 12px) {
+  @media (max-width: 1200px) {
     .appointment-modal{
         width: 80%!important;
         height: auto!important;
