@@ -131,29 +131,16 @@ const Navbar = () => {
           {aboutDropdownOpen && (
             <div className="dropdown-content" onMouseLeave={handleClose}>
               <Link to="/our-team">Our Team</Link>
-              <Link to="/about-us">Our Mission</Link>
+              <Link to="/about-us">Core Values</Link>
             </div>
           )}
         </li>
         <Link to="/faqs" onClick={handleClose}>
           FAQs
         </Link>
-        <li
-          className={`dropdown ${contactDropdownOpen ? 'open' : ''}`}
-          onClick={handleContactToggle}
-          onMouseEnter={handleContactHover}
-        >
-          <div className="dropdown-header">
-            Contact Us
-            <img className="dropdown-icon" src={down} alt="down arrow" />
-          </div>
-          {contactDropdownOpen && (
-            <div className="dropdown-content" onMouseLeave={handleClose}>
-              <Link to="/contact-us">WhatsApp</Link>
-              <Link to="/contact-us">Contact Center</Link>
-            </div>
-          )}
-        </li>
+        <Link to="/contact-us" onClick={handleClose}>
+          Contact Us
+        </Link>
         <Link to="/contact-us" onClick={handleClose}>
           <img className="call" src={call} alt="call" />
         </Link>
@@ -202,29 +189,16 @@ const Navbar = () => {
                 {aboutDropdownOpen && (
                   <div className="dropdown-content" onMouseLeave={handleClose}>
                     <Link to="/our-team">Our Team</Link>
-                    <Link to="/about-us">Our Mission</Link>
+                    <Link to="/about-us">Core Values</Link>
                   </div>
                 )}
               </li>
               <Link to="/faqs" onClick={handleClose}>
                 FAQs
               </Link>
-              <li
-                className={`dropdown ${contactDropdownOpen ? 'open' : ''}`}
-                onClick={handleContactToggle}
-                onMouseEnter={handleContactHover}
-              >
-                <div className="dropdown-header">
-                  Contact Us
-                  {isMobile && <img className="dropdown-icon" src={down} alt="down arrow" />}
-                </div>
-                {contactDropdownOpen && (
-                  <div className="dropdown-content" onMouseLeave={handleClose}>
-                    <Link to="/contact-us">WhatsApp</Link>
-                    <Link to="/contact-us">Contact Center</Link>
-                  </div>
-                )}
-              </li>
+              <Link to="/contact-us" onClick={handleClose}>
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>

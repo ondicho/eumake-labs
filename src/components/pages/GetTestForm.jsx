@@ -7,6 +7,9 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
 
   console.log('activeSection:', activeSection);
   console.log('tests:', tests);
+
+  const [isAcknowledgmentModalOpen, setIsAcknowledgmentModalOpen] = useState(false);
+
   
   const [formData, setFormData] = useState({
     name: '',
@@ -30,23 +33,36 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Validate required fields
+  
     const requiredFields = ['name', 'email', 'phone', 'date', 'selectedTest'];
     const missing = requiredFields.filter((field) => !formData[field]);
-
+  
     if (missing.length > 0) {
       setMissingFields(missing);
       return;
     }
-
+  
     // Form is valid, proceed with submission
-    setIsModalOpen(true);
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      specimenCollection: false,
+      location: '',
+      date: '',
+      selectedTest: '',
+    });
+  
+    setIsModalOpen(false); // Close the form modal
+  
+    setIsAcknowledgmentModalOpen(true); // Open the acknowledgment modal
   };
 
+  
   const closeModal = () => {
     setIsModalOpen(false);
-    setMissingFields([]); // Clear missing fields after closing the modal
+    setIsAcknowledgmentModalOpen(false); // Close acknowledgment modal when GetTestForm modal is closed
+    setMissingFields([]);
     setFormData({
       name: '',
       email: '',
@@ -167,8 +183,8 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
         </button>
       </form>
       <AcknowledgmentModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
+        isOpen={isAcknowledgmentModalOpen}
+        onClose={closeModal} // Close GetTestForm modal when acknowledgment modal is closed
         formattedTitle={`Booked ${capitalizeFirstLetter(activeSection.replace(/([A-Z])/g, ' $1').trim())} Test`}
         name={formData.name}
       />
