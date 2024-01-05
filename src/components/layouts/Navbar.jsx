@@ -132,6 +132,7 @@ const Navbar = () => {
             <div className="dropdown-content" onMouseLeave={handleClose}>
               <Link to="/our-team">Our Team</Link>
               <Link to="/about-us">Core Values</Link>
+              <Link to="/gallery">Gallery</Link>
             </div>
           )}
         </li>
@@ -190,6 +191,7 @@ const Navbar = () => {
                   <div className="dropdown-content" onMouseLeave={handleClose}>
                     <Link to="/our-team">Our Team</Link>
                     <Link to="/about-us">Core Values</Link>
+                    <Link to="/gallery">Gallery</Link>
                   </div>
                 )}
               </li>

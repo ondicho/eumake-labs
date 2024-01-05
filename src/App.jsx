@@ -10,6 +10,8 @@ import ContactUs from './components/pages/ContactUs';
 import FAQs from './components/pages/FAQs';
 import PathologyServices from './components/pages/PathologyServices';
 import Team from './components/pages/Team';
+import Gallery from './components/pages/Gallery';
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,6 +38,7 @@ function App() {
           <Route exact path="/faqs" element={<Container Page={FAQs} />}/>
           <Route exact path="/contact-us" element={<Container Page={ContactUs} />}/>
           <Route exact path="/pathology-services" element={<Container Page={PathologyServices} />}/>
+          <Route exact path="/gallery" element={<Container Page={Gallery} />}/>
         </Routes>
         {isContactModalOpen && <ContactUsModal closeContactModal={closeContactModal} />}
       </BrowserRouter>
