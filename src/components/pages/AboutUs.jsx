@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import '../../assets/css/about.css'; // Import your CSS file for styling
-import image1 from '../../assets/images/_E5A0993.jpg';
-import image2 from '../../assets/images/_E5A0794.jpg';
-import image3 from '../../assets/images/_E5A0792.jpg';
+import image1 from '../../assets/images/vision.png';
+import image2 from '../../assets/images/mission.png';
+import image3 from '../../assets/images/core-values.jpg';
 
 const missionData = {
   title: 'Our Mission',
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  content: 'We are trusted and committed to establish a safe environment to all our clients by exerting a strong emphasis on safety measures, patients welfare and assurance. To do this, we strive to reduce medical errors, deliver timely results and teach our patients how to live a healthier lifestyle.',
   image: image1,
 };
 
 const visionData = {
   title: 'Our Vision',
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  content:  "We aim to be the top health diagnostic prartner in Kenya and in the EAC region through strong emphasis on safety measures, patients' welfare, professionalism and quality assurance. To do this, we strive to reduce medical errors, deliver timely results, and teach our patients how to live a healthier lifestyle. In line with our core values of Integrity, Competence, Compassion, and being Patient-oriented."
+  ,
   image: image2,
 };
 
@@ -20,9 +21,10 @@ const coreValuesData = [
   {
     title: 'Values',
     content: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      // Add more content as needed
+      'Integrity', 
+      'Competence',
+      'Compassion',
+      'Patient oriented',
     ],
     image: image3,
   },
@@ -46,14 +48,14 @@ const AboutUs = () => {
       <h2>{activeTab === 'mission' ? missionData.title : (activeTab === 'vision' ? visionData.title : 'Core Values')}</h2>
       {activeTab === 'mission' && (
         <div className="tab-content">
-          <img src={missionData.image} alt="Mission" className="tab-image" />
-          <p>{missionData.content}</p>
+          <img src={missionData.image} alt="Mission" className="tab-image mission-vision" />
+          <p className='tab-content-paragraph'>{missionData.content}</p>
         </div>
       )}
       {activeTab === 'vision' && (
         <div className="tab-content">
-          <img src={visionData.image} alt="Vision" className="tab-image" />
-          <p>{visionData.content}</p>
+          <img src={visionData.image} alt="Vision" className="tab-image mission-vision" />
+          <p className='tab-content-paragraph'>{visionData.content}</p>
         </div>
       )}
       {activeTab === 'coreValues' && (

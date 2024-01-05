@@ -62,7 +62,7 @@
 }
 
 .footer-menus {
-  width: 75%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   margin: 0px 25px 0px 0px;
@@ -90,6 +90,11 @@ p.unhover:hover {
 .socials:hover {
   transform: scale(1.05);
   animation: shake 0.04s ease-in-out 2; /* Run the animation twice */
+}
+
+.map{
+  width: 90%;
+  height: 75%;
 }
 
 @keyframes shake {
@@ -145,4 +150,13 @@ p.unhover:hover {
   }
 
 
+}
+
+@media (min-width:1200px) {
+
+  .map{
+    width: 500px;
+    height: 250px;
+  }
+  
 }

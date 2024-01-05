@@ -2,7 +2,7 @@
 body {
   margin: 0 !important;
   padding: 0;
-  font-family: 'Goudy Old Style',sans-serif;
+  font-family: 'Goudy Old Style',sans-serif !important;
 }
 .page-content-holder {
   width: 100%;
