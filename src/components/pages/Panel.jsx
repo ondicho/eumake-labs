@@ -3,7 +3,7 @@ import '../../assets/css/home.css';
 import React, { useState } from 'react';
 import ServiceModal from "./ServiceModal";
 import ServiceCard from './ServiceCard';
-import wellness from '../../assets/images/health.png';
+import wellness from '../../assets/images/spleen.png';
 import kidney from '../../assets/images/kidney.png';
 import cardiac from '../../assets/images/heart.png';
 import liver from '../../assets/images/liver.png';
@@ -36,19 +36,19 @@ const Panel = React.forwardRef((props, ref) => {
     },
     renalElectrolytes: {
       section: 'Renal/Electrolytes',
-      activeSection: 'generalWellness',
+      activeSection: 'renalElectrolytes',
       tests: [
-        { name: 'CHLORIDE, serum', duration: '2-3HRS', price: 3100 },
+        { name: 'RENAL PROFILE EXTENDED', duration: '2-3DAYS', price: 5200 },
         { name: 'CREATINE CLEARANCE', duration: '2-3HRS', price: 6250 },
         // Add more tests as needed
       ],
       image: kidney,
     },
-    cardiacAssessment: {
-      section: 'Cardiac Assessment',
-      activeSection: 'generalWellness',
+    thyroidFunction: {
+      section: 'Thyroid Function',
+      activeSection: 'thyroidFunction',
       tests: [
-        { name: 'CARDIAC PROFILE(TROPONIN T CKMB CPK TOTAL)', duration: '2-3HRS', price: 1850 },
+        { name: 'THYROID FUNCTIONS', duration: '2-3HRS', price: 3950 },
         { name: 'CARDIAC TROPONIN T', duration: '2-3HRS', price: 900 },
         // Add more tests as needed
       ],
@@ -56,7 +56,7 @@ const Panel = React.forwardRef((props, ref) => {
     },
     liverFunctionTest: {
       section: 'Liver Function Test',
-      activeSection: 'generalWellness',
+      activeSection: 'liverFunctionTest',
       tests: [
         { name: 'ALBUMIN', duration: '2-3HRS', price: 4350 },
         { name: 'ALT/SGPT, serum', duration: '2-3HRS', price: 850 },
@@ -64,7 +64,15 @@ const Panel = React.forwardRef((props, ref) => {
       ],
       image: liver,
     },
-    // Add more sections as needed
+    lipidProfile: {
+      section: 'Lipid Profile',
+      activeSection: 'lipidProfile',
+      tests: [
+        { name: 'LIPID PROFILE', duration: '2-3HRS', price: 3600 },
+        // Add more tests as needed
+      ],
+      image: liver,
+    },
   };
 
 
@@ -73,7 +81,7 @@ const Panel = React.forwardRef((props, ref) => {
   return (
     <div ref={ref} className="main-container service-panel">
       <div className="panel-header">
-        <h3 className="italic-bold">Our Services</h3>
+        <h3 className="italic-bold">POPULAR TESTS</h3>
       </div>
       <div className="services">
         {Object.keys(servicesData).map((sectionKey, index) => {

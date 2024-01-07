@@ -237,3 +237,18 @@
     position: inherit!important;
   }
   }
+
+  @media (max-width: 1200px) {
+    .menu a {
+      font-size: small;
+    }
+
+    .menu li {
+      font-size: small;
+    }
+
+    .logo p {
+      font-size: small;
+      
+    }
+  }

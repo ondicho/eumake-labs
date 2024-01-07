@@ -160,7 +160,7 @@ const Services = () => {
         <div className="section-table">
           <h4>Test Catalogue {'>'} {servicesData[activeSection].section}</h4>
           <table className="custom-table">
-            <thead>
+            <thead className='head'>
               <tr>
                 <th>Test Name</th>
                 <th>Duration</th>

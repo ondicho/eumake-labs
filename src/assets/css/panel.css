@@ -13,9 +13,22 @@
   }
   
   .panel-service:hover {
-    transform: none;
+    transform: scale(1.03);
     /* background-color: #E5E1EE; */
   }
+
+  .panel-service:hover .panel-service-btn {
+    background-color: #2bb9ff;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 8px;
+  }
+
+  .panel-service:hover .panel-service-image  {
+    transform: scale(1.03);
+  }
+
   
   .panel-service-image {
     width: 100%;
@@ -25,6 +38,11 @@
     overflow: hidden;
     text-align: center;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  }
+
+  .panel-service-body{
+    padding: 1rem;
+  
   }
   
   .panel-service-read-more{
@@ -40,13 +58,14 @@
   }
 
   .service-image{
-    height: 50px!important;
-    width: 50px!important;
+    height: 90px!important;
+    width: 90px!important;
     align-self: center;
   }
   
   .panel-service-description {
     color: #00063f;
+    height: 180px;
   }
   
   .panel-service-btn:hover {
@@ -65,6 +84,52 @@
     border-radius: 8px;
   }
   
+  .service-table {
+    
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; /* Adjust the margin as needed */
+  }
+  
+  .service-table td {
+    padding: 8px;
+    font-size: small;
+    /* border: 1px solid #ddd; */
+  }
+  
+  .service-table td:first-child {
+    font-weight: bold; /* Make the first column (labels) bold */
+  }
+
+  .bold-title {
+    font-weight: bold;
+  }
+
+  .all-services {
+    background-color: #00063f;
+    margin: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    width: 150px;
+    border-color: white !important;
+    border: 1px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.all-services:hover{
+  transform: scale(1.03);
+  background-color: white;
+    border: solid 1px #00063f!important;
+    color: #00063f;
+    margin: 2rem;
+    padding: 10px;
+    width: 150px;
+    /* border-radius: 8px; */
+}
   
   @media (max-width: 768px) {
     .panel-service {

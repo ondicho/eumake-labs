@@ -16,16 +16,16 @@ const Team = () => {
     },
     {
       id: 2,
-      name: 'John',
+      name: 'Aggrey',
       position: 'Pathologist',
       testimonial: 'Dedicated to accurate diagnosis, ensuring the best care for our patients.',
       image: image2,
     },
     {
       id: 3,
-      name: 'Ann',
+      name: 'Jacky',
       position: 'Receptionist',
-      testimonial: 'Friendly and efficient, providing a welcoming experience for everyone who walks in.',
+      testimonial: 'Dedicated to creating a warm and inviting atmosphere that ensures all clients feel valued and welcomed.From providing information about our services to addressing their concerns I am m dedicated to delivering prompt and personalized service.',
       image: image3,
     },
   ];

@@ -7,17 +7,10 @@ import mail from '../../assets/images/mail.jpeg'
 import map from '../../assets/images/map.png'
 import whatsapp from '../../assets/images/whatsapp.png'
 import hours from '../../assets/images/hours.png'
-// import GoogleMapReact from 'google-map-react';
 
 
 
 const Footer = () => {
-
-    // const location = {
-    //     address: 'Your Address Here',
-    //     lat: YourLatitudeHere,
-    //     lng: YourLongitudeHere,
-    // }
 
     return (
         <>
@@ -48,17 +41,8 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="footer-column">
-                            <h4>ACCREDITATIONS</h4>
+                            <h4>OUR LOCATION</h4>
                             <ul>
-                                <li>KMPDU</li>
-                                {/* <li><GoogleMapReact
-                                    bootstrapURLKeys={{ key: 'AIzaSyAy185VaEG5kSaieHXkNhvAM0SU-c65qds' }}
-                                    defaultCenter={location}
-                                    defaultZoom={14}
-                                />
-                                </li> */}
-
-                                <li><h4>OUR LOCATION</h4></li>
                                 <li>
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8537611544184!2d36.81533874039429!3d-1.2598947356052246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17000e80af3f%3A0x6bbfe04966e085e9!2sEumake%20Diagnostic%20Laboratories!5e0!3m2!1sen!2ske!4v1704450016196!5m2!1sen!2ske"
