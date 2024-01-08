@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import '../../assets/css/navbar.css';
 import logo from '../../assets/images/logo.png';
 import menu from '../../assets/images/menu.png';
-import call from '../../assets/images/call.png';
+import call from '../../assets/images/call-white.png';
 import down from '../../assets/images/down-arrow.png';
 
 const Navbar = () => {

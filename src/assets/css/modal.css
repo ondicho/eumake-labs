@@ -87,6 +87,10 @@ form.modal-form {
         position: relative;
         right: -30%;
     }
+
+    .menu{
+        height: auto;
+    }
   }
 
 
@@ -107,8 +111,8 @@ form.modal-form {
 
 @media (min-width: 1200px) {
     .appointment-modal{
-        width: 0%!important;
-        height: 0%!important;
+        width: 60%!important;
+        height: 60%!important;
     }
 
     .modal-submit{
