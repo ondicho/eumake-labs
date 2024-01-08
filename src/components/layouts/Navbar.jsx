@@ -95,10 +95,14 @@ const Navbar = () => {
       <div className="mobile-icon" onClick={handleToggle}>
         <img className="menu-icon" src={menu} alt="menu" />
       </div>
-      <Link to="/" className="logo">
-        <img className="logo" src={logo} alt="logo" />
-        <p>Eumake Diagnostic Laboratories</p>
-      </Link>
+      <div className="logo-side">
+        <Link to="/" className="logo-container">
+          <img className="logo" src={logo} alt="logo" />
+        </Link>
+        <Link to="/" className="logo-link">
+          <p>Eumake Diagnostic Laboratories</p>
+        </Link>
+      </div>
       <div className={`menu ${isMobile ? 'active' : ''}`}>
         <Link to="/" onClick={handleClose}>
           Home

@@ -69,7 +69,7 @@
 .testimonial {
   color: #00063f;
   text-align: left;
-  height: 90px;
+  height: 150px;
 }
 
 @media (max-width: 768px) {
