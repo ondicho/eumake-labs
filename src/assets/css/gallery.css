@@ -93,6 +93,15 @@
     display: flex;
   }
 
+  .lower-image{
+    height: 350px;
+    width: fit-content;
+    object-fit: contain;
+  }
+
+  .central{
+    transform: scale(1.1);
+  }
 
 @media (max-width: 768px) {
     .selected-image {
