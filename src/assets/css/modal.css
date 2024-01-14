@@ -112,7 +112,7 @@ form.modal-form {
 @media (min-width: 1200px) {
     .appointment-modal{
         width: 60%!important;
-        height: 60%!important;
+        height: fit-content!important;
     }
 
     .modal-submit{

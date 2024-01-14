@@ -55,7 +55,7 @@ const customerReviews = [
 const CustomerReview = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const reviewsPerPage = 1; // Number of reviews to display per page
+  const reviewsPerPage = 3; // Number of reviews to display per page
   const indexOfLastReview = currentPage * reviewsPerPage;
   const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
   const currentReviews = customerReviews.slice(indexOfFirstReview, indexOfLastReview);
@@ -85,19 +85,20 @@ const CustomerReview = () => {
         <h3 className="italic-bold">What Our Customers Say</h3>
       </div>
       <div className="reviews">
+        <div className="review-icon">
+          <img src={left} alt="left" onClick={handleLeftClick} />
+        </div>
         {currentReviews.map((review) => (
           <div key={review.id} className="review">
             <div className="review-desc">
-              <div className="review-icon">
-                <img src={left} alt="left" onClick={handleLeftClick} />
-              </div>
+
               <div className="review-desc-body">
                 <div className="review-testimonial">
                   <div className="user-icon">
                     <img src={user} alt="user" />
                   </div>
                   <p className='reviewer-name'>{review.name}</p>
-                  <p  className='reviewer-desc'>{"\"" + review.description + "\""}</p>
+                  <p className='reviewer-desc'>{"\"" + review.description + "\""}</p>
                   <div className="review-rating">
                     {Array.from({ length: review.stars }).map((_, index) => (
                       <img key={index} src={star} alt="star" />
@@ -105,12 +106,13 @@ const CustomerReview = () => {
                   </div>
                 </div>
               </div>
-              <div className="review-icon">
-                <img src={right} alt="right" onClick={handleRightClick} />
-              </div>
+
             </div>
           </div>
         ))}
+        <div className="review-icon">
+          <img src={right} alt="right" onClick={handleRightClick} />
+        </div>
       </div>
       {customerReviews.length > reviewsPerPage && (
         <div className="pagination">

@@ -104,16 +104,15 @@ const CompanyProfile = () => {
           <p className='date'>{directorData.summary}</p>
           <div className="director-spotlight">
             {directorData.spotlight.content.map((event, index) => (
-              <div className="director-exp" key={index}>
-                <p className='date'>
-                  <strong>{event.date}: </strong>
+              <div className="director-exp" key={index}  onClick={() => toggleTasks(index)}> 
+                <p className='date' >
+                  <strong >{event.date}: </strong>
                   {event.description}
                   {event.tasks && (
                     <img
                       src={view}
                       alt="View Tasks"
                       className="view-icon float-right"
-                      onClick={() => toggleTasks(index)}
                     />
                   )}
                 </p>

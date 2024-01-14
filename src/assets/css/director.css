@@ -37,7 +37,10 @@
   margin: 2rem;
 }
 
+
 .director-spotlight {
+  margin: 0 auto;
+  width: 80%;
   margin-top: 20px;
   background-color: #2bb9ff!important;
 }
@@ -61,7 +64,7 @@
 
 .director-spotlight p:hover,
 .director-spotlight .view-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .view-icon.float-right {

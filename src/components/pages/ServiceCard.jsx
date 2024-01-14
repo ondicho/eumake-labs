@@ -16,7 +16,7 @@ const ServiceCard = ({ section, testName, duration, price, image, onClick, title
                     <table className="service-table">
                         <tbody>
                             <tr>
-                                <td className="label">Category:</td>
+                                <td className="label bold-title">Category:</td>
                                 <td><h5 className="bold-title">{capitalizedTitle}</h5></td>
                             </tr>
                             <tr>

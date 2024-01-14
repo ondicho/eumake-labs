@@ -435,6 +435,11 @@ button.meet-staff-button {
 }
 
 
+.main-container.customer-review {
+    width: 90%;
+}
+
+
 @media (max-width: 768px) {
     .services {
         display: flex;
@@ -634,5 +639,16 @@ button.meet-staff-button {
     .review-testimonial {
         height: auto !important;
     }
+
+    .customer-review .reviews {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+    
+      .customer-review .review {
+        width: calc(33.33% - 20px); /* Adjust the width as needed, considering margins */
+        margin-bottom: 20px; /* Adjust the margin as needed */
+      }
 
 }

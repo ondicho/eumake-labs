@@ -3,14 +3,8 @@ import React, { useState } from 'react';
 import '../../assets/css/services.css';
 import AcknowledgmentModal from './AcknowledgmentModal';
 
-const GetTestForm = ({ activeSection, tests, onSubmit }) => {
-
-  console.log('activeSection:', activeSection);
-  console.log('tests:', tests);
-
+const GetTestForm = ({ activeSection, tests, categories, onSubmit }) => {
   const [isAcknowledgmentModalOpen, setIsAcknowledgmentModalOpen] = useState(false);
-
-  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,6 +12,7 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
     specimenCollection: false,
     location: '',
     date: '',
+    selectedCategory: '',
     selectedTest: '',
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,15 +28,15 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
-    const requiredFields = ['name', 'email', 'phone', 'date', 'selectedTest'];
+
+    const requiredFields = ['name', 'email', 'phone', 'date', 'selectedCategory', 'selectedTest'];
     const missing = requiredFields.filter((field) => !formData[field]);
-  
+
     if (missing.length > 0) {
       setMissingFields(missing);
       return;
     }
-  
+
     // Form is valid, proceed with submission
     setFormData({
       name: '',
@@ -50,15 +45,15 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
       specimenCollection: false,
       location: '',
       date: '',
+      selectedCategory: '',
       selectedTest: '',
     });
-  
+
     setIsModalOpen(false); // Close the form modal
-  
+
     setIsAcknowledgmentModalOpen(true); // Open the acknowledgment modal
   };
 
-  
   const closeModal = () => {
     setIsModalOpen(false);
     setIsAcknowledgmentModalOpen(false); // Close acknowledgment modal when GetTestForm modal is closed
@@ -70,6 +65,7 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
       specimenCollection: false,
       location: '',
       date: '',
+      selectedCategory: '',
       selectedTest: '',
     });
   };
@@ -79,9 +75,11 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
   };
 
   // Check if activeSection is a string before using replace method
-  const formTitle = typeof activeSection === 'string'
-    ? `Book ${capitalizeFirstLetter(activeSection.replace(/([A-Z])/g, ' $1').trim())} Test`
-    : '';
+  const formTitle =
+    typeof activeSection === 'string'
+      ? `Book ${capitalizeFirstLetter(activeSection.replace(/([A-Z])/g, ' $1').trim())} Test`
+      : '';
+
   return (
     <div className="get-test-form">
       <form onSubmit={handleSubmit}>
@@ -157,6 +155,28 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="selectedCategory" className={missingFields.includes('selectedCategory') ? 'missing-field' : ''}>
+            Select Category:
+          </label>
+          {/* Dropdown for selected category */}
+          <select
+            id="selectedCategory"
+            name="selectedCategory"
+            value={formData.selectedCategory}
+            onChange={handleInputChange}
+          >
+            <option value="" disabled>
+              Select a Category
+            </option>
+            {categories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+
+        </div>
+        <div className="form-group">
           <label htmlFor="selectedTest" className={missingFields.includes('selectedTest') ? 'missing-field' : ''}>
             Select Test:
           </label>
@@ -177,6 +197,12 @@ const GetTestForm = ({ activeSection, tests, onSubmit }) => {
             ))}
           </select>
         </div>
+        {/* Display error messages for missing fields */}
+        {missingFields.length > 0 && (
+          <div className="form-error">
+            Please fill in the required fields: {missingFields.join(', ')}
+          </div>
+        )}
         {/* Book Test button */}
         <button type="submit" className="test-submit">
           Book Test

@@ -103,6 +103,7 @@
 
   .bold-title {
     font-weight: bold;
+    font-size:small!important;
   }
 
   .all-services {
