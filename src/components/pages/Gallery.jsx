@@ -11,6 +11,7 @@ import image6 from '../../assets/images/_E5A0948.jpg';
 import image7 from '../../assets/images/_E5A0832.jpg';
 import image8 from '../../assets/images/_E5A0935.jpg';
 import videoSource from '../../assets/video/eumake.webm';
+import background from '../../assets/images/background2.jpg';
 
 const Gallery = () => {
   const images = [
@@ -28,12 +29,12 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
   const generateGallery = (includeVideo = true) => (
-    <div className="main-container gallery">
-      <h4>GALLERY</h4>
+    <div className="main-container gallery" style={{ backgroundImage: `url(${background})` }}>
       {includeVideo && (
         <div className="video-container">
+          <h4>GALLERY</h4>
           <video controls width="100%">
-            <source src={videoSource} type="video/webm" />
+            <source className='playWidth' src={videoSource} type="video/webm" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -41,10 +42,11 @@ const Gallery = () => {
       <div className="image-gallery">
         <div className="main-image-container">
           <div className="image-container">
+            <div className="rectangle-frame"></div>
             <img
               src={selectedImage.src}
               alt={selectedImage.caption}
-              className="selected-image pentagon"
+              className="selected-image playWidth"
             />
             <p className="caption">{selectedImage.caption}</p>
           </div>
@@ -54,7 +56,7 @@ const Gallery = () => {
                 key={index}
                 src={image.src}
                 alt={image.caption}
-                className={`thumbnail ${selectedImage === image ? 'selected' : ''} pentagon-thumbnail`}
+                className={`thumbnail ${selectedImage === image ? 'selected' : ''}`}
                 onClick={() => setSelectedImage(image)}
               />
             ))}

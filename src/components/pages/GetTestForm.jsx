@@ -1,9 +1,8 @@
-// GetTestForm.js
 import React, { useState } from 'react';
 import '../../assets/css/services.css';
 import AcknowledgmentModal from './AcknowledgmentModal';
 
-const GetTestForm = ({ activeSection, tests, categories, onSubmit }) => {
+const GetTestForm = ({ activeSection, tests, categories }) => {
   const [isAcknowledgmentModalOpen, setIsAcknowledgmentModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -26,7 +25,29 @@ const GetTestForm = ({ activeSection, tests, categories, onSubmit }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const sendEmail = async (formData) => {
+    // Implement your email sending logic here
+    // You can use a library like axios to send a POST request to your server endpoint
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log('Email sent successfully');
+      } else {
+        console.error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const requiredFields = ['name', 'email', 'phone', 'date', 'selectedCategory', 'selectedTest'];
@@ -50,6 +71,9 @@ const GetTestForm = ({ activeSection, tests, categories, onSubmit }) => {
     });
 
     setIsModalOpen(false); // Close the form modal
+
+    // Send email
+    await sendEmail(formData);
 
     setIsAcknowledgmentModalOpen(true); // Open the acknowledgment modal
   };
@@ -174,7 +198,6 @@ const GetTestForm = ({ activeSection, tests, categories, onSubmit }) => {
               </option>
             ))}
           </select>
-
         </div>
         <div className="form-group">
           <label htmlFor="selectedTest" className={missingFields.includes('selectedTest') ? 'missing-field' : ''}>

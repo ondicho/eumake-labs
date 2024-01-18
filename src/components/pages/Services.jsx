@@ -74,7 +74,7 @@ const Services = () => {
         </div>
       )}
       <div className="form-area">
-        <GetTestForm
+      <GetTestForm
           activeSection={activeSection}
           tests={servicesData[activeSection].tests}
           categories={sectionNames}
