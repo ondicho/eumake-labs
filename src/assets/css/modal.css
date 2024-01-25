@@ -77,10 +77,16 @@ form.modal-form {
     font-size: 24px;
   }
 
+  .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: self-end;
+}
+
   @media (max-width: 768px) {
     .appointment-modal{
         width: 80%!important;
-        height: fit-content!important;
+        height: 90%!important;
     }
 
     .modal-submit{
@@ -91,6 +97,8 @@ form.modal-form {
     .menu{
         height: auto;
     }
+
+
   }
 
 
