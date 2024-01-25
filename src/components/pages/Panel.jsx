@@ -1,3 +1,4 @@
+// Panel.js
 import { Link } from 'react-router-dom';
 import '../../assets/css/home.css';
 import React, { useState } from 'react';
@@ -5,16 +6,16 @@ import ServiceModal from "./ServiceModal";
 import ServiceCard from './ServiceCard';
 import wellness from '../../assets/images/spleen.png';
 import kidney from '../../assets/images/kidney.png';
-import cardiac from '../../assets/images/heart.png';
 import liver from '../../assets/images/liver.png';
+import lipid from '../../assets/images/lipid.png';
+import thyroid from '../../assets/images/thyroid.png';
 
 const Panel = React.forwardRef((props, ref) => {
   const [activeSection, setActiveSection] = useState(null);
   const [isServiceModalOpen, setServiceModalOpen] = useState(false);
 
   const openServiceModal = (section) => {
-    const selectedSection = section?.target?.dataset?.section || section;
-    setActiveSection(selectedSection);
+    setActiveSection(section);
     setServiceModalOpen(true);
   };
 
@@ -52,7 +53,7 @@ const Panel = React.forwardRef((props, ref) => {
         { name: 'CARDIAC TROPONIN T', duration: '2-3HRS', price: 900 },
         // Add more tests as needed
       ],
-      image: cardiac,
+      image: thyroid,
     },
     liverFunctionTest: {
       section: 'Liver Function Test',
@@ -71,10 +72,9 @@ const Panel = React.forwardRef((props, ref) => {
         { name: 'LIPID PROFILE', duration: '2-3HRS', price: 3600 },
         // Add more tests as needed
       ],
-      image: liver,
+      image: lipid,
     },
   };
-
 
   const selectedTests = servicesData[activeSection]?.tests || [];
 
