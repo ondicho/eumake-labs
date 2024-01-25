@@ -30,7 +30,7 @@
 }
 
 .review-testimonial {
-    background-color: white !important;
+    background-color: white;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -42,6 +42,22 @@
     height: 100px;
 
 }
+
+.reviews .review:nth-child(3) .review-testimonial {
+    /* Add your special styles here */
+    background-color: #00063f!important; 
+    color: white!important;
+   }
+
+
+.reviews .review:nth-child(3) .reviewer-desc {
+    color: white!important;
+   }
+
+   .reviews .review:nth-child(3) .reviewer-name {
+    color: white!important;
+   }
+   
 
 /* Styles for mobile screens */
 @media screen and (max-width: 768px) {
@@ -60,6 +76,30 @@
         align-self: center;
         position: absolute;
         right: 0%;
+    }
+
+    .review {
+        flex: 0 0 100%;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .reviews {
+        /* flex-direction: column; */
+        display: flex;
+    }
+
+    .left {
+        align-self: center;
+        position: absolute;
+        left: 10%;
+    }
+
+    .right {
+        align-self: center;
+        position: absolute;
+        right: 1cqb;
     }
 
     .review {

@@ -265,7 +265,7 @@ button.meet-staff-button {
 }
 
 .insurance-panel {
-    background-color: #00063f;
+    background-color: #2bb9ff;
     display: flex;
     flex-direction: column;
     min-height: 10vh;
@@ -346,15 +346,7 @@ button.meet-staff-button {
 
 }
 
-.review-testimonial.central {
-    background-color: #00063f !important;
-    color: white !important;
-    transform: scale(1.1);
-    /* Larger size */
-    margin: 10px;
-    /* Updated margin for central testimonial */
-    /* height: 150px; */
-}
+
 
 .review-testimonial.central p {
     color: white !important;

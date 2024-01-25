@@ -18,7 +18,7 @@ const Home = ({ openContactModal }) => {
       <Panel ref={servicesRef} />
       <CompanyProfile />
       <CustomerReview />
-      <InsurancePartners />AC
+      <InsurancePartners />
       <Widgets />
 
       {/* Add a button or element to trigger the contact modal */}

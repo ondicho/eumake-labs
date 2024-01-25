@@ -60,12 +60,12 @@ const Footer = () => {
                         <div className="footer-column">
                             <h4>SOCIALS</h4>
                             <ul>
-                                <li className='socials'><img className="footer-icon" src={facebook} alt="facebook" /></li>
-                                <li className='socials'><img className="footer-icon" src={twitter} alt="twitter" /></li>
-                                <li className='socials'><img className="footer-icon" src={instagram} alt="instagram" /></li>
-                                <li className='socials'><img className="footer-icon" src={whatsapp} alt="whatsapp" /></li>
+                                <li className='socials'><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img className="footer-icon" src={facebook} alt="facebook" /></a></li>
+                                <li className='socials'><a href="https://www.twitter.com/Eumake_" target="_blank" rel="noopener noreferrer"><img className="footer-icon" src={twitter} alt="twitter" /></a></li>
+                                <li className='socials'><a href='https://www.instagram.com/eumake_laboratories/' target="_blank" rel="noopener noreferrer"><img className="footer-icon" src={instagram} alt="instagram" /></a></li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
                 <div className="bottom-footer">
