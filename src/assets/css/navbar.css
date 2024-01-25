@@ -212,6 +212,7 @@ img.logo {
 
 
 @media (max-width: 768px) {
+  
   .burger-menu {
     display: block;
   }
@@ -302,6 +303,15 @@ img.logo {
 
   .navbar{
     background-color: #2bb9ff;
+  }
+
+  .logo-link{
+    font-size: small;
+    width: max-content;
+  }
+
+  .dropdown-header{
+    display: flex;
   }
 
   

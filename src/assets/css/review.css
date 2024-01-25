@@ -1,0 +1,68 @@
+/* Default styles for desktop screens */
+.reviews {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+.review {
+    flex: 0 0 auto;
+    /* Other styles */
+}
+
+/* 
+   .review {
+    width: 100%;
+} */
+
+.review-desc {
+    display: flex;
+    justify-content: center;
+}
+
+.review-icon {
+    align-self: center;
+}
+
+.review-icon>img {
+    height: 30px;
+    cursor: pointer;
+}
+
+.review-testimonial {
+    background-color: white !important;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 300px;
+    display: inline-block;
+    justify-content: space-around;
+    transform: scale(0.9);
+    height: 100px;
+
+}
+
+/* Styles for mobile screens */
+@media screen and (max-width: 768px) {
+    .reviews {
+        /* flex-direction: column; */
+        display: flex;
+    }
+
+    .left {
+        align-self: center;
+        position: absolute;
+        left: 0%;
+    }
+
+    .right {
+        align-self: center;
+        position: absolute;
+        right: 0%;
+    }
+
+    .review {
+        flex: 0 0 100%;
+    }
+}

@@ -72,6 +72,7 @@
     justify-content: center;
     /* Center the content horizontally */
     margin-left: 1rem;
+    margin-top: 1rem;
   }
 
   
@@ -117,8 +118,12 @@
     cursor: pointer;
   }
 
+  .thumbnail-container{
+    margin-bottom: 1rem;
+  }
+
   .selected {
-    border: 2px solid #333;
+    border: 2px solid #2bb9ff;
     /* Highlight the selected thumbnail */
   }
 
@@ -138,6 +143,9 @@
     transform: scale(1.1);
   }
 
+  .image-container{
+    margin-top: 1rem;
+  }
   @media (max-width: 768px) {
 
     .gallery {

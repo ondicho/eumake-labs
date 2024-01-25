@@ -1,7 +1,7 @@
 // CustomerReview.js
 
 import React, { useState } from 'react';
-import '../../assets/css/home.css';
+import '../../assets/css/review.css';
 import left from '../../assets/images/left.png';
 import right from '../../assets/images/right.png';
 import star from '../../assets/images/review-icon.png';
@@ -10,44 +10,37 @@ import user from '../../assets/images/user.png';
 const customerReviews = [
   {
     id: 1,
-    description: "As Chief pathologist, John Doe is in charge of lab operations and customer delivery",
-    name: "John Doe",
+    description: "I'm happy with how Eumake handled me😊. The personnel made the process go quite well.",
+    name: "Janet Wanjiru",
     stars: 4
   },
   {
     id: 2,
-    description: "Jack Tom heads our finance department. He gives unto all their dues",
-    name: "Jack Tom",
-    stars: 5
+    description: "We were given an appointment on a weekend since it was the only time we were available. It was a surprise since most labs aren't usually open. We received confirmation and a reminder via email and text for our appointment. Then we got our GDM test results emailed to us in less than four hours. An extremely effective service for sure.",
+    name: "Simon Khaemba",
+    stars: 4
   },
   {
     id: 3,
-    description: "Another review description here...3",
-    name: "Another Director",
-    stars: 3
+    description: "People should feel confident about using Eumake. I was treated fairly 😌",
+    name: "Paul Mogeni",
+    stars: 4
   },
   {
     id: 4,
-    description: "Another review description here...4",
-    name: "Another Director",
+    description: "Jacky ensured a warm homely environment at the lab and a seamless joyful experience, even though I was scared of needles.",
+    name: "Fridah Chebet",
     stars: 4
   },
   {
     id: 5,
-    description: "Another review description here...5",
-    name: "Another Director",
-    stars: 5
-  },
-  {
+    description: "I needed a test about my general well-being, and I was confused about the right test to take, but the customer service representative was very eager to help. I booked an appointment for the test, and Jacky was super helpful by directing me with a phone call to the lab when I lost my way.",
+    name: "Said Juma",
+    stars: 4
+  },{
     id: 6,
-    description: "Another review description here...6",
-    name: "Another Director",
-    stars: 3
-  },
-  {
-    id: 7,
-    description: "Another review description here...7",
-    name: "Another Director",
+    description: "Eumake's sample collection capabilities ensured that i had my samples taken from the comfort of my home while on prescribed bed rest.",
+    name: "Faith Kilonzi",
     stars: 4
   }
 ];
@@ -85,7 +78,7 @@ const CustomerReview = () => {
         <h3 className="italic-bold">What Our Customers Say</h3>
       </div>
       <div className="reviews">
-        <div className="review-icon">
+        <div className="review-icon left">
           <img src={left} alt="left" onClick={handleLeftClick} />
         </div>
         {currentReviews.map((review) => (
@@ -110,7 +103,7 @@ const CustomerReview = () => {
             </div>
           </div>
         ))}
-        <div className="review-icon">
+        <div className="review-icon right">
           <img src={right} alt="right" onClick={handleRightClick} />
         </div>
       </div>
