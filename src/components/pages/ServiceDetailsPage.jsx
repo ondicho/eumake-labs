@@ -32,7 +32,12 @@ const ServiceDetailPage = ({ pathologyServicesData }) => {
       <img src={service.imagePath} alt={service.header} className="service-detail-banner" />
       <h4 className="service-detail-header">Pathology Services {'>'} {service.header}</h4>
       <div className="service-content">
-        <ServiceDetails header={service.header} description={service.description} />
+        <h3 className="service-paragraph-header">{service.header}</h3>
+        <p className="service-paragraph-text">{service.description}</p>
+      </div>
+      <div className="credits">
+        <h5>Prepared By</h5>
+        <p>Pathology Department</p>
       </div>
     </div>
   );
