@@ -38,7 +38,7 @@ const Gallery = () => {
   const images2 = [
     { src: image9, caption: 'Plebotomy room' },
     { src: image10, caption: 'Client preparation' },
-    { src: image11, caption: 'lood sample collection' },
+    { src: image11, caption: 'Blood sample collection' },
     { src: image12, caption: 'Lab Equipment' },
     { src: image13, caption: 'Lab Equipment' },
     { src: image14, caption: 'Lab Equipment' },

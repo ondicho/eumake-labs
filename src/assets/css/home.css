@@ -323,14 +323,14 @@ button.meet-staff-button {
     justify-content: center;
 }
 
-.review-icon {
+/* .review-icon {
     align-self: center;
 }
 
 .review-icon>img {
     height: 30px;
     cursor: pointer;
-}
+} */
 
 .review-testimonial {
     background-color: white !important;

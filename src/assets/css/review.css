@@ -84,7 +84,7 @@
 }
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 769px) and (max-width: 1200px) {
     .reviews {
         /* flex-direction: column; */
         display: flex;
@@ -99,7 +99,7 @@
     .right {
         align-self: center;
         position: absolute;
-        right: 1cqb;
+        right: 10%;
     }
 
     .review {
