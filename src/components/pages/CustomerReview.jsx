@@ -6,6 +6,7 @@ import left from '../../assets/images/left.png';
 import right from '../../assets/images/right.png';
 import star from '../../assets/images/review-icon.png';
 import user from '../../assets/images/user.png';
+import userLight from '../../assets/images/user-light.png';
 
 const customerReviews = [
   {
@@ -37,7 +38,7 @@ const customerReviews = [
     description: "I needed a test about my general well-being, and I was confused about the right test to take, but the customer service representative was very eager to help. I booked an appointment for the test, and Jacky was super helpful by directing me with a phone call to the lab when I lost my way.",
     name: "Said Juma",
     stars: 4
-  },{
+  }, {
     id: 6,
     description: "Eumake's sample collection capabilities ensured that i had my samples taken from the comfort of my home while on prescribed bed rest.",
     name: "Faith Kilonzi",
@@ -81,15 +82,24 @@ const CustomerReview = () => {
         <div className="review-icon left">
           <img src={left} alt="left" onClick={handleLeftClick} />
         </div>
-        {currentReviews.map((review) => (
+        {currentReviews.map((review,index) => (
           <div key={review.id} className="review">
             <div className="review-desc">
 
               <div className="review-desc-body">
                 <div className="review-testimonial">
                   <div className="user-icon">
-                    <img src={user} alt="user" />
+                    {index === 1 ? (
+                      <img
+                        src={userLight}
+                        alt="user"
+                        style={{ backgroundImage: `url(${userLight})` }}
+                      />
+                    ) : (
+                      <img src={user} alt="user" />
+                    )}
                   </div>
+
                   <p className='reviewer-name'>{review.name}</p>
                   <p className='reviewer-desc'>{"\"" + review.description + "\""}</p>
                   <div className="review-rating">

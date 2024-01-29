@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import '../../assets/css/services.css';
 import AcknowledgmentModal from './AcknowledgmentModal';
+import SendToMail from '../data/SendToMail';
+import ConfirmationModal from './ConfirmationModal';
 
 const GetTestForm = ({ activeSection, tests, categories }) => {
   const [isAcknowledgmentModalOpen, setIsAcknowledgmentModalOpen] = useState(false);
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,6 +18,7 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
     selectedCategory: '',
     selectedTest: '',
   });
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [missingFields, setMissingFields] = useState([]);
 
@@ -23,28 +28,6 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
       ...formData,
       [name]: type === 'checkbox' ? checked : value,
     });
-  };
-
-  const sendEmail = async (formData) => {
-    // Implement your email sending logic here
-    // You can use a library like axios to send a POST request to your server endpoint
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        console.log('Email sent successfully');
-      } else {
-        console.error('Failed to send email');
-      }
-    } catch (error) {
-      console.error('Error sending email:', error);
-    }
   };
 
   const handleSubmit = async (e) => {
@@ -58,7 +41,6 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
       return;
     }
 
-    // Form is valid, proceed with submission
     setFormData({
       name: '',
       email: '',
@@ -70,17 +52,15 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
       selectedTest: '',
     });
 
-    setIsModalOpen(false); // Close the form modal
+    setIsModalOpen(false);
 
-    // Send email
-    await sendEmail(formData);
-
-    setIsAcknowledgmentModalOpen(true); // Open the acknowledgment modal
+    setIsConfirmationModalOpen(true);
   };
+
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setIsAcknowledgmentModalOpen(false); // Close acknowledgment modal when GetTestForm modal is closed
+    setIsAcknowledgmentModalOpen(false);
     setMissingFields([]);
     setFormData({
       name: '',
@@ -93,12 +73,29 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
       selectedTest: '',
     });
   };
+  const handleConfirm = async () => {
+    try {
+      // Close the confirmation modal
+      setIsConfirmationModalOpen(true);
+
+      // Wait for the email to be sent
+      await sendEmail(formData);
+
+      // If the email is sent successfully, open the acknowledgement modal
+      setIsAcknowledgmentModalOpen(true);
+    } catch (error) {
+      console.error("Failed to send email", error);
+      // Handle the error appropriately
+    }
+  };
+
+
+
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  // Check if activeSection is a string before using replace method
   const formTitle =
     typeof activeSection === 'string'
       ? `Book ${capitalizeFirstLetter(activeSection.replace(/([A-Z])/g, ' $1').trim())} Test`
@@ -108,7 +105,6 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
     <div className="get-test-form">
       <form onSubmit={handleSubmit}>
         <h4>{formTitle}</h4>
-        {/* Uniform label and input sizes */}
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
@@ -176,6 +172,7 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
             name="date"
             value={formData.date}
             onChange={handleInputChange}
+            className={missingFields.includes('date') ? 'missing-field' : ''}
           />
         </div>
         <div className="form-group">
@@ -226,17 +223,19 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
             Please fill in the required fields: {missingFields.join(', ')}
           </div>
         )}
-        {/* Book Test button */}
-        <button type="submit" className="test-submit">
-          Book Test
-        </button>
       </form>
+      <SendToMail formData={formData} />
       <AcknowledgmentModal
         isOpen={isAcknowledgmentModalOpen}
-        onClose={closeModal} // Close GetTestForm modal when acknowledgment modal is closed
+        onClose={closeModal}
         formattedTitle={`Booked ${capitalizeFirstLetter(activeSection.replace(/([A-Z])/g, ' $1').trim())} Test`}
         name={formData.name}
       />
+      <ConfirmationModal
+        onConfirm={handleConfirm}
+        onCancel={() => setIsConfirmationModalOpen(false)}
+      />
+
     </div>
   );
 };

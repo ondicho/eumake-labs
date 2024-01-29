@@ -45,19 +45,26 @@
 
 .reviews .review:nth-child(3) .review-testimonial {
     /* Add your special styles here */
-    background-color: #00063f!important; 
-    color: white!important;
-   }
+    background-color: #00063f !important;
+    color: white !important;
+}
+
+/* .reviews .review:nth-child(3) .review-testimonial .user-icon img {
+    background-image: url('../../assets/images/user-light.png')!important;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;} */
 
 
 .reviews .review:nth-child(3) .reviewer-desc {
-    color: white!important;
-   }
+    color: white !important;
+}
 
-   .reviews .review:nth-child(3) .reviewer-name {
-    color: white!important;
-   }
-   
+.reviews .review:nth-child(3) .reviewer-name {
+    color: white !important;
+}
+
 
 /* Styles for mobile screens */
 @media screen and (max-width: 768px) {

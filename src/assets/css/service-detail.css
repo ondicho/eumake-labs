@@ -62,3 +62,27 @@
     color: #00063f;
 }
   }
+
+
+
+  @media (min-width: 1200px) {
+    
+    .service-detail-header{
+        align-self:  baseline;
+        position: absolute;
+        left: 3%;
+        top: 12%;
+        color: #00063f;
+    }
+      }
+
+      @media (max-width: 1200px) {
+    
+        .service-detail-header{
+            align-self:  baseline;
+            position: absolute;
+            left: 3%;
+            top: 12%;
+            color: #00063f;
+        }
+          }
