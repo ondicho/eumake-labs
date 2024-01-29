@@ -5,6 +5,9 @@ import liver from '../../assets/images/liver.png'
 import kidney from '../../assets/images/kidney.png'
 import wellness from '../../assets/images/health.png'
 import other from '../../assets/images/blood-sample.png'
+import diabetes from '../../assets/images/diabetes.png'
+import thyroid from '../../assets/images/thyroid.png'
+import lipid from '../../assets/images/lipid.png'
 import GetTestForm from './GetTestForm';
 import servicesData from '../data/ServicesData';
 
@@ -12,10 +15,10 @@ const iconImages = {
   generalWellness: wellness,
   renalElectrolytes: kidney,
   cardiacAssessment: cardiac,
-  diabetes: other,
+  diabetes: diabetes,
   liverFunctionTest: liver,
-  lipidProfile: other,
-  thyroidFunctionTest: other,
+  lipidProfile: lipid,
+  thyroidFunctionTest: thyroid,
 };
 
 
@@ -38,6 +41,9 @@ const Services = () => {
 
   return (
     <div className="main-container service-container">
+      <div className="pathology-header">
+        <h4>Test Catalogue</h4>
+      </div>
       <div className="test-sections">
         {Object.keys(servicesData).map((section) => (
           <button
@@ -52,7 +58,7 @@ const Services = () => {
       </div>
       {activeSection && (
         <div className="section-table">
-          <h4>Test Catalogue {'>'} {servicesData[activeSection].section}</h4>
+          <h4>{servicesData[activeSection].section}</h4>
           <table className="custom-table">
             <thead className='head'>
               <tr>
@@ -74,7 +80,7 @@ const Services = () => {
         </div>
       )}
       <div className="form-area">
-      <GetTestForm
+        <GetTestForm
           activeSection={activeSection}
           tests={servicesData[activeSection].tests}
           categories={sectionNames}

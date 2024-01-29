@@ -1,10 +1,13 @@
+import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import React, { useRef } from 'react';
+import ConfirmationModal from '../pages/ConfirmationModal';
 
-const SendToMail = ({ formData }) => {
- const formRef = useRef();
+const SendToMail = ({ formData, handleSubmit }) => {
+  const formRef = useRef();
 
- const sendEmail = (e) => {
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+
+  const sendEmail = (e) => {
     e.preventDefault();
 
     console.log('Form data:', formData);
@@ -20,23 +23,63 @@ const SendToMail = ({ formData }) => {
           console.error('An unknown error occurred. Please try again.');
         }
       });
- };
+  };
 
- return (
-    <form ref={formRef} onSubmit={sendEmail}>
-      {/* Hidden form fields */}
-      <input type="hidden" name="name" value={formData.name} />
-      <input type="hidden" name="email" value={formData.email} />
-      <input type="hidden" name="phone" value={formData.phone} />
-      <input type="hidden" name="specimenCollection" value={formData.specimenCollection} />
-      <input type="hidden" name="location" value={formData.location} />
-      <input type="hidden" name="date" value={formData.date} />
-      <input type="hidden" name="selectedCategory" value={formData.selectedCategory} />
-      <input type="hidden" name="selectedTest" value={formData.selectedTest} />
-      {/* Submit button */}
-      <button type="submit" className="test-submit">Submit</button>
-    </form>
- );
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log('Form data:', formData);
+
+    // Set the confirmation modal to open
+    setIsConfirmationModalOpen(true);
+
+    console.log('Confirmation modal opened'); // Log confirmation modal opening
+  };
+
+
+  const handleConfirm = () => {
+    console.log('Confirmation modal confirmed'); // Log confirmation modal confirmation
+
+
+    sendEmail();
+    setIsConfirmationModalOpen(false);
+    console.log('Confirmation modal closed'); // Log confirmation modal closing
+    handleSubmit();
+
+  };
+
+
+
+
+  return (
+    <>
+      <ConfirmationModal
+        isOpen={isConfirmationModalOpen}
+        onConfirm={handleConfirm}
+        onCancel={() => setIsConfirmationModalOpen(false)}
+        name={formData.name}
+        formattedTitle='Confirm Details'
+      />
+
+      <form ref={formRef} onSubmit={handleFormSubmit}>
+        {/* Hidden form fields */}
+        <input type="hidden" name="name" value={formData.name} />
+        <input type="hidden" name="email" value={formData.email} />
+        <input type="hidden" name="phone" value={formData.phone} />
+        <input type="hidden" name="specimenCollection" value={formData.specimenCollection} />
+        <input type="hidden" name="location" value={formData.location} />
+        <input type="hidden" name="date" value={formData.date} />
+        <input type="hidden" name="selectedCategory" value={formData.selectedCategory} />
+        <input type="hidden" name="selectedTest" value={formData.selectedTest} />
+        {/* Submit button */}
+        {!isConfirmationModalOpen && (
+          <button type="submit" className="test-submit">Submit</button>
+        )}
+      </form>
+    </>
+
+
+  );
 };
 
 export default SendToMail;

@@ -1,10 +1,14 @@
 // ServiceDetailPage.js
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
 import ServiceDetails from './ServiceDetails';
 import '../../assets/css/service-detail.css';
+import back from '../../assets/images/back-arrow.png';
 
 const ServiceDetailPage = ({ pathologyServicesData }) => {
+  const navigate = useNavigate();
+
   const { index } = useParams();
   const serviceIndex = parseInt(index, 10);
 
@@ -29,8 +33,17 @@ const ServiceDetailPage = ({ pathologyServicesData }) => {
 
   return (
     <div className="main-container service-detail-page">
-      <img src={service.imagePath} alt={service.header} className="service-detail-banner" />
-      <h4 className="service-detail-header">Pathology Services {'>'} {service.header}</h4>
+      <div className="service-detail-banner">
+        <div className="service-detail-header">
+          <img src={back} alt='back' className='back' onClick={() => navigate(-1)} />
+
+          <h4>Pathology Services {':'} {service.header}</h4>
+        </div>
+        <div className="service-detail-image">
+          <img src={service.imagePath} alt={service.header} />
+        </div>
+      </div>
+
       <div className="service-content">
         <h3 className="service-paragraph-header">{service.header}</h3>
         <p className="service-paragraph-text">{service.description}</p>

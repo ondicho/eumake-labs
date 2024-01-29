@@ -1,10 +1,13 @@
-.patholgy {
+
+
+.pathology {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     flex-direction: row;
   }
+
   
   .pathology-service {
     flex: 0 0 calc(33.33% - 20px); /* Set to 33.33% for three cards per row */

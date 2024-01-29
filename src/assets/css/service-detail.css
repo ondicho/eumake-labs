@@ -1,33 +1,73 @@
-.service-detail-page{
-    margin: 0 auto;
+.service-detail-page {
+  margin: 0 auto;
 }
 
-.service-detail-banner{
+.service-detail-banner {
+  width: -webkit-fill-available;
+  height: 200px !important;
+  object-fit: contain;
+  aspect-ratio: 16 / 9;
+  justify-content: space-evenly;
+}
+
+.service-detail-banner h4{
+  font-size: large!important;
+}
+.service-detail-header:hover{
+  transform: scale(1.05);
+}
+
+.back{
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+}
+
+
+.service-detail-image {
+  /* object-fit: cover; */
+  width: inherit;
+  height: inherit;
+  overflow: hidden;
+}
+
+.service-detail-image img {
+    height: 150%;
     width: -webkit-fill-available;
-    height: 200px!important;
-    object-fit: cover;
-}
-
-.service-detail-header{
-    align-self:  baseline;
-    position: absolute;
-    left: 3%;
-    top: 25%;
-    color: #00063f;
 }
 
 
-.service-content{
-    margin: 10px;
+
+
+.service-detail-header {
+  align-self: baseline;
+  position: absolute;
+  left: 3%;
+  top: 25%;
+  color: #00063f;
+  display: flex;
+  align-items: center;
+  /* height: -webkit-fill-available;
+  width:  -webkit-fill-available; */
 }
 
-.service-paragraph-header{
-    color: #2bb9ff;
+.service-detail-header h3{
+  background-color: #d7d7e5;
+ 
 }
 
-.service-paragraph-text{
-    color: #00063f;
-    font-style: italic;
+
+.service-content {
+  margin: 10px;
+}
+
+.service-paragraph-header {
+  color: #2bb9ff;
+}
+
+.service-paragraph-text {
+  color: #00063f;
+  font-style: italic;
 }
 
 .credits {
@@ -53,36 +93,36 @@
 
 
 @media (max-width: 768px) {
-    
-.service-detail-header{
-    align-self:  baseline;
+
+  .service-detail-header {
+    align-self: baseline;
     position: absolute;
     left: 3%;
-    top: 17%;
+    top: 4%;
     color: #00063f;
-}
   }
+}
 
 
 
-  @media (min-width: 1200px) {
-    
-    .service-detail-header{
-        align-self:  baseline;
-        position: absolute;
-        left: 3%;
-        top: 12%;
-        color: #00063f;
-    }
-      }
+@media (min-width: 1200px) {
 
-      @media (max-width: 1200px) {
-    
-        .service-detail-header{
-            align-self:  baseline;
-            position: absolute;
-            left: 3%;
-            top: 12%;
-            color: #00063f;
-        }
-          }
+  .service-detail-header {
+    align-self: baseline;
+    position: absolute;
+    left: 3%;
+    top: 12%;
+    color: #00063f;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+
+  .service-detail-header {
+    align-self: baseline;
+    position: absolute;
+    left: 3%;
+    top: 12%;
+    color: #00063f;
+  }
+}

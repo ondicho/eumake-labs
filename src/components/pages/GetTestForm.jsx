@@ -19,6 +19,27 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
     selectedTest: '',
   });
 
+  const handleResetForm = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      specimenCollection: false,
+      location: '',
+      date: '',
+      selectedCategory: '',
+      selectedTest: '',
+    });
+  };
+
+  const handleSubmit = () => {
+    e.preventDefault(); // Use optional chaining to avoid errors if e is undefined
+   
+    setIsAcknowledgmentModalOpen(true);
+   
+   };
+   
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [missingFields, setMissingFields] = useState([]);
 
@@ -29,68 +50,6 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
       [name]: type === 'checkbox' ? checked : value,
     });
   };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const requiredFields = ['name', 'email', 'phone', 'date', 'selectedCategory', 'selectedTest'];
-    const missing = requiredFields.filter((field) => !formData[field]);
-
-    if (missing.length > 0) {
-      setMissingFields(missing);
-      return;
-    }
-
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      specimenCollection: false,
-      location: '',
-      date: '',
-      selectedCategory: '',
-      selectedTest: '',
-    });
-
-    setIsModalOpen(false);
-
-    setIsConfirmationModalOpen(true);
-  };
-
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setIsAcknowledgmentModalOpen(false);
-    setMissingFields([]);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      specimenCollection: false,
-      location: '',
-      date: '',
-      selectedCategory: '',
-      selectedTest: '',
-    });
-  };
-  const handleConfirm = async () => {
-    try {
-      // Close the confirmation modal
-      setIsConfirmationModalOpen(true);
-
-      // Wait for the email to be sent
-      await sendEmail(formData);
-
-      // If the email is sent successfully, open the acknowledgement modal
-      setIsAcknowledgmentModalOpen(true);
-    } catch (error) {
-      console.error("Failed to send email", error);
-      // Handle the error appropriately
-    }
-  };
-
-
-
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -103,7 +62,7 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
 
   return (
     <div className="get-test-form">
-      <form onSubmit={handleSubmit}>
+      <form>
         <h4>{formTitle}</h4>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
@@ -224,17 +183,7 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
           </div>
         )}
       </form>
-      <SendToMail formData={formData} />
-      <AcknowledgmentModal
-        isOpen={isAcknowledgmentModalOpen}
-        onClose={closeModal}
-        formattedTitle={`Booked ${capitalizeFirstLetter(activeSection.replace(/([A-Z])/g, ' $1').trim())} Test`}
-        name={formData.name}
-      />
-      <ConfirmationModal
-        onConfirm={handleConfirm}
-        onCancel={() => setIsConfirmationModalOpen(false)}
-      />
+      <SendToMail formData={formData} handleResetForm={handleResetForm} handleSubmit={handleSubmit} />
 
     </div>
   );

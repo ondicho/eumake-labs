@@ -1,5 +1,8 @@
 import image2 from '../../assets/images/_E5A0892.png'
-import image1 from '../../assets/images/haematology.jpg'
+import chemistry from '../../assets/images/chemistryBanner.png'
+import haematology from '../../assets/images/haematologyBanner.png'
+import biology from '../../assets/images/biochemistryBanner.png'
+import glucose from '../../assets/images/gluecoseBanner.png'
 
 const pathologyServicesData = [
     {
@@ -12,14 +15,14 @@ const pathologyServicesData = [
     },
     {
       header: 'Hematology Department',
-      imagePath: image1,
+      imagePath: haematology,
       description: `This is a five-part analyzer. With this, we are able to do Full Blood Count, Peripheral blood film, Reticulocyte count.
         Other tests done in this department include Malaria profile, Heamoparasites, Coagulation tests.`,
     },
     // Add more services as needed
     {
-      header: 'Wellness Check',
-      imagePath: image2,
+      header: 'Chemistry',
+      imagePath: chemistry,
       description: `We offer various tests packages for wellness Programs and for promotive and preventive health. We are
         available to come to your premises to set-up and do samples collections given an opportunity. The
         clients are also free to come to our Laboratory for their convenience and confidentiality.
@@ -27,12 +30,12 @@ const pathologyServicesData = [
     },
     {
       header: 'Microbiology',
-      imagePath: image2,
+      imagePath: biology,
       description: `We offer quality and reliable results in Bacteriology, Mycology and Virology.Post-Analytical testing: All test results are delivered via email and as a hard copy as per the client’s preference.`,
     },
     {
-      header: 'Histology & Cytology',
-      imagePath: image2,
+      header: 'Glucose',
+      imagePath: glucose,
       description: `We have an in-house Pathologist and cytologists for expedited turn-around time..Post-Analytical testing: All test results are delivered via email and as a hard copy as per the client’s preference.`,
     },
   ];

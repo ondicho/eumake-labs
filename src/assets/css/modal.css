@@ -7,9 +7,10 @@
     width: 80%;
 }
 
-
-
-
+.error-message{
+    color: #2bb9ff;
+    margin:10px;
+}
 .modal-close {
     position: absolute;
     top: 0%;
@@ -32,6 +33,16 @@
     /* Add some margin between the label and input */
 }
 
+.confirm-submit {
+    background-color: #00063f;
+    color: white;
+    padding: 10px;
+    width: 100px;
+    border-radius: 8px;
+    margin-top: 20px;
+    float: inline-end;
+}
+
 .modal-submit {
     position: inherit;
     background-color: #00063f;
@@ -40,6 +51,7 @@
     width: 100px;
     border-radius: 8px;
     margin-top: 20px;
+    float: inline-end;
 }
 
 .modal-form-input {

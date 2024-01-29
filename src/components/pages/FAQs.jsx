@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import down from '../../assets/images/down-arrow.png';
 import faq from '../../assets/images/faq.png';
+import faqAnswer from '../../assets/images/faq-answer.png';
 import '../../assets/css/faq.css';
 
 const faqData = [
@@ -65,6 +66,7 @@ const FAQs = () => {
             {expandedId === faq.id && (
               <div className="faq-answer" ref={answerRef} style={{ maxHeight: expandedHeight }}>
                 <div className="faq-answer-text">{faq.answer}</div>
+                <div><img className='faq-answer-icon' src={faqAnswer}/></div>
               </div>
             )}
           </li>
