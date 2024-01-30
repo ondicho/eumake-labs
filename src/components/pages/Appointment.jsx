@@ -17,7 +17,7 @@ const Appointment = ({ isOpen, onClose, title }) => {
     }));
   };
 
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('generalWellness');
 
 
   const sectionNames = Object.values(servicesData).map(category => category.section);
@@ -36,12 +36,14 @@ const Appointment = ({ isOpen, onClose, title }) => {
         <div className="appointment-modal">
 
           <GetTestForm
+            isOpen={isOpen}
+            onClose={onClose}
             activeSection={'generalWellness'}
-            tests={servicesData['generalWellness'].tests}
+            tests={servicesData[selectedCategory].tests}
             categories={sectionNames}
-            onSubmit={handleSubmit}  // Change to handleSubmit
+            onSubmit={handleSubmit}
             selectedCategory={selectedCategory}
-            onCategoryChange={(category) => setSelectedCategory(category)}
+            onCategoryChange={(selectedCategory) => setSelectedCategory(selectedCategory)}
           />
 
 

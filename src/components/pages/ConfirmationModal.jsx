@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import close from '../../assets/images/close.png';
 
-const ConfirmationModal = ({ isOpen, onClose, formattedTitle, name, handleConfirm }) => {
+const ConfirmationModal = ({ isOpen, onClose, formattedTitle, name, onConfirm }) => {
     const [isConsentChecked, setIsConsentChecked] = useState(false);
 
     const handleInputChange = (e) => {
@@ -28,7 +28,7 @@ const ConfirmationModal = ({ isOpen, onClose, formattedTitle, name, handleConfir
                     </p>
                     {!isConsentChecked && (
                         <div className="error-message">
-                            <p>Please check the checkbox to proceed</p>
+                            <p>Please accept terms and conditions to proceed</p>
                         </div>
                     )}
                     <div className="form-group consent">
@@ -44,7 +44,8 @@ const ConfirmationModal = ({ isOpen, onClose, formattedTitle, name, handleConfir
                     <div className="modal-close">
                         <img className="modal-icon" src={close} alt="close" onClick={handleClose} />
                     </div>
-                    <button type="button" className="confirm-submit" onClick={handleSubmit}>Submit</button>
+                    <button type="button" className="confirm-submit" onClick={onConfirm}>Submit</button>
+
                 </div>
             )}
         </>

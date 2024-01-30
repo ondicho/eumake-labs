@@ -3,8 +3,9 @@ import '../../assets/css/services.css';
 import AcknowledgmentModal from './AcknowledgmentModal';
 import SendToMail from '../data/SendToMail';
 import ConfirmationModal from './ConfirmationModal';
+import servicesData from '../data/ServicesData';
 
-const GetTestForm = ({ activeSection, tests, categories }) => {
+const GetTestForm = ({ isOpen,onClose,activeSection, categories, selectedCategory }) => {
   const [isAcknowledgmentModalOpen, setIsAcknowledgmentModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
@@ -32,23 +33,26 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
     });
   };
 
-  const handleSubmit = () => {
-    e.preventDefault(); // Use optional chaining to avoid errors if e is undefined
-   
-    setIsAcknowledgmentModalOpen(true);
-   
-   };
-   
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [missingFields, setMissingFields] = useState([]);
-
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevFormData) => ({
+      ...prevFormData,
       [name]: type === 'checkbox' ? checked : value,
-    });
+    }));
+  };
+
+
+  const handleSubmit = (e) => {
+    
+  };
+
+  const handleCategoryChange = (event) => {
+    const selectedCategoryValue = event.target.value;
+    // Add any logic you need when the category changes
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      selectedCategory: selectedCategoryValue,
+    }));
   };
 
   const capitalizeFirstLetter = (string) => {
@@ -59,6 +63,9 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
     typeof activeSection === 'string'
       ? `Book ${capitalizeFirstLetter(activeSection.replace(/([A-Z])/g, ' $1').trim())} Test`
       : '';
+
+  const filteredTests = servicesData[selectedCategory]?.tests || [];
+  const [missingFields, setMissingFields] = useState([]);
 
   return (
     <div className="get-test-form">
@@ -143,16 +150,26 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
             id="selectedCategory"
             name="selectedCategory"
             value={formData.selectedCategory}
-            onChange={handleInputChange}
+            onChange={handleCategoryChange}
           >
-            <option value="" disabled>
+            {/* <option value="" disabled>
               Select a Category
             </option>
+
+            // In your JSX
+  <select onChange={handleCategoryChange}> */}
             {categories.map((category, index) => (
               <option key={index} value={category}>
                 {category}
               </option>
             ))}
+            {/* </select>
+
+            {categories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))} */}
           </select>
         </div>
         <div className="form-group">
@@ -169,7 +186,7 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
             <option value="" disabled>
               Select a test
             </option>
-            {tests.map((test, index) => (
+            {filteredTests.map((test, index) => (
               <option key={index} value={test.name}>
                 {test.name}
               </option>
@@ -183,7 +200,7 @@ const GetTestForm = ({ activeSection, tests, categories }) => {
           </div>
         )}
       </form>
-      <SendToMail formData={formData} handleResetForm={handleResetForm} handleSubmit={handleSubmit} />
+      <SendToMail formData={formData} handleResetForm={handleResetForm} handleSubmit={handleSubmit} isOpen={isOpen} onClose={onClose}/>
 
     </div>
   );

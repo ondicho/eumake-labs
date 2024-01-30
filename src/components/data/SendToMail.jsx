@@ -1,14 +1,16 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import ConfirmationModal from '../pages/ConfirmationModal';
+import AcknowledgmentModal from '../pages/AcknowledgmentModal';
 
-const SendToMail = ({ formData, handleSubmit }) => {
+const SendToMail = ({ isOpen, onClose, formData, handleSubmit }) => {
   const formRef = useRef();
 
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+  const [isAcknowledgmentModalOpen, setIsAcknowledgmentModalOpen] = useState(false);
 
   const sendEmail = (e) => {
-    e.preventDefault();
+    e?.preventDefault();
 
     console.log('Form data:', formData);
 
@@ -24,35 +26,57 @@ const SendToMail = ({ formData, handleSubmit }) => {
         }
       });
   };
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     console.log('Form data:', formData);
 
-    // Set the confirmation modal to open
-    setIsConfirmationModalOpen(true);
+    // Check if the form is valid
+    const isValidForm = validateForm();
 
-    console.log('Confirmation modal opened'); // Log confirmation modal opening
+    // Set the confirmation modal to open if the form is valid
+    if (isValidForm) {
+      setIsConfirmationModalOpen(true);
+      console.log('Confirmation modal opened'); // Log confirmation modal opening
+    }
   };
+
 
 
   const handleConfirm = () => {
-    console.log('Confirmation modal confirmed'); // Log confirmation modal confirmation
-
-
-    sendEmail();
+    console.log('Confirmation modal confirmed');
+    sendEmail(); // Remove the (e) argument here
     setIsConfirmationModalOpen(false);
-    console.log('Confirmation modal closed'); // Log confirmation modal closing
-    handleSubmit();
+    console.log('Confirmation modal closed');
 
+    setIsAcknowledgmentModalOpen(true); // A
+    onClose();
+    console.log('Confirmation modal closed');
   };
+
+
+  const [missingFields, setMissingFields] = useState([]);
+
+  const validateForm = () => {
+    const requiredFields = ['name', 'email', 'phone', 'date', 'selectedCategory', 'selectedTest'];
+    const missingFields = requiredFields.filter(field => !formData[field]);
+
+    setMissingFields(missingFields);
+    return missingFields.length === 0;
+  };
+
+
 
 
 
 
   return (
     <>
+      {missingFields.length > 0 && (
+        <div className="error-message">
+          <p>Please fill in all required fields: {missingFields.join(', ')}</p>
+        </div>
+      )}
       <ConfirmationModal
         isOpen={isConfirmationModalOpen}
         onConfirm={handleConfirm}
@@ -60,6 +84,18 @@ const SendToMail = ({ formData, handleSubmit }) => {
         name={formData.name}
         formattedTitle='Confirm Details'
       />
+
+      {isAcknowledgmentModalOpen && (
+        <AcknowledgmentModal
+          isOpen={isAcknowledgmentModalOpen} // Check this prop
+          onClose={() => setIsAcknowledgmentModalOpen(false)}
+          formattedTitle="Acknowledgment"
+          name={formData.name}
+        />
+
+      )}
+
+
 
       <form ref={formRef} onSubmit={handleFormSubmit}>
         {/* Hidden form fields */}
