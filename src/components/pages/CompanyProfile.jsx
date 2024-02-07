@@ -20,9 +20,11 @@ const CompanyProfile = () => {
       content: [
         {
           date: 'May 2000',
-          description: 'M.P. SHAH hospital.',
+          description: 'M.P. SHAH hospital.-Head of Histology and Cytology',
           tasks: [
-            'Lab Technician',
+            'Laboratory Scientist',
+            // '',
+            
           ],
         },
         {

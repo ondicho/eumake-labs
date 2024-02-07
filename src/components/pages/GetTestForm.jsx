@@ -4,8 +4,9 @@ import AcknowledgmentModal from './AcknowledgmentModal';
 import SendToMail from '../data/SendToMail';
 import ConfirmationModal from './ConfirmationModal';
 import servicesData from '../data/ServicesData';
+import rider from '../../assets/images/rider.png';
 
-const GetTestForm = ({ isOpen,onClose,activeSection, categories, selectedCategory }) => {
+const GetTestForm = ({ isOpen, onClose, activeSection, categories, selectedCategory }) => {
   const [isAcknowledgmentModalOpen, setIsAcknowledgmentModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
@@ -41,19 +42,34 @@ const GetTestForm = ({ isOpen,onClose,activeSection, categories, selectedCategor
     }));
   };
 
+  const handleCategoryChange = (event) => {
+    const selectedCategory = event.target.value;
+    setFormData({
+      ...formData,
+      selectedCategory,
+      selectedTest: '', // Reset the test selection when category changes
+    });
+  };
 
   const handleSubmit = (e) => {
-    
+    e.preventDefault();
+    // Your form submission logic goes here
   };
 
-  const handleCategoryChange = (event) => {
-    const selectedCategoryValue = event.target.value;
-    // Add any logic you need when the category changes
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      selectedCategory: selectedCategoryValue,
-    }));
+  const getTestsForCategory = (selectedCategory) => {
+    // Find the category object where the section matches the selectedCategory
+    const category = Object.values(servicesData).find(cat => cat.section === selectedCategory);
+  
+    // If the category was found, return its tests, otherwise return an empty array
+    return category ? category.tests : [];
   };
+  
+  
+  // Usage example:
+  // const selectedCategory = "General Wellness";
+  const tests = getTestsForCategory(selectedCategory);
+
+
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -69,8 +85,8 @@ const GetTestForm = ({ isOpen,onClose,activeSection, categories, selectedCategor
 
   return (
     <div className="get-test-form">
-      <form>
-        <h4>{formTitle}</h4>
+      <form onSubmit={handleSubmit}>
+        <h4>Book A Test</h4>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
@@ -105,7 +121,13 @@ const GetTestForm = ({ isOpen,onClose,activeSection, categories, selectedCategor
           />
         </div>
         <div className="form-group">
-          <label htmlFor="specimenCollection">Specimen Collection:</label>
+          <label htmlFor="specimenCollection">Specimen Collection:   
+          {/* <img
+            src={rider}
+            alt="Order Now"
+            className="widget order-now"
+          /> */}
+          </label>
           <input
             type="checkbox"
             id="specimenCollection"
@@ -142,66 +164,45 @@ const GetTestForm = ({ isOpen,onClose,activeSection, categories, selectedCategor
           />
         </div>
         <div className="form-group">
-          <label htmlFor="selectedCategory" className={missingFields.includes('selectedCategory') ? 'missing-field' : ''}>
-            Select Category:
-          </label>
-          {/* Dropdown for selected category */}
+          <label htmlFor="selectedCategory">Select Category:</label>
           <select
             id="selectedCategory"
             name="selectedCategory"
             value={formData.selectedCategory}
             onChange={handleCategoryChange}
           >
-            {/* <option value="" disabled>
-              Select a Category
-            </option>
-
-            // In your JSX
-  <select onChange={handleCategoryChange}> */}
-            {categories.map((category, index) => (
-              <option key={index} value={category}>
+            <option value="">Select a category</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
                 {category}
-              </option>
-            ))}
-            {/* </select>
-
-            {categories.map((category, index) => (
-              <option key={index} value={category}>
-                {category}
-              </option>
-            ))} */}
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="selectedTest" className={missingFields.includes('selectedTest') ? 'missing-field' : ''}>
-            Select Test:
-          </label>
-          {/* Dropdown for selected test */}
-          <select
-            id="selectedTest"
-            name="selectedTest"
-            value={formData.selectedTest}
-            onChange={handleInputChange}
-          >
-            <option value="" disabled>
-              Select a test
-            </option>
-            {filteredTests.map((test, index) => (
-              <option key={index} value={test.name}>
-                {test.name}
               </option>
             ))}
           </select>
         </div>
-        {/* Display error messages for missing fields */}
-        {missingFields.length > 0 && (
-          <div className="form-error">
-            Please fill in the required fields: {missingFields.join(', ')}
+        {formData.selectedCategory && (
+          <div className="form-group">
+            <label htmlFor="selectedTest">Select Test:</label>
+            <select
+              id="selectedTest"
+              name="selectedTest"
+              value={formData.selectedTest}
+              onChange={(event) =>
+                setFormData({ ...formData, selectedTest: event.target.value })
+              }
+            >
+              <option value="">Select a test</option>
+              {/* Use formData.selectedCategory to fetch tests */}
+              {getTestsForCategory(formData.selectedCategory).map((test, index) => (
+                <option key={index} value={test.name}>
+                  {test.name}
+                </option>
+              ))}
+            </select>
           </div>
         )}
-      </form>
-      <SendToMail formData={formData} handleResetForm={handleResetForm} handleSubmit={handleSubmit} isOpen={isOpen} onClose={onClose}/>
 
+      </form>
+      <SendToMail formData={formData} handleResetForm={handleResetForm} handleSubmit={handleSubmit} isOpen={isOpen} onClose={onClose} />
     </div>
   );
 };

@@ -29,10 +29,10 @@ const ServiceCard = ({ section, testName, duration, price, image, onClick, title
                 <td className="label">Duration:</td>
                 <td>{duration}</td>
               </tr>
-              <tr>
+              {/* <tr>
                 <td className="label">Price:</td>
                 <td>Kes. {price}</td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>

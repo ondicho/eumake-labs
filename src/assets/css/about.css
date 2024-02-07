@@ -42,7 +42,7 @@ h2 {
     display: flex;
     /* flex-direction: column; */
     align-items: center;
-    box-shadow: 1px 1px 4px #00063f;
+    box-shadow:  1px 1px 4px #2bb9ff;
     color: #00063f;
 }
 
@@ -84,6 +84,7 @@ p.tab-content-paragraph {
         flex-direction: row;
         flex-direction: column;
         box-shadow: none;
+        box-shadow: 1px 1px 4px #2bb9ff;
     }
 
     .tab-image {

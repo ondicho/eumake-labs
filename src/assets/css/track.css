@@ -1,0 +1,47 @@
+.tracker-banner {
+    top: 0;
+    height:  30vh; /* Adjust this to fit your design */
+    position: fixed;
+    overflow: hidden; /* Prevents content from spilling outside the div */
+  }
+  
+  .tracker-banner img.banner {
+    width:  100%;
+    height: auto;
+  }
+  
+  .tracker-body {
+    padding-top:  20px; /* Creates space between the banner and the body content */
+  }
+  
+  /* Ensure the search input and button are properly styled */
+  .tracker {
+    display: flex;
+    align-items: center;
+    gap:  10px; /* Space between the input and button */
+    margin-top:  20px; /* Space from the top of the tracker-body */
+  }
+  
+  .search {
+    flex-grow:  1;
+    /* Additional styles for the search input */
+  }
+  
+  .search-button {
+    /* Styles for the search button */
+  }
+
+  h3{
+    margin: 0.3rem;
+  }
+
+
+@media (max-width: 768px) {
+    .tracker-banner {
+        top: 0;
+        height:  40vh; /* Adjust this to fit your design */
+        position: fixed;
+        overflow: hidden; /* Prevents content from spilling outside the div */
+      }
+  }
+  

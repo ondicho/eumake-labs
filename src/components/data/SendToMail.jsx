@@ -45,7 +45,7 @@ const SendToMail = ({ isOpen, onClose, formData, handleSubmit }) => {
 
   const handleConfirm = () => {
     console.log('Confirmation modal confirmed');
-    sendEmail(); // Remove the (e) argument here
+    sendEmail(); // Remove the (e) argumentnpm  here
     setIsConfirmationModalOpen(false);
     console.log('Confirmation modal closed');
 

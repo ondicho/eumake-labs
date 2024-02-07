@@ -104,6 +104,10 @@ form.modal-form {
     width: 150px;
 }
 
+/* .order-now{
+    vertical-align: top;
+} */
+
 
 @media (max-width: 768px) {
     .appointment-modal {

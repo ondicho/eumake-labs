@@ -13,6 +13,7 @@ import Team from './components/pages/Team';
 import Gallery from './components/pages/Gallery';
 import ServiceDetailPage from './components/pages/ServiceDetailsPage'; // Import ServiceDetailPage
 import pathologyServicesData from './components/data/PathologyServicesData';
+import TrackTest from './components/pages/TrackTest';
 
 function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -37,6 +38,7 @@ function App() {
         <Route exact path="/faqs" element={<Container Page={FAQs} />} />
         <Route exact path="/contact-us" element={<Container Page={ContactUs} />} />
         <Route exact path="/gallery" element={<Container Page={Gallery} />} />
+        <Route exact path="/track-test" element={<Container Page={TrackTest} />} />
         <Route path="/services/:index" element={<Container Page={() =><ServiceDetailPage pathologyServicesData={pathologyServicesData} />} />}/>
 
 

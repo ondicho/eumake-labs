@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import '../../assets/css/styles.css';
 import appointment from '../../assets/images/appointment.png';
 import track from '../../assets/images/track.png';
@@ -12,20 +13,13 @@ const Widgets = () => {
   const [isAppointmentModalOpen, setAppointmentModalOpen] = useState(false);
   const [isSampleModalOpen, setSampleModalOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Log the background color as you scroll
-      console.log('Background Color While Scrolling:', backgroundColor);
-    };
+  const navigate = useNavigate();
 
-    // Add event listener for 'scroll' event
-    window.addEventListener('scroll', handleScroll);
+  const handleTrackClick = () => {
+    navigate('/track-test'); // Navigate to the '/track-test' route
+  };
 
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [backgroundColor]); // Re-run effect when backgroundColor changes
+
 
   const openAppointmentModal = () => {
     setAppointmentModalOpen(true);
@@ -77,7 +71,7 @@ const Widgets = () => {
             <p>Book Appointment</p>
           </div>
         </div>
-        <div className="widget-container">
+        {/* <div className="widget-container">
           <img
             src={getIconSource(rider)}
             alt="Order Now"
@@ -87,14 +81,14 @@ const Widgets = () => {
           <div className="modal">
             <p> Sample Collection</p>
           </div>
-        </div>
+        </div> */}
 
         <div className="widget-container">
           <img
             src={getIconSource(track)}
             alt="Back to Top"
             className="widget back-to-top"
-            onClick={scrollToTop}
+            onClick={handleTrackClick}
           />
           <div className="modal">
             <p>Track My Test</p>
