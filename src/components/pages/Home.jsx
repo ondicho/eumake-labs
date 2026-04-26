@@ -72,7 +72,7 @@ const Home = () => {
 
       <AccreditationsSection />
       <CustomerReview />
-      <Widgets />
+      {/* <Widgets /> */}
     </>
   );
 };
