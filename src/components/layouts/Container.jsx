@@ -18,6 +18,7 @@ const Container = ({ Page }) => {
     <div className="page-container">
      <Navbar />
       <div className="page-content-holder">
+      <div className="break"></div>
         <Page openContactModal={openContactModal} closeContactModal={closeContactModal} />
       </div>
       <Footer />

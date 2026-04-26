@@ -109,7 +109,11 @@ const SendToMail = ({ isOpen, onClose, formData, handleSubmit }) => {
         <input type="hidden" name="selectedTest" value={formData.selectedTest} />
         {/* Submit button */}
         {!isConfirmationModalOpen && (
-          <button type="submit" className="test-submit">Submit</button>
+          <div className="form-submit-wrapper">
+             <button type="submit" className="premium-submit-btn">
+                 Confirm Booking Appointment
+             </button>
+          </div>
         )}
       </form>
     </>

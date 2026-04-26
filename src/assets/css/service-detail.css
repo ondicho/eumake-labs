@@ -1,128 +1,120 @@
-.service-detail-page {
-  margin: 0 auto;
+/* src/assets/css/service-detail.css */
+
+.service-detail-wrapper {
+  width: 100%;
 }
 
-.service-detail-banner {
-  width: -webkit-fill-available;
-  height: 200px !important;
-  object-fit: contain;
-  aspect-ratio: 16 / 9;
-  justify-content: space-evenly;
-}
-
-.service-detail-banner h4{
-  font-size: large!important;
-}
-.service-detail-header:hover{
-  transform: scale(1.05);
-}
-
-.back{
-  height: 30px;
-  width: 30px;
-  margin-right: 5px;
-}
-
-
-.service-detail-image {
-  /* object-fit: cover; */
-  width: inherit;
-  height: inherit;
-  overflow: hidden;
-}
-
-.service-detail-image img {
-    height: 150%;
-    width: -webkit-fill-available;
-}
-
-
-
-
-.service-detail-header {
-  align-self: baseline;
-  position: absolute;
-  left: 3%;
-  top: 25%;
-  color: #00063f;
+.service-hero-banner {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 600px;
+  background-size: cover;
+  background-position: center;
   display: flex;
+  align-items: flex-end;
+}
+
+.service-hero-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0, 6, 63, 0.95) 0%, rgba(0, 6, 63, 0.4) 60%, rgba(0, 6, 63, 0.1) 100%);
+  z-index: 1;
+}
+
+.service-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.service-back-btn {
+  display: inline-flex;
   align-items: center;
-  /* height: -webkit-fill-available;
-  width:  -webkit-fill-available; */
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 2rem;
 }
 
-.service-detail-header h3{
-  background-color: #d7d7e5;
- 
-}
-
-
-.service-content {
-  margin: 10px;
-}
-
-.service-paragraph-header {
-  color: #2bb9ff;
-}
-
-.service-paragraph-text {
-  color: #00063f;
-  font-style: italic;
-}
-
-.credits {
-  position: inherit;
-  align-self: flex-end;
-  bottom: 0;
-  right: 0;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: right;
-}
-
-.credits h3 {
-  margin: 0;
+.service-back-btn:hover {
+  background: #ffffff;
   color: #00063f;
 }
 
-.credits p {
-  margin: 5px 0;
-  color: #2bb9ff;
+.service-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+  text-transform: capitalize;
 }
 
+.service-hero-badge {
+  display: inline-block;
+  background: #2bb9ff;
+  color: #00063f;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.35rem 1rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
+.service-body-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.service-overview-heading {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #00063f;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 0.75rem;
+}
+
+.service-text-block {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #334155;
+  font-weight: 400;
+}
+
+.service-text-block p {
+  margin-bottom: 1.5rem;
+}
+
+.detail-error {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.25rem;
+  color: red;
+  font-weight: bold;
+}
 
 @media (max-width: 768px) {
-
-  .service-detail-header {
-    align-self: baseline;
-    position: absolute;
-    left: 3%;
-    top: 4%;
-    color: #00063f;
+  .service-hero-title {
+    font-size: 2.5rem;
   }
-}
-
-
-
-@media (min-width: 1200px) {
-
-  .service-detail-header {
-    align-self: baseline;
-    position: absolute;
-    left: 3%;
-    top: 12%;
-    color: #00063f;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1200px) {
-
-  .service-detail-header {
-    align-self: baseline;
-    position: absolute;
-    left: 3%;
-    top: 12%;
-    color: #00063f;
+  .service-hero-banner {
+    height: 50vh;
   }
 }

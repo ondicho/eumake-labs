@@ -2,43 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../assets/css/panel.css';
 
-const ServiceCard = ({ section, testName, duration, price, image, onClick, title }) => {
-  // Capitalize the title
+const ServiceCard = ({ section, testName, duration, price, image, onClick, title, theme = 'dark' }) => {
   const capitalizedTitle = title.toUpperCase();
 
   return (
-    <div className="panel-service" onClick={() => onClick(section)}>
-      <div className="panel-service-image">
-        <img className="service-image" src={image} alt="service-image" />
-      </div>
-      <div className="panel-service-body">
-        <div className="panel-service-description">
-          <table className="service-table">
-            <tbody>
-              <tr>
-                <td className="label bold-title">Category:</td>
-                <td>
-                  <h5 className="bold-title">{capitalizedTitle}</h5>
-                </td>
-              </tr>
-              <tr>
-                <td className="label">Test:</td>
-                <td>{testName}</td>
-              </tr>
-              <tr>
-                <td className="label">Duration:</td>
-                <td>{duration}</td>
-              </tr>
-              {/* <tr>
-                <td className="label">Price:</td>
-                <td>Kes. {price}</td>
-              </tr> */}
-            </tbody>
-          </table>
+    <div className={`premium-card theme-${theme}`} onClick={() => onClick(section)}>
+      <div className="premium-card-glow" />
+      <div className="premium-card-inner">
+        <div className="premium-card-graphic">
+          <div className="premium-card-icon-wrap">
+            <img className="premium-card-img" src={image} alt="service-icon" />
+          </div>
+          <div className="premium-card-label">{capitalizedTitle}</div>
         </div>
+        
+        <div className="premium-card-content">
+          <h3 className="premium-card-title">{testName}</h3>
+          
+          <div className="premium-card-meta">
+            <span className="premium-meta-label">Duration:</span>
+            <span className="premium-meta-value">{duration}</span>
+          </div>
 
-        <div className="panel-service-read-more">
-          <button className="panel-service-btn">Order Now</button>
+          <button className="premium-card-btn">Book Test</button>
         </div>
       </div>
     </div>

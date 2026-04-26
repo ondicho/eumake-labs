@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Container from './components/layouts/Container';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './components/pages/Home';
 import AboutUs from './components/pages/AboutUs';
 import Staff from './components/pages/Staff';
@@ -14,8 +14,20 @@ import Gallery from './components/pages/Gallery';
 import ServiceDetailPage from './components/pages/ServiceDetailsPage'; // Import ServiceDetailPage
 import pathologyServicesData from './components/data/PathologyServicesData';
 import TrackTest from './components/pages/TrackTest';
-
+import Favicon from 'react-favicon';
+import ReactGA from 'react-ga4';
 function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const ga4 = ReactGA.default || ReactGA;
+    ga4.send({
+      hitType: "pageview",
+      page: window.location.pathname + window.location.search,
+      title: document.title,
+    });
+    ga4.event(document.title, { method: pathname });
+  }, [pathname]);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const openContactModal = () => {
@@ -27,7 +39,8 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <>
+      <Favicon url="/favicon.ico" />
       <Routes>
         {/* Existing routes */}
         <Route exact path="/" element={<Container Page={Home} />} />
@@ -52,7 +65,7 @@ function App() {
 
       </Routes>
       {isContactModalOpen && <ContactUsModal closeContactModal={closeContactModal} />}
-    </BrowserRouter>
+    </>
   );
 }
 

@@ -12,6 +12,10 @@
     border-radius: 1rem;
     width: 100px;
 }
+.body{
+    width: -webkit-fill-available;
+    margin-top: 3rem;
+}
 
 button.tab-button.active {
     color: white;
@@ -33,10 +37,12 @@ h2 {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    /* margin: 0 auto; */
 }
 
 .tab-content {
-    width: 75%;
+    /* margin-top: 2rem; */
+    object-fit: contain;
     text-align: left;
     margin: 20px auto;
     display: flex;
@@ -47,7 +53,7 @@ h2 {
 }
 
 .tab-image {
-    height: 300px;
+    /* height: 300px; */
     width: 40%;
     margin-right: 20px;
     transition: transform 0.2s ease;
@@ -85,6 +91,9 @@ p.tab-content-paragraph {
         flex-direction: column;
         box-shadow: none;
         box-shadow: 1px 1px 4px #2bb9ff;
+        width: -webkit-fill-available;
+        margin: 0 auto;
+     
     }
 
     .tab-image {
@@ -98,7 +107,7 @@ p.tab-content-paragraph {
     }
 
     .tab-content{
-        min-height: 300px;
+        /* min-height: 300px; */
         margin: 0 auto!important;
     }
 

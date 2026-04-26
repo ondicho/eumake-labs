@@ -97,7 +97,8 @@ const Panel = React.forwardRef((props, ref) => {
               duration={firstTest.duration}
               price={firstTest.price}
               image={imageSrc}
-              onClick={openServiceModal}
+              // onClick={openServiceModal}
+              theme={"light"}
             />
           );
         })}

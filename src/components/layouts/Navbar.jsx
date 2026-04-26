@@ -1,214 +1,120 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import '../../assets/css/navbar.css';
 import logo from '../../assets/images/logo.png';
-import menu from '../../assets/images/menu.png';
-import call from '../../assets/images/call-white.png';
-import down from '../../assets/images/down-arrow.png';
 
 const Navbar = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
-  const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const handleToggle = () => {
-    setIsMobile(!isMobile);
-    setServicesDropdownOpen(false);
-    setAboutDropdownOpen(false);
-    setContactDropdownOpen(false);
-  };
-
-  const handleServicesToggle = () => {
-    setServicesDropdownOpen(!servicesDropdownOpen);
-    setAboutDropdownOpen(false);
-    setContactDropdownOpen(false);
-  };
-
-  const handleAboutToggle = () => {
-    setAboutDropdownOpen(!aboutDropdownOpen);
-    setServicesDropdownOpen(false);
-    setContactDropdownOpen(false);
-  };
-
-  const handleContactToggle = () => {
-    setContactDropdownOpen(!contactDropdownOpen);
-    setAboutDropdownOpen(false);
-    setServicesDropdownOpen(false);
-  };
-
-  const handleServicesHover = () => {
-    if (!isMobile) {
-      setServicesDropdownOpen(true);
-      setAboutDropdownOpen(false);
-      setContactDropdownOpen(false);
-    }
-  };
-
-  const handleAboutHover = () => {
-    if (!isMobile) {
-      setAboutDropdownOpen(true);
-      setServicesDropdownOpen(false);
-      setContactDropdownOpen(false);
-    }
-  };
-
-  const handleContactHover = () => {
-    if (!isMobile) {
-      setContactDropdownOpen(true);
-      setAboutDropdownOpen(false);
-      setServicesDropdownOpen(false);
-    }
-  };
-
-  const handleClose = () => {
-    setIsMobile(false);
-    setServicesDropdownOpen(false);
-    setAboutDropdownOpen(false);
-    setContactDropdownOpen(false);
-  };
-
+  // Handle scroll for glassmorphism effect
   useEffect(() => {
-    const closeMobileNavbar = () => {
-      if (isMobile && (servicesDropdownOpen || aboutDropdownOpen || contactDropdownOpen)) {
-        handleClose();
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
       }
     };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    document.body.addEventListener('click', closeMobileNavbar);
-
-    return () => {
-      document.body.removeEventListener('click', closeMobileNavbar);
-    };
-  }, [isMobile, servicesDropdownOpen, aboutDropdownOpen, contactDropdownOpen]);
-
+  // Close mobile menu on route change
   useEffect(() => {
-    // Close the mobile navbar when the location changes
-    handleClose();
-  }, [location]);
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <nav className={`navbar ${isMobile ? 'mobile-view' : ''}`}>
-      <div className="mobile-icon" onClick={handleToggle}>
-        <img className="menu-icon" src={menu} alt="menu" />
-      </div>
-      <div className="logo-side">
-        <Link to="/" className="logo-container">
-          <img className="logo" src={logo} alt="logo" />
+    <nav className={`navbar-modern ${scrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+      <div className="navbar-container">
+        
+        {/* Logo Section */}
+        <Link to="/" className="navbar-logo-wrap">
+          <img className="navbar-logo-img" src={logo} alt="Eumake Logo" />
+          <span className="navbar-logo-text">Eumake Diagnostic<br/>Laboratories</span>
         </Link>
-        <Link to="/" className="logo-link">
-          <p>Eumake Diagnostic Laboratories</p>
-        </Link>
-      </div>
-      <div className={`menu ${isMobile ? 'active' : ''}`}>
-        <Link to="/" onClick={handleClose}>
-          Home
-        </Link>
-        <li
-          className={`dropdown ${servicesDropdownOpen ? 'open' : ''}`}
-          onClick={handleServicesToggle}
-          onMouseEnter={handleServicesHover}
-        >
-          <div className="dropdown-header">
-            Services
-            <img className="dropdown-icon" src={down} alt="down arrow" />
+        
+        {/* Desktop Menu */}
+        <div className="navbar-desktop-menu">
+          <Link to="/" className="nav-link">Home</Link>
+          
+          <div className="nav-dropdown-wrap">
+            <button className="nav-link dropdown-trigger">
+              Services <ChevronDown size={16} />
+            </button>
+            <div className="nav-dropdown-content">
+              <Link to="/services" className="dropdown-item">Test Catalogue</Link>
+              <Link to="/pathology-services" className="dropdown-item">Pathology Services</Link>
+            </div>
           </div>
-          {servicesDropdownOpen && (
-            <div className="dropdown-content" onMouseLeave={handleClose}>
-              <Link to="/services">Test Catalogue</Link>
-              <Link to="/pathology-services">Pathology Services</Link>
+          
+          <div className="nav-dropdown-wrap">
+            <button className="nav-link dropdown-trigger">
+              About Us <ChevronDown size={16} />
+            </button>
+            <div className="nav-dropdown-content">
+              <Link to="/our-team" className="dropdown-item">Our Team</Link>
+              <Link to="/about-us" className="dropdown-item">Core Values</Link>
+              <Link to="/gallery" className="dropdown-item">Gallery</Link>
             </div>
-          )}
-        </li>
-        <li
-          className={`dropdown ${aboutDropdownOpen ? 'open' : ''}`}
-          onClick={handleAboutToggle}
-          onMouseEnter={handleAboutHover}
-        >
-          <div className="dropdown-header">
-            About Us
-            <img className="dropdown-icon" src={down} alt="down arrow" />
           </div>
-          {aboutDropdownOpen && (
-            <div className="dropdown-content" onMouseLeave={handleClose}>
-              <Link to="/our-team">Our Team</Link>
-              <Link to="/about-us">Core Values</Link>
-              <Link to="/gallery">Gallery</Link>
-            </div>
-          )}
-        </li>
-        <Link to="/faqs" onClick={handleClose}>
-          FAQs
-        </Link>
-        <Link to="/contact-us" onClick={handleClose}>
-          Contact Us
-        </Link>
-        <Link to="/contact-us" onClick={handleClose}>
-          <img className="call" src={call} alt="call" />
-        </Link>
-      </div>
-      <div className="burger-menu" onClick={handleToggle}>
-        <div className="bar1"></div>
-        <div className="bar2"></div>
-        <div className="bar3"></div>
-      </div>
-      {isMobile && (
-        <div className="mobile-menu">
-          <div className="mobile-menu-content">
-            <Link to="/" className="logo">
-              <img className="logo" src={logo} alt="logo" />
-              <p>Eumake Diagnostic Laboratories</p>
-            </Link>
-            <div className="menu">
-              <Link to="/" onClick={handleClose}>
-                Home
-              </Link>
-              <li
-                className={`dropdown ${servicesDropdownOpen ? 'open' : ''}`}
-                onClick={handleServicesToggle}
-                onMouseEnter={handleServicesHover}
-              >
-                <div className="dropdown-header">
-                  Services
-                  {isMobile && <img className="dropdown-icon" src={down} alt="down arrow" />}
-                </div>
-                {servicesDropdownOpen && (
-                  <div className="dropdown-content" onMouseLeave={handleClose}>
-                    <Link to="/services">Test Catalogue</Link>
-                    <Link to="/pathology-services">Pathology Services</Link>
-                  </div>
-                )}
-              </li>
-              <li
-                className={`dropdown ${aboutDropdownOpen ? 'open' : ''}`}
-                onClick={handleAboutToggle}
-                onMouseEnter={handleAboutHover}
-              >
-                <div className="dropdown-header">
-                  About Us
-                  {isMobile && <img className="dropdown-icon" src={down} alt="down arrow" />}
-                </div>
-                {aboutDropdownOpen && (
-                  <div className="dropdown-content" onMouseLeave={handleClose}>
-                    <Link to="/our-team">Our Team</Link>
-                    <Link to="/about-us">Core Values</Link>
-                    <Link to="/gallery">Gallery</Link>
-                  </div>
-                )}
-              </li>
-              <Link to="/faqs" onClick={handleClose}>
-                FAQs
-              </Link>
-              <Link to="/contact-us" onClick={handleClose}>
-                Contact Us
-              </Link>
-            </div>
+          
+          <Link to="/faqs" className="nav-link">FAQs</Link>
+          <Link to="/contact-us" className="nav-link">Contact Us</Link>
+          
+          <div className="nav-actions">
+            <Link to="/services" className="nav-cta-btn">Book a Test</Link>
+            <a href="tel:+254712345678" className="nav-call-btn" aria-label="Call Us"><Phone size={20} /></a>
           </div>
         </div>
-      )}
+
+        {/* Mobile Toggle */}
+        <button className="mobile-toggle-btn" onClick={toggleMobileMenu} aria-label="Toggle menu">
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+      </div>
+
+      {/* Mobile Slide-Over Menu */}
+      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-content">
+          <Link to="/" className="mobile-link">Home</Link>
+          
+          <div className="mobile-dropdown-group">
+            <span className="mobile-group-title">Services</span>
+            <Link to="/services" className="mobile-sublink">Test Catalogue</Link>
+            <Link to="/pathology-services" className="mobile-sublink">Pathology Services</Link>
+          </div>
+          
+          <div className="mobile-dropdown-group">
+            <span className="mobile-group-title">About Us</span>
+            <Link to="/our-team" className="mobile-sublink">Our Team</Link>
+            <Link to="/about-us" className="mobile-sublink">Core Values</Link>
+            <Link to="/gallery" className="mobile-sublink">Gallery</Link>
+          </div>
+
+          <Link to="/faqs" className="mobile-link">FAQs</Link>
+          <Link to="/contact-us" className="mobile-link">Contact Us</Link>
+
+          <Link to="/services" className="mobile-cta-btn">Book a Test</Link>
+        </div>
+      </div>
+      
     </nav>
   );
 };

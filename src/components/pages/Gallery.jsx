@@ -21,6 +21,7 @@ import image15 from '../../assets/images/_E5A0909.jpg';
 import image16 from '../../assets/images/_E5A0863.jpg';
 import videoSource from '../../assets/video/eumake.webm';
 import background from '../../assets/images/background2.jpg';
+import { Helmet } from 'react-helmet';
 
 const Gallery = () => {
   const images = [
@@ -92,6 +93,16 @@ const generateGallery = (imagesArray, includeVideo = true) => (
 
 return (
   <>
+     <Helmet>
+        <title>Gallery</title>
+        <meta name="description" content="Eumake Gallery" />
+        <meta name="keywords" content="react, meta tags, seo" />
+        <meta name="author" content="ondicho" />
+        <meta property="og:title" content="Gallery" />
+        <meta property="og:description" content="Eumake gallery" />
+        <meta property="og:image" content="" />
+        <meta property="og:url" content="https://eumake.co.ke/gallery" />
+      </Helmet>
     {currentPage === 0 && generateGallery(images, true)}
     {currentPage === 1 && generateGallery(images2, false)}
     <div className="pagination-container">

@@ -1,69 +1,99 @@
+/* src/assets/css/pathology.css */
 
+.pathology-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
 
-.pathology {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    flex-direction: row;
-  }
+.pathology-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
-  
-  .pathology-service {
-    flex: 0 0 calc(33.33% - 20px); /* Set to 33.33% for three cards per row */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-    overflow: hidden;
-    border-radius: 10px;
-    max-width: 300px;
-    text-decoration: none;
-    color: #00063f;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+@media (min-width: 768px) {
+  .pathology-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .pathology-service:hover {
-    transform: none;
-    /* background-color: #E5E1EE; */
+}
+
+@media (min-width: 1024px) {
+  .pathology-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  .pathology-service-image {
-    width: 100%;
-    height: 200px;
-    /* border: 1px solid #00063f; */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .pathology-service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .pathology-service-body {
-    text-align: center;
-    padding: 15px;
-  }
-  
-  .pathology-btn {
-    background-color: #00063f;
-    border: none;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-  }
-  
-  
-  @media (max-width: 768px) {
-    .pathology-service {
-      flex: 0 0 calc(80% - 20px);
-      margin: 20px;
-    }
-  }
-  
+}
+
+.pathology-premium-card {
+  text-decoration: none;
+  padding: 0 !important; /* Bleed image to edges */
+  height: auto;
+  max-width: 100%;
+}
+
+.pathology-card-img-wrap {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+
+.pathology-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pathology-premium-card:hover .pathology-card-img {
+  transform: scale(1.05);
+}
+
+.pathology-content-wrap {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.pathology-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #00063f;
+  margin-bottom: 0.75rem;
+}
+
+.pathology-card-desc {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.pathology-card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pathology-read-more {
+  font-weight: 700;
+  color: #2bb9ff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pathology-chevron {
+  color: #2bb9ff;
+  transition: transform 0.2s ease;
+}
+
+.pathology-premium-card:hover .pathology-chevron {
+  transform: translateX(4px);
+}

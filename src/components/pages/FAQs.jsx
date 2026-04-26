@@ -3,6 +3,7 @@ import down from '../../assets/images/down-arrow.png';
 import faq from '../../assets/images/faq.png';
 import faqAnswer from '../../assets/images/faq-answer.png';
 import '../../assets/css/faq.css';
+import { Helmet } from 'react-helmet';
 
 const faqData = [
   {
@@ -45,6 +46,17 @@ const FAQs = () => {
   };
 
   return (
+    <>
+    <Helmet>
+       <title>Pathology Services</title>
+       <meta name="description" content="FAQs" />
+       <meta name="keywords" content="react, meta tags, seo" />
+       <meta name="author" content="ondicho" />
+       <meta property="og:title" content="FAQs" />
+       <meta property="og:description" content="Eumake FAQs" />
+       <meta property="og:image" content="" />
+       <meta property="og:url" content="https://eumake.co.ke/faqs" />
+     </Helmet>
     <div className="main-container faqs">
       <div className="faq-header">
         <img className="faq-top" src={faq} alt="faq-icon" />
@@ -73,6 +85,7 @@ const FAQs = () => {
         ))}
       </ul>
     </div>
+    </>
   );
 };
 

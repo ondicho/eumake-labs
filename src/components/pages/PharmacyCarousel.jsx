@@ -1,5 +1,5 @@
 // PharmacyCarousel.js
-import{ useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import '../../assets/css/PharmacyCarousel.css';
 import lab from '../../assets/images/lab.jpg';
 import lab1 from '../../assets/images/_E5A0888.jpg';
@@ -22,26 +22,26 @@ const PharmacyCarousel = () => {
       image: lab1,
       text: 'Come Take a look',
     },
-    {
-      image: lab2,
-      text: 'Come Take a look',
-    },
-    {
-      image: lab3,
-      text: 'Come Take a look',
-    },
+    // {
+    //   image: lab2,
+    //   text: 'Come Take a look',
+    // },
+    // {
+    //   image: lab3,
+    //   text: 'Come Take a look',
+    // },
   ];
 
   const handleScrollDown = (index) => {
 
 
-      // Set active indicator and carousel item index
-  setCurrentIndex(index);
-  const indicators = document.querySelectorAll('.indicator');
-  indicators[index].classList.add('active');
-  for (let i = 0; i < indicators.length; i++) {
-    if (i !== index) indicators[i].classList.remove('active');
-  }
+    // Set active indicator and carousel item index
+    setCurrentIndex(index);
+    const indicators = document.querySelectorAll('.indicator');
+    indicators[index].classList.add('active');
+    for (let i = 0; i < indicators.length; i++) {
+      if (i !== index) indicators[i].classList.remove('active');
+    }
   };
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const PharmacyCarousel = () => {
       <div className="carousel-item" ref={itemRef}>
         <img src={data[currentIndex].image} alt={`Slide ${currentIndex + 1}`} />
         <div className="carousel-caption">
-          <p>{data[currentIndex].text}</p>
+          {/* <p>{data[currentIndex].text}</p> */}
         </div>
       </div>
 

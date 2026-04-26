@@ -2,6 +2,7 @@ import center from '../../assets/images/contact-center.png'
 import '../../assets/css/contact.css';
 import FormInput from '../layouts/FormInput';
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 const ContactUs = () => {
     const [contactInfo, setContactInfo] = useState({
@@ -29,6 +30,16 @@ const ContactUs = () => {
     };
     return (
         <>
+            <Helmet>
+                <title>Contact Us</title>
+                <meta name="description" content="Contact Us" />
+                <meta name="keywords" content="react, meta tags, seo" />
+                <meta name="author" content="ondicho" />
+                <meta property="og:title" content="Home" />
+                <meta property="og:description" content="Eumake Diagnoatic Laboratory contact us homepage" />
+                <meta property="og:image" content="" />
+                <meta property="og:url" content="https://eumake.co.ke/contact-us" />
+            </Helmet>
             <div className="main-container contact-point">
 
 

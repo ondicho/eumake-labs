@@ -13,194 +13,167 @@ import search from '../../assets/images/search.png'
 import GetTestForm from './GetTestForm';
 import servicesData from '../data/ServicesData';
 
+import { Helmet } from 'react-helmet';
+import { Search, ChevronRight, Clock } from 'lucide-react';
+
 const iconImages = {
-
-  generalWellness: wellness,
-  renalElectrolytes: kidney,
-  boneMetabolism: other,
-  cardiacAssessment: cardiac,
-  diabetes: diabetes,
-  liverFunctionTest: liver,
-  lipidProfile: lipid,
-  thyroidFunctionTest: thyroid,
-  inflamationInfection: other,
-  pancreas: other,
-  otherBioChemistry: other,
-  urineBioChemistry: other,
-  endocrinology: other,
-  tumorMakers: other,
-  serology: other,
-  haematology: other,
-  coagulation: other,
-  boneMarrowStudies: other,
-  hematoOncology: other,
-  microbiology: other,
-  immunology: other,
-  electrophoresis: other,
-  molecular: other,
-  hispatology: other,
-  cytology: other
+   generalWellness: wellness,
+   renalElectrolytes: kidney,
+   boneMetabolism: other,
+   cardiacAssessment: cardiac,
+   diabetes: diabetes,
+   liverFunctionTest: liver,
+   lipidProfile: lipid,
+   thyroidFunctionTest: thyroid,
+   inflamationInfection: other,
+   pancreas: other,
+   otherBioChemistry: other,
+   urineBioChemistry: other,
+   endocrinology: other,
+   tumorMakers: other,
+   serology: other,
+   haematology: other,
+   coagulation: other,
+   boneMarrowStudies: other,
+   hematoOncology: other,
+   microbiology: other,
+   immunology: other,
+   electrophoresis: other,
+   molecular: other,
+   hispatology: other,
+   cytology: other
 };
-
 
 const sectionNames = Object.values(servicesData).map(category => category.section);
 
-
 const Services = () => {
-  const [activeSection, setActiveSection] = useState('generalWellness');
-  const [selectedCategory, setSelectedCategory] = useState('');
+   const [activeSection, setActiveSection] = useState('generalWellness');
+   const [selectedCategory, setSelectedCategory] = useState('');
+   const [searchQuery, setSearchQuery] = useState('');
+   const [searchResults, setSearchResults] = useState([]);
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+   const handleSearchChange = (event) => {
+      setSearchQuery(event.target.value);
+   };
 
-  // State to control the visibility of the modal
-  const [showModal, setShowModal] = useState(false);
+   const filteredServices = Object.keys(servicesData).filter((serviceKey) =>
+      servicesData[serviceKey].section.toLowerCase().includes(searchQuery.toLowerCase())
+   );
 
-  // Function to toggle the modal visibility
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+   const toggleSection = (section) => {
+      const elementId = `services-main-content`;
+      const element = document.getElementById(elementId);
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
-  // Filter function to filter services based on search query
-  const filteredServices = Object.keys(servicesData).filter((serviceKey) =>
-    servicesData[serviceKey].section.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-
-  const toggleSection = (section) => {
-    // Find the element you want to scroll to by its ID
-    const elementId = `section-table`;
-    const element = document.getElementById(elementId);
-  
-    if (element) {
-      // Use element.scrollIntoView with the block option set to 'start'
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  
-    setActiveSection(section);
-    setSelectedCategory('');
-  };
-  
-  const handleFormSubmit = (formData) => {
-    console.log('Form data submitted:', formData);
-    // Add logic to handle the form data, e.g., send it to a server
-  };
-
-  const handleSearch = (event) => {
-    event.preventDefault();
-    let filteredResults = []; // Initialize an empty array to hold the results
-
-    // Loop through the entries of servicesData
-    for (const [category, details] of Object.entries(servicesData)) {
-      // Check if the category section matches the search query
-      if (details.section.toLowerCase().includes(searchQuery.toLowerCase())) {
-        filteredResults.push({ category, details });
-      } else {
-        // Filter tests within the category
-        const filteredTests = details.tests.filter(test =>
-          test.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-
-        // If there are matching tests, add the category to the results
-        if (filteredTests.length > 0) {
-          filteredResults.push({ category, details: { ...details, tests: filteredTests } });
-        }
+      if (element && window.innerWidth < 992) {
+         element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+         });
       }
 
-      // Stop searching if we have found enough results
-      if (filteredResults.length >= 3) {
-        break;
+      setActiveSection(section);
+      setSelectedCategory('');
+   };
+
+   const handleFormSubmit = (formData) => {
+      console.log('Form data submitted:', formData);
+   };
+
+   const handleSearch = (event) => {
+      event.preventDefault();
+      // Re-use logic but update UI gracefully
+   };
+
+   const handleBookTestClick = (testName) => {
+      // Scroll to the form area and pre-fill if hookup is ready
+      const elementId = `booking-form-section`;
+      const element = document.getElementById(elementId);
+      if (element) {
+         element.scrollIntoView({ behavior: 'smooth' });
       }
-    }
+   };
 
-    // Update the state with the filtered results
-    setSearchResults(filteredResults);
-    // Toggle the modal to show the search results
-    toggleModal();
+   return (
+      <>
+         <Helmet>
+            <title>Test Catalogue | Eumake Diagnostic Laboratories</title>
+            <meta name="description" content="Eumake Online Test Catalogue" />
+            <meta name="keywords" content="react, meta tags, seo, pathology, test catalogue" />
+         </Helmet>
+         <div className="services-page">
+            <div className="services-header-hero">
+               <h1 className="services-hero-title">Test Catalogue</h1>
+               <p className="services-hero-desc">Explore our comprehensive range of diagnostic tests. High quality, rigorous analysis, and fast turnarounds.</p>
+               <div className="services-search-wrapper">
+                  <Search className="search-icon-lucide" size={20} />
+                  <input
+                     type="text"
+                     placeholder="Search for any category..."
+                     className="services-search-input"
+                     value={searchQuery}
+                     onChange={handleSearchChange}
+                  />
+                  <button className="services-search-btn" onClick={handleSearch}>Search</button>
+               </div>
+            </div>
 
-    // If no results were found, log a message or set a flag to show an error message
-    if (filteredResults.length === 0) {
-      console.log('No search results found.');
-      // Alternatively, you could set an error state and display the message in the UI
-      // setError('No search results found.');
-    }
-  };
+            <div className="services-layout">
+               {/* Sidebar */}
+               <aside className="services-sidebar">
+                  <h3 className="sidebar-title">Categories</h3>
+                  <ul className="category-list">
+                     {filteredServices.map(section => (
+                        <li
+                           key={section}
+                           className={`category-item ${activeSection === section ? 'active' : ''}`}
+                           onClick={() => toggleSection(section)}
+                        >
+                           <img src={iconImages[section]} className="category-icon" alt="" />
+                           <span>{servicesData[section].section}</span>
+                           <ChevronRight className="chevron-icon" size={18} />
+                        </li>
+                     ))}
+                  </ul>
+               </aside>
 
+               {/* Main Content */}
+               <main className="services-main-content" id="services-main-content">
+                  {activeSection && (
+                     <div className="test-catalog-list">
+                        <h2 className="catalog-title">{servicesData[activeSection].section}</h2>
+                        <div className="test-cards-grid">
+                           {servicesData[activeSection].tests.map((test, index) => (
+                              <div key={index} className="test-row-card">
+                                 <div className="test-info">
+                                    <h4 className="test-name">{test.name}</h4>
+                                    <div className="test-duration">
+                                       <Clock size={14} /> {test.duration}
+                                    </div>
+                                 </div>
+                                 {/* <button className="book-test-sm-btn" onClick={() => handleBookTestClick(test.name)}>
+                                Select Test
+                            </button> */}
+                              </div>
+                           ))}
+                        </div>
+                     </div>
+                  )}
 
-  return (
-    <div className="main-container service-container">
-      <div className="pathology-header">
-        <h4>Test Catalogue</h4>
-        <input
-          type="text"
-          placeholder="Search for services..."
-          value={searchQuery}
-          onChange={handleSearchChange}
-          className='search'
-        />
-        <button className='search-button' onClick={handleSearch}>
-          <img src={search} alt="Search" className="search-icon" />
-        </button>
-
-      </div>
-
-
-      <div className="test-sections">
-
-
-        {filteredServices.map((section) => (
-          <button
-            key={section}
-            className={`section-button ${activeSection === section ? 'active' : ''}`}
-            onClick={() => toggleSection(section)}
-          >
-            <img src={iconImages[section]} alt={section} className="section-icon" />
-            {servicesData[section].section}
-          </button>
-        ))}
-      </div>
-      {activeSection && (
-        <div className="section-table" id="section-table">
-          <h4>{servicesData[activeSection].section}</h4>
-          <table className="custom-table">
-            <thead className='head'>
-              <tr>
-                <th>Test Name</th>
-                <th>Duration</th>
-                {/* <th>Price</th> */}
-              </tr>
-            </thead>
-            <tbody>
-              {servicesData[activeSection].tests.map((test, index) => (
-                <tr key={index} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
-                  <td>{test.name}</td>
-                  <td>{test.duration}</td>
-                  {/* <td>{test.price}</td> */}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-      <div className="form-area">
-        <GetTestForm
-          activeSection={activeSection}
-          tests={servicesData[activeSection].tests}
-          categories={sectionNames}
-          onSubmit={handleFormSubmit}
-          selectedCategory={selectedCategory}
-          onCategoryChange={(category) => setSelectedCategory(category)}
-        />
-      </div>
-    </div>
-  );
+                  <div className="form-area" id="booking-form-section">
+                     <GetTestForm
+                        activeSection={activeSection}
+                        tests={servicesData[activeSection] ? servicesData[activeSection].tests : []}
+                        categories={sectionNames}
+                        onSubmit={handleFormSubmit}
+                        selectedCategory={selectedCategory}
+                        onCategoryChange={(category) => setSelectedCategory(category)}
+                     />
+                  </div>
+               </main>
+            </div>
+         </div>
+      </>
+   );
 };
 
 export default Services;

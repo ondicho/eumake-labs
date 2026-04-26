@@ -1,158 +1,167 @@
-.appointment-modal {
-    background-color: white !important;
-    height: auto !important;
+/* src/assets/css/modal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 6, 63, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 1rem;
 }
 
-.acknowledgment-modal {
-    width: 80%;
+.premium-modal {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.error-message{
-    color: #2bb9ff;
-    margin:10px;
-}
-.modal-close {
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    text-align: right;
-    height: auto;
-    width: 50px;
+@keyframes modalSlideUp {
+  0% { transform: translateY(40px) scale(0.95); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-.appointment-modal label {
-    color: #00063f;
-    font-size: 16px;
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  cursor: pointer;
+  color: #64748b;
+  transition: all 0.2s ease;
+  padding: 0.25rem;
+  border-radius: 50%;
 }
 
-.modal-label {
-    display: inline-block;
-    width: 50px;
-    /* Set a fixed width for the labels */
-    margin-right: 10px;
-    /* Add some margin between the label and input */
+.modal-close-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
 }
 
-.confirm-submit {
-    background-color: #00063f;
-    color: white;
-    padding: 10px;
-    width: 100px;
-    border-radius: 8px;
-    margin-top: 20px;
-    float: inline-end;
+.modal-icon-wrap {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: rgba(43, 185, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
-.modal-submit {
-    position: inherit;
-    background-color: #00063f;
-    color: white;
-    padding: 10px;
-    width: 100px;
-    border-radius: 8px;
-    margin-top: 20px;
-    float: inline-end;
+.modal-header-premium {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #00063f;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
-.modal-form-input {
-    margin: 10px 0px;
+.modal-body {
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
-input.modal-input {
-    width: 100%;
-    /* Set a fixed width for the input fields */
+.modal-text {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.6;
 }
 
-select.modal-input {
-    width: 83%;
-    /* Set a fixed width for the input fields */
+.modal-error-text {
+  color: #ef4444;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  text-align: left;
 }
 
-textarea#message {
-    width: 200px;
+.modal-consent-group {
+  margin-top: 1.5rem;
+  text-align: left;
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
 }
 
-.modal-icon {
-    height: 30px !important;
-    width: 30px !important;
-    ;
+.consent-text {
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.4;
+  display: block;
 }
 
-form.modal-form {
-    display: flex;
+/* Adjust checkbox for modal explicitly to not conflict with original */
+.modal-consent-group .checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.modal-actions button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem; /* match robust clickable height */
+  font-size: 0.95rem; /* scale down slightly if text is large */
+}
+
+/* Cancel Button Modifiers */
+.modal-cancel {
+  background: transparent !important;
+  color: #64748b !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: none !important;
+}
+
+.modal-cancel:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* General Modifiers */
+.modal-confirm:disabled, .modal-confirm[disabled] {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 640px) {
+  .premium-modal {
+    padding: 2rem 1.5rem;
+  }
+  
+  .modal-actions {
     flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.appointment-modal:active .page-content-holder {
-    filter: blur(5px);
-}
-
-
-.modal-header {
-    color: #00063f;
-    font-size: 24px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: self-end;
-}
-
-.form-group label{
-    width: 150px;
-}
-
-/* .order-now{
-    vertical-align: top;
-} */
-
-
-@media (max-width: 768px) {
-    .appointment-modal {
-        width: 80% !important;
-        height: 90% !important;
-    }
-
-    .modal-submit {
-        position: relative;
-        right: -30%;
-    }
-
-    .menu {
-        height: auto;
-    }
-
-    
-
-}
-
-
-
-@media (max-width: 1200px) {
-    .appointment-modal {
-        width: 80% !important;
-        height: auto !important;
-    }
-
-    .modal-submit {
-        position: relative;
-        right: -30%;
-    }
-}
-
-
-
-@media (min-width: 1200px) {
-    .appointment-modal {
-        width: 60% !important;
-        height: fit-content !important;
-    }
-
-    .modal-submit {
-        position: relative;
-        right: -30%;
-    }
-
+    gap: 0.75rem;
+  }
+  
+  .modal-actions button {
+    width: 100%;
+  }
 }

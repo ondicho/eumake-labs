@@ -1,142 +1,209 @@
+/* src/assets/css/panel.css */
 
-  
-  .panel-service {
-    flex: 0 0 calc(33.33% - 20px); /* Set to 33.33% for three cards per row */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-    overflow: hidden;
-    border-radius: 10px;
-    max-width: 300px;
-    box-shadow:  2px 2px 4px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .panel-service:hover {
-    transform: scale(1.03);
-    /* background-color: #E5E1EE; */
-  }
-
-  .panel-service:hover .panel-service-btn {
-    background-color: #2bb9ff;
-    border: none;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 8px;
-  }
-
-  .panel-service:hover .panel-service-image  {
-    transform: scale(1.03);
-  }
-
-  
-  .panel-service-image {
-    width: 100%;
-    height: 100px;
-    /* border: 1px solid #00063f; */
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-  }
-
-  .panel-service-body{
-    padding: 1rem;
-  
-  }
-  
-  .panel-service-read-more{
-    text-align: center;
-    margin: 2rem;
-  }
-  .panel-service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .service-image{
-    height: 90px!important;
-    width: 90px!important;
-    align-self: center;
-  }
-  
-  .panel-service-description {
-    color: #00063f;
-    height: 180px;
-  }
-  
-  .panel-service-btn:hover {
-    background-color: #2bb9ff;
-    border: none;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 8px;
-  }
-
-  .panel-service-btn {
-    background-color: white;
-    border: solid 1px #2bb9ff;
-    color: #2bb9ff;
-    padding: 5px 15px;
-    border-radius: 8px;
-  }
-  
-  .service-table {
-    
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px; /* Adjust the margin as needed */
-  }
-  
-  .service-table td {
-    padding: 8px;
-    font-size: small;
-    /* border: 1px solid #ddd; */
-  }
-  
-  .service-table td:first-child {
-    font-weight: bold; /* Make the first column (labels) bold */
-  }
-
-  .bold-title {
-    font-weight: bold;
-    font-size:small!important;
-  }
-
-  .all-services {
-    background-color: #00063f;
-    margin: 2rem;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    color: white;
-    width: 150px;
-    border-color: white !important;
-    border: 1px;
-    padding: 10px;
-    text-decoration: none;
-    text-align: center;
+.premium-card {
+  position: relative;
+  background: linear-gradient(135deg, #00063f 0%, #001066 100%);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 15px -3px rgba(0, 6, 63, 0.1), 0 4px 6px -4px rgba(0, 6, 63, 0.05);
+  cursor: pointer;
+  flex: 0 0 calc(33.33% - 20px);
+  max-width: 320px;
+  margin: 10px;
 }
 
-.all-services:hover{
-  transform: scale(1.03);
-  background-color: white;
-    border: solid 1px #00063f!important;
-    color: #00063f;
-    margin: 2rem;
-    padding: 10px;
-    width: 150px;
-    /* border-radius: 8px; */
-}
-  
-  @media (max-width: 768px) {
-    .panel-service {
-      flex: 0 0 calc(80% - 20px);
-      width: 300px;
-      margin: 20px;
-    }
+@media (max-width: 768px) {
+  .premium-card {
+    flex: 0 0 calc(100% - 20px);
+    width: 100%;
+    max-width: none;
+    margin: 10px 0;
   }
-  
+}
+
+/* Default Dark Theme styles exist on .premium-card directly */
+
+/* Light Theme override */
+.premium-card.theme-light {
+  background: #ffffff;
+  color: #00063f;
+  border: 1px solid #f1f5f9;
+}
+
+.premium-card.theme-light .premium-card-title {
+  color: #00063f;
+}
+
+.premium-card.theme-light .premium-card-meta {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.premium-card.theme-light .premium-meta-label {
+  color: #64748b;
+}
+
+.premium-card.theme-light .premium-meta-value {
+  color: #0f172a;
+}
+
+.premium-card.theme-light .premium-card-img {
+  filter: none; /* keep original blue icon color */
+}
+
+.premium-card.theme-light .team-name {
+  color: #00063f;
+}
+
+.premium-card.theme-light .team-testimonial {
+  color: #475569;
+}
+
+.premium-card.theme-light .team-meta {
+  border-top-color: #f1f5f9;
+}
+
+.premium-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 6, 63, 0.2), 0 8px 10px -6px rgba(0, 6, 63, 0.1);
+}
+
+.premium-card-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(43, 185, 255, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.premium-card:hover .premium-card-glow {
+  opacity: 1;
+}
+
+.premium-card-inner {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.premium-card-graphic {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.premium-card-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(43, 185, 255, 0.1);
+  border: 1px solid rgba(43, 185, 255, 0.2);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.premium-card-img {
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.premium-card-label {
+  color: #2bb9ff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.premium-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.premium-card-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.premium-card-meta {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  margin-top: auto;
+}
+
+.premium-meta-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.premium-meta-value {
+  font-weight: 600;
+  color: #e0f2fe;
+}
+
+.premium-card-btn {
+  background: transparent;
+  color: #2bb9ff;
+  border: 1px solid #2bb9ff;
+  border-radius: 9999px;
+  padding: 0.625rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.premium-card:hover .premium-card-btn {
+  background: #2bb9ff;
+  color: #00063f;
+}
+
+/* All Services CTA */
+.all-services {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00063f;
+  color: white;
+  padding: 0.875rem 2.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+  border: 2px solid transparent;
+}
+
+.all-services:hover {
+  background-color: transparent;
+  border-color: #00063f;
+  color: #00063f;
+  transform: translateY(-2px);
+}

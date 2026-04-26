@@ -1,52 +1,34 @@
-// ServiceCard.js
 import React from 'react';
-import PropTypes from 'prop-types';
-import '../../assets/css/services.css';
-import cart from '../../assets/images/cart.png';
+import { Link } from 'react-router-dom';
+import '../../assets/css/panel.css';
 
-const ServiceCard = ({ test }) => {
-  const { name, duration, requirements, selfTest } = test;
+const ServiceCard = ({ section, testName, duration, price, image, onClick, title }) => {
+  const capitalizedTitle = title.toUpperCase();
 
   return (
-    <div className="test-card">
-      <div className="card-row">
-        <label htmlFor="test-label" className="test-label">
-          Test
-        </label>
-        {name}
-      </div>
-      <div className="card-row">
-        <label htmlFor="test-label" className="test-label">
-          Duration:
-        </label>
-        {duration}
-      </div>
-      <div className="card-row">
-        <label htmlFor="requirements" className="test-label">
-          Requirements:
-        </label>
-        {requirements}
-      </div>
-      <div className="card-row">
-        <label htmlFor="test-label" className="test-label">
-          Can I Self Test:
-        </label>
-        {selfTest ? 'Yes' : 'No'}
-      </div>
-      <div className="order-test">
-        <img className="test-cart" src={cart} alt="cart" />
+    <div className="premium-card" onClick={() => onClick(section)}>
+      <div className="premium-card-glow" />
+      <div className="premium-card-inner">
+        <div className="premium-card-graphic">
+          <div className="premium-card-icon-wrap">
+            <img className="premium-card-img" src={image} alt="service-icon" />
+          </div>
+          <div className="premium-card-label">{capitalizedTitle}</div>
+        </div>
+        
+        <div className="premium-card-content">
+          <h3 className="premium-card-title">{testName}</h3>
+          
+          <div className="premium-card-meta">
+            <span className="premium-meta-label">Duration:</span>
+            <span className="premium-meta-value">{duration}</span>
+          </div>
+
+          <button className="premium-card-btn">Book Test</button>
+        </div>
       </div>
     </div>
   );
-};
-
-ServiceCard.propTypes = {
-  test: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    duration: PropTypes.string.isRequired,
-    requirements: PropTypes.string.isRequired,
-    selfTest: PropTypes.bool.isRequired,
-  }).isRequired,
 };
 
 export default ServiceCard;
